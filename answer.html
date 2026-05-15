@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>現役アスリート一問一答 | @eiyou_manabi_log</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue: #1a5fa0;
+    --blue-light: #e6f0fa;
+    --blue-mid: #2e82cc;
+    --amber: #c47c1a;
+    --amber-light: #fdf3e3;
+    --purple: #5a45b0;
+    --purple-light: #eeeafc;
+    --coral: #c04a30;
+    --coral-light: #faeae6;
+    --bg: #f5f7fa;
+    --surface: #ffffff;
+    --text: #1a1a18;
+    --text-sub: #666660;
+    --text-hint: #aaa89e;
+    --border: rgba(0,0,0,0.08);
+    --radius: 14px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding-bottom: 80px;
+  }
+
+  .hero {
+    background: var(--blue);
+    padding: 36px 20px 28px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 160px; height: 160px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.06);
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -30px; left: -20px;
+    width: 100px; height: 100px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+  }
+  .hero-label {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.7);
+    background: rgba(255,255,255,0.12);
+    border-radius: 999px;
+    padding: 4px 14px;
+    margin-bottom: 12px;
+  }
+  .hero-title {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.4;
+    margin-bottom: 6px;
+  }
+  .hero-sub {
+    font-size: 12px;
+    color: rgba(255,255,255,0.65);
+  }
+
+  .sticky-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 16px 10px;
+  }
+  .search-wrap {
+    position: relative;
+    margin-bottom: 10px;
+  }
+  .search-icon {
+    position: absolute;
+    left: 14px; top: 50%;
+    transform: translateY(-50%);
+    width: 16px; height: 16px;
+    opacity: 0.4;
+  }
+  #searchInput {
+    width: 100%;
+    padding: 10px 16px 10px 40px;
+    font-size: 14px;
+    font-family: 'Noto Sans JP', sans-serif;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--surface);
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  #searchInput:focus { border-color: var(--blue-mid); }
+  #searchInput::placeholder { color: var(--text-hint); }
+
+  .cats {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 2px;
+    scrollbar-width: none;
+  }
+  .cats::-webkit-scrollbar { display: none; }
+  .cat-btn {
+    font-size: 12px;
+    font-family: 'Noto Sans JP', sans-serif;
+    padding: 6px 14px;
+    border-radius: 999px;
+    border: 1.5px solid var(--border);
+    background: var(--surface);
+    color: var(--text-sub);
+    cursor: pointer;
+    transition: all 0.18s;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .cat-btn:hover { border-color: #bbb; color: var(--text); }
+  .cat-btn.active {
+    background: var(--blue);
+    border-color: var(--blue);
+    color: #fff;
+    font-weight: 500;
+  }
+
+  .container {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 20px 16px 0;
+  }
+
+  .count-label {
+    font-size: 12px;
+    color: var(--text-hint);
+    margin-bottom: 16px;
+  }
+
+  .cat-section { margin-bottom: 28px; }
+
+  .cat-section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid;
+  }
+  .cat-section-header.practice { border-color: var(--blue); }
+  .cat-section-header.nutrition { border-color: var(--amber); }
+  .cat-section-header.mental    { border-color: var(--purple); }
+  .cat-section-header.message   { border-color: var(--coral); }
+
+  .cat-section-icon { font-size: 18px; }
+  .cat-section-title {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+  .cat-section-header.practice .cat-section-title { color: var(--blue); }
+  .cat-section-header.nutrition .cat-section-title { color: var(--amber); }
+  .cat-section-header.mental    .cat-section-title { color: var(--purple); }
+  .cat-section-header.message   .cat-section-title { color: var(--coral); }
+
+  .cat-section-count {
+    margin-left: auto;
+    font-size: 11px;
+    color: var(--text-hint);
+  }
+
+  .qa-list { display: flex; flex-direction: column; gap: 10px; }
+
+  .qa-card {
+    background: var(--surface);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+  }
+  .qa-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.07); }
+
+  .qa-head {
+    padding: 15px 16px 13px;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .qa-q-text {
+    flex: 1;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.55;
+    color: var(--text);
+  }
+
+  .qa-toggle {
+    flex-shrink: 0;
+    margin-top: 2px;
+    width: 20px; height: 20px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--text-hint);
+    transition: transform 0.25s;
+  }
+  .qa-card.open .qa-toggle { transform: rotate(180deg); }
+
+  .qa-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  .qa-card.open .qa-body { max-height: 400px; }
+
+  .qa-divider {
+    height: 1px;
+    background: var(--border);
+    margin: 0 16px;
+  }
+  .qa-a-text {
+    padding: 13px 16px 16px;
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: var(--text-sub);
+  }
+
+  .empty {
+    text-align: center;
+    padding: 48px 0;
+    color: var(--text-hint);
+    font-size: 14px;
+    display: none;
+  }
+  .empty.show { display: block; }
+
+  .qa-line-hint {
+    margin: 0 16px 16px;
+    padding: 10px 14px;
+    background: var(--blue-light);
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+  .qa-line-hint-text {
+    flex: 1;
+    font-size: 12px;
+    color: var(--blue);
+    line-height: 1.5;
+  }
+  .qa-line-hint-arrow {
+    font-size: 14px;
+    color: var(--blue);
+    flex-shrink: 0;
+  }
+
+  .cta-section {
+    max-width: 480px;
+    margin: 8px auto 0;
+    padding: 0 16px 100px;
+  }
+  .cta-card {
+    background: var(--blue);
+    border-radius: var(--radius);
+    padding: 28px 20px 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-card::before {
+    content: '';
+    position: absolute;
+    top: -30px; right: -30px;
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.06);
+  }
+  .cta-label {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.7);
+    background: rgba(255,255,255,0.12);
+    border-radius: 999px;
+    padding: 3px 12px;
+    margin-bottom: 12px;
+  }
+  .cta-title {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.5;
+    margin-bottom: 8px;
+  }
+  .cta-body {
+    font-size: 12.5px;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #fff;
+    color: var(--blue);
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 12px 28px;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: opacity 0.18s;
+  }
+  .cta-btn:hover { opacity: 0.88; }
+
+  #fixedBanner {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 10px 16px 14px;
+    z-index: 150;
+  }
+  .banner-inner {
+    max-width: 480px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .banner-text {
+    flex: 1;
+    font-size: 12px;
+    color: var(--text-sub);
+    line-height: 1.45;
+  }
+  .banner-btn {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--blue);
+    color: #fff;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 9px 16px;
+    border-radius: 999px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: opacity 0.18s;
+  }
+  .banner-btn:hover { opacity: 0.88; }
+
+  #backToTop {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--blue);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(26,95,160,0.35);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s, transform 0.25s;
+    transform: translateY(8px);
+    z-index: 200;
+  }
+  #backToTop.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+  #backToTop:active { transform: scale(0.92); }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-label">現役アスリートが本音で答えます</div>
+  <div class="hero-title">一問一答集</div>
+  <div class="hero-sub">@eiyou_manabi_log</div>
+</div>
+
+<div class="sticky-nav">
+  <div class="search-wrap">
+    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+    </svg>
+    <input type="text" id="searchInput" placeholder="キーワードで検索…" oninput="filterQA()" />
+  </div>
+  <div class="cats">
+    <button class="cat-btn active" onclick="setCategory(this, 'all')">すべて</button>
+    <button class="cat-btn" onclick="setCategory(this, 'practice')">🏅 競技・練習</button>
+    <button class="cat-btn" onclick="setCategory(this, 'nutrition')">🥗 栄養・食事</button>
+    <button class="cat-btn" onclick="setCategory(this, 'mental')">🧠 メンタル</button>
+    <button class="cat-btn" onclick="setCategory(this, 'message')">💬 メッセージ</button>
+  </div>
+</div>
+
+<div class="container">
+  <div class="count-label" id="countLabel">10件</div>
+  <div id="qaList"></div>
+  <div class="empty" id="emptyMsg">該当する質問が見つかりませんでした</div>
+</div>
+
+<div class="cta-section">
+  <div class="cta-card">
+    <div class="cta-label">お気軽にどうぞ</div>
+    <div class="cta-title">もっと詳しく聞いてみたい<br>ことはありますか？</div>
+    <div class="cta-body">一問一答では語りきれないこと、<br>あなたの状況に合わせた相談など、<br>LINEで直接メッセージください！</div>
+    <a class="cta-btn" href="https://lin.ee/wnyF4eT" target="_blank">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      LINEでメッセージする
+    </a>
+  </div>
+</div>
+
+<button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="トップに戻る">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+    <polyline points="18 15 12 9 6 15"/>
+  </svg>
+</button>
+
+<div id="fixedBanner">
+  <div class="banner-inner">
+    <div class="banner-text">気になることや詳しく聞きたいことは<br>お気軽にメッセージください！</div>
+    <a class="banner-btn" href="https://lin.ee/wnyF4eT" target="_blank">
+      LINEで相談する
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+    </a>
+  </div>
+</div>
+
+<script>
+const CATEGORIES = [
+  { key: 'practice', label: '競技・練習', icon: '🏅' },
+  { key: 'nutrition', label: '栄養・食事', icon: '🥗' },
+  { key: 'mental',   label: 'メンタル',   icon: '🧠' },
+  { key: 'message',  label: 'メッセージ', icon: '💬' },
+];
+
+const QA = [
+  { cat: 'practice', lineHint: false, q: '今取り組んでいる競技を教えてください。', a: '一輪車競技です。全日本や世界大会で優勝経験もあり、今も現役として競技を続けています。競技の認知度が低いので、最前線で競い合いながらも、どうしたら広まるか、選手のサポートができるかなど、日々学び行動しています。' },
+  { cat: 'practice', lineHint: false, q: '1日の練習はどのくらいしていますか？', a: '日によって異なります。多い時は、走りの練習を週に3回、演技の練習を週に5回で、週8回練習している時もあります。ただ、必ず週に1日は一輪車に乗らない日を作っています。量をこなしながらも、質を大切に練習しています。' },
+  { cat: 'practice', lineHint: false, q: '練習で一番大切にしていることは何ですか？', a: '練習の質です。量をこなすことは大前提ですが、同じ練習時間でもいかに成長できるかを考えています。今日の練習でやることは必ず練習前に明確にしてから取り組み、練習後はできたこと・できなかったことを振り返る。この小さな積み重ねが、私を成長させてくれます。' },
+  { cat: 'practice', lineHint: false, q: 'これまでで一番つらかった経験を教えてください。', a: 'スランプになったことはありませんが、挫折したことなら何度もあります。今では全日本や世界大会で入賞できるようになりましたが、学生の頃は全日本の予選に5回落選しています。正直、やめようと何度も思いました。落選を知るたびに一輪車から離れようとするけれど、気がついたら練習に戻っていました。自分の胸の中に「自分の実力はこんなはずじゃない」という根拠のない自信があり、誰よりも練習しました。大学生になって初めて全日本に出られた時は、本当に嬉しかったです。' },
+  { cat: 'nutrition', lineHint: true, q: '食事で特に気をつけていることはありますか？', a: 'タイミングと栄養バランスの両方を意識しています。練習の前後で何を食べるかで、疲労の回復速度がまったく違います。栄養は「食べること」ではなく「戦略」だと思っています。何を・いつ・どれだけ食べるかが、パフォーマンスを左右します。' },
+  { cat: 'nutrition', lineHint: true, q: '大会前日の食事はどうしていますか？', a: '消化に負担をかけないものを選び、糖質をしっかり確保します。特別なことをするよりも、「いつも通り」を崩さないことが一番のパフォーマンス維持につながると感じています。前日に新しいものを試すのはリスクが高いので、慣れた食事を選ぶのが基本です。' },
+  { cat: 'nutrition', lineHint: true, q: '練習後のご飯で気にしていることは何ですか？', a: '練習後はできるだけ早くタンパク質と糖質を補給することを意識しています。筋肉の回復と疲労を抜くためには、運動後30〜60分以内に食べることが理想です。プロテインだけに頼らず、普段の食事からしっかり栄養を摂ることを大切にしています。' },
+  { cat: 'mental', lineHint: true, q: 'メンタルが不安定になったとき、どうやって整えますか？', a: 'まず「不安を感じていること自体は正常」と受け入れることから始めます。その上で、自分がコントロールできることだけに集中するよう意識を切り替えています。「結果」ではなく「プロセス」にフォーカスすると、不思議と落ち着いてきます。' },
+  { cat: 'mental', lineHint: true, q: '本番で緊張したとき、どうしていますか？', a: '緊張は「体が本気になっているサイン」と解釈しています。緊張をゼロにしようとするのではなく、うまく使う感覚です。深呼吸でリズムを整え、「自分が練習でやってきたことをやるだけ」と言い聞かせることで、集中を取り戻しています。' },
+  { cat: 'message', lineHint: false, q: 'フォロワーのみなさんへ一番伝えたいことは何ですか？', a: '「努力は裏切らない」という言葉を信じています。ただ、正しい方向に努力することが前提です。栄養も、練習も、メンタルも——正しい知識を持つことが、最短で結果に繋がります。このアカウントがその「正しい知識」を届ける場所であり続けたいと思っています。' },
+];
+
+let currentCat = 'all';
+
+function makeCard(item) {
+  const card = document.createElement('div');
+  card.className = 'qa-card';
+  const hintHtml = item.lineHint ? `
+      <a class="qa-line-hint" href="https://lin.ee/wnyF4eT" target="_blank">
+        <span class="qa-line-hint-text">もっと詳しく気になる方は、LINEで直接メッセージください！</span>
+        <span class="qa-line-hint-arrow">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+        </span>
+      </a>` : '';
+  card.innerHTML = `
+    <div class="qa-head" onclick="toggleCard(this)">
+      <span class="qa-q-text">Q. ${item.q}</span>
+      <span class="qa-toggle">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </span>
+    </div>
+    <div class="qa-body">
+      <div class="qa-divider"></div>
+      <div class="qa-a-text">${item.a}</div>
+      ${hintHtml}
+    </div>
+  `;
+  return card;
+}
+
+function renderQA(filtered) {
+  const container = document.getElementById('qaList');
+  const empty = document.getElementById('emptyMsg');
+  const countLabel = document.getElementById('countLabel');
+
+  container.innerHTML = '';
+
+  if (filtered.length === 0) {
+    empty.classList.add('show');
+    countLabel.textContent = '0件';
+    return;
+  }
+  empty.classList.remove('show');
+  countLabel.textContent = filtered.length + '件';
+
+  const isSearching = document.getElementById('searchInput').value.trim() !== '';
+
+  if (isSearching || currentCat !== 'all') {
+    const list = document.createElement('div');
+    list.className = 'qa-list';
+    filtered.forEach(item => list.appendChild(makeCard(item)));
+    container.appendChild(list);
+  } else {
+    CATEGORIES.forEach(cat => {
+      const items = filtered.filter(i => i.cat === cat.key);
+      if (items.length === 0) return;
+
+      const section = document.createElement('div');
+      section.className = 'cat-section';
+      section.id = 'section-' + cat.key;
+
+      section.innerHTML = `
+        <div class="cat-section-header ${cat.key}">
+          <span class="cat-section-icon">${cat.icon}</span>
+          <span class="cat-section-title">${cat.label}</span>
+          <span class="cat-section-count">${items.length}件</span>
+        </div>
+      `;
+
+      const list = document.createElement('div');
+      list.className = 'qa-list';
+      items.forEach(item => list.appendChild(makeCard(item)));
+      section.appendChild(list);
+      container.appendChild(section);
+    });
+  }
+}
+
+function toggleCard(head) {
+  head.closest('.qa-card').classList.toggle('open');
+}
+
+function filterQA() {
+  const keyword = document.getElementById('searchInput').value.trim().toLowerCase();
+  const filtered = QA.filter(item => {
+    const matchCat = currentCat === 'all' || item.cat === currentCat;
+    const matchKw = !keyword ||
+      item.q.toLowerCase().includes(keyword) ||
+      item.a.toLowerCase().includes(keyword);
+    return matchCat && matchKw;
+  });
+  renderQA(filtered);
+}
+
+function setCategory(btn, cat) {
+  document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  currentCat = cat;
+  document.getElementById('searchInput').value = '';
+  filterQA();
+
+  if (cat === 'all') {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  } else {
+    setTimeout(() => {
+      const target = document.getElementById('section-' + cat) || document.getElementById('qaList');
+      if (target) {
+        const offset = target.getBoundingClientRect().top + window.scrollY - 120;
+        window.scrollTo({ top: offset, behavior: 'smooth' });
+      }
+    }, 50);
+  }
+}
+
+window.addEventListener('scroll', () => {
+  const btn = document.getElementById('backToTop');
+  btn.classList.toggle('show', window.scrollY > 60);
+});
+
+renderQA(QA);
+</script>
+</body>
+</html>
