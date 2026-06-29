@@ -1,0 +1,476 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>3分でわかる！あなたの食事改善チェック</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#13294b;        /* deep athletic navy */
+    --ink-soft:#41557a;
+    --bg:#f4f6fb;          /* cool off-white */
+    --card:#ffffff;
+    --blue:#2f6df0;        /* energetic blue */
+    --blue-soft:#e7eefe;
+    --green:#1fae6f;       /* fresh, "fuel/vital" green */
+    --green-soft:#e3f6ec;
+    --line:#06c755;        /* LINE brand green */
+    --hair:#e3e8f1;
+    --yes:#2f6df0;
+    --no:#8a97ad;
+    --shadow:0 10px 30px rgba(19,41,75,.08);
+    --shadow-sm:0 4px 14px rgba(19,41,75,.06);
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:"Noto Sans JP",system-ui,sans-serif;
+    color:var(--ink);
+    background:var(--bg);
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{
+    max-width:440px;margin:0 auto;min-height:100vh;
+    min-height:100dvh;
+    padding:0 18px calc(28px + env(safe-area-inset-bottom));
+    display:flex;flex-direction:column;
+  }
+  .display{font-family:"M PLUS Rounded 1c",sans-serif}
+
+  /* ---------- screens ---------- */
+  .screen{display:none;flex:1;flex-direction:column;animation:fade .4s ease}
+  .screen.active{display:flex}
+  @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){
+    .screen,*{animation:none!important;transition:none!important}
+  }
+
+  /* ---------- intro ---------- */
+  .topbar{padding:22px 2px 8px;text-align:center}
+  .eyebrow{
+    display:inline-block;font-family:"M PLUS Rounded 1c";font-weight:700;
+    font-size:12px;letter-spacing:.12em;color:var(--blue);
+    background:var(--blue-soft);padding:5px 12px;border-radius:999px;
+  }
+  .intro-card{
+    background:var(--card);border-radius:22px;box-shadow:var(--shadow);
+    padding:30px 22px 26px;margin-top:18px;text-align:center;
+  }
+  .intro-emoji{font-size:46px;line-height:1;display:block;margin-bottom:6px}
+  h1.display{
+    font-weight:800;font-size:26px;line-height:1.35;margin:6px 0 4px;
+    letter-spacing:.01em;
+  }
+  h1 .hl{color:var(--blue)}
+  .lead{font-size:14.5px;color:var(--ink-soft);margin:14px 4px 0}
+  .meta-row{
+    display:flex;gap:8px;justify-content:center;margin-top:20px;flex-wrap:wrap;
+  }
+  .chip{
+    font-family:"M PLUS Rounded 1c";font-weight:700;font-size:12.5px;
+    background:var(--bg);color:var(--ink-soft);
+    padding:7px 13px;border-radius:999px;border:1px solid var(--hair);
+  }
+  .genres{
+    margin-top:20px;font-size:12.5px;color:var(--ink-soft);
+    background:var(--green-soft);border-radius:14px;padding:13px 14px;
+    text-align:left;
+  }
+  .genres b{color:var(--green);font-family:"M PLUS Rounded 1c"}
+
+  /* ---------- buttons ---------- */
+  .btn{
+    border:none;cursor:pointer;width:100%;font-family:"M PLUS Rounded 1c";
+    font-weight:700;font-size:17px;border-radius:16px;padding:17px;
+    transition:transform .12s ease, box-shadow .12s ease, background .12s ease;
+  }
+  .btn:active{transform:translateY(1px)}
+  .btn-primary{background:var(--blue);color:#fff;box-shadow:var(--shadow-sm)}
+  .btn-primary:hover{background:#255cd6}
+  .btn-line{
+    background:var(--line);color:#fff;font-size:18px;
+    box-shadow:0 8px 20px rgba(6,199,85,.28);
+    display:flex;align-items:center;justify-content:center;gap:9px;
+  }
+  .btn-line:hover{background:#05b34c}
+  .btn-ghost{
+    background:transparent;color:var(--ink-soft);font-size:14px;
+    border:1px solid var(--hair);
+  }
+  .start-area{margin-top:auto;padding-top:24px}
+  .start-note{text-align:center;font-size:11.5px;color:var(--no);margin-top:12px}
+
+  /* ---------- quiz ---------- */
+  .quiz-head{padding:20px 2px 6px}
+  .progress-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+  .qcount{font-family:"M PLUS Rounded 1c";font-weight:800;font-size:15px;color:var(--ink)}
+  .qcount span{color:var(--blue);font-size:22px}
+  .qcat{
+    font-family:"M PLUS Rounded 1c";font-weight:700;font-size:12.5px;
+    color:var(--ink-soft);background:var(--card);border:1px solid var(--hair);
+    padding:5px 12px;border-radius:999px;display:inline-flex;gap:5px;align-items:center;
+  }
+  .bar{height:9px;background:#dde4f1;border-radius:999px;overflow:hidden}
+  .bar > i{
+    display:block;height:100%;width:0;border-radius:999px;
+    background:linear-gradient(90deg,var(--green),var(--blue));
+    transition:width .4s cubic-bezier(.2,.8,.2,1);
+  }
+  .q-card{
+    background:var(--card);border-radius:22px;box-shadow:var(--shadow);
+    margin-top:20px;padding:30px 22px;flex:1;display:flex;flex-direction:column;
+    justify-content:center;text-align:center;
+  }
+  .q-emoji{font-size:40px;margin-bottom:14px}
+  .q-text{
+    font-family:"M PLUS Rounded 1c";font-weight:700;font-size:20px;line-height:1.5;
+    color:var(--ink);
+  }
+  .yn{display:flex;gap:12px;margin-top:auto;padding-top:22px}
+  .yn button{
+    flex:1;border:2px solid var(--hair);background:var(--card);cursor:pointer;
+    font-family:"M PLUS Rounded 1c";font-weight:800;font-size:18px;
+    padding:16px 0;border-radius:16px;color:var(--ink);
+    transition:transform .1s ease, border-color .1s ease, background .1s ease;
+  }
+  .yn button:active{transform:translateY(1px)}
+  .yn .yes:hover{border-color:var(--yes);background:var(--blue-soft);color:var(--yes)}
+  .yn .no:hover{border-color:#c2ccdb;background:#f3f5f9}
+  .yn small{display:block;font-family:"Noto Sans JP";font-weight:400;font-size:11px;color:var(--no);margin-top:3px}
+  .back-link{text-align:center;margin-top:14px}
+  .back-link button{
+    background:none;border:none;color:var(--no);font-size:13px;cursor:pointer;
+    font-family:"M PLUS Rounded 1c";font-weight:700;padding:6px;
+  }
+
+  /* ---------- result ---------- */
+  .res-head{text-align:center;padding:22px 6px 4px}
+  .res-eyebrow{font-family:"M PLUS Rounded 1c";font-weight:700;font-size:12px;letter-spacing:.1em;color:var(--blue)}
+  .gauge-card{
+    background:var(--card);border-radius:22px;box-shadow:var(--shadow);
+    padding:26px 22px;margin-top:14px;text-align:center;
+  }
+  .level-emoji{font-size:44px;line-height:1}
+  .level-title{font-family:"M PLUS Rounded 1c";font-weight:800;font-size:21px;margin:8px 0 2px}
+  .score-line{font-size:13px;color:var(--ink-soft)}
+  .score-line b{font-family:"M PLUS Rounded 1c";color:var(--blue);font-size:16px}
+  .gauge{height:14px;background:#e3e8f1;border-radius:999px;margin:18px 0 8px;overflow:hidden}
+  .gauge > i{display:block;height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,var(--green),var(--blue));transition:width .9s cubic-bezier(.2,.8,.2,1)}
+  .gauge-scale{display:flex;justify-content:space-between;font-size:10.5px;color:var(--no);font-family:"M PLUS Rounded 1c";font-weight:700}
+  .res-msg{font-size:14.5px;color:var(--ink-soft);margin-top:16px;text-align:left;background:var(--green-soft);border-radius:14px;padding:14px 15px}
+  .res-msg b{color:var(--green);font-family:"M PLUS Rounded 1c"}
+
+  .sec-title{font-family:"M PLUS Rounded 1c";font-weight:800;font-size:17px;margin:28px 2px 4px;display:flex;align-items:center;gap:8px}
+  .sec-sub{font-size:12.5px;color:var(--ink-soft);margin:0 2px 14px}
+  .tips{display:flex;flex-direction:column;gap:12px}
+  .tip{
+    background:var(--card);border-radius:16px;box-shadow:var(--shadow-sm);
+    padding:15px 16px;border-left:4px solid var(--blue);
+  }
+  .tip h3{font-family:"M PLUS Rounded 1c";font-weight:700;font-size:15px;margin:0 0 4px;display:flex;align-items:center;gap:7px}
+  .tip p{margin:0;font-size:13.5px;color:var(--ink-soft);line-height:1.65}
+  .tip.good{border-left-color:var(--green)}
+  .tip.good h3{color:var(--green)}
+
+  /* ---------- CTA ---------- */
+  .cta-card{
+    margin-top:28px;background:var(--ink);color:#fff;border-radius:22px;
+    padding:26px 22px;text-align:center;box-shadow:var(--shadow);
+  }
+  .cta-card .disc{
+    font-size:12px;color:#aebbd2;line-height:1.7;text-align:left;
+    background:rgba(255,255,255,.06);border-radius:12px;padding:13px 14px;margin-bottom:18px;
+  }
+  .cta-card h2{font-family:"M PLUS Rounded 1c";font-weight:800;font-size:20px;margin:0 0 6px;line-height:1.45}
+  .cta-card h2 .hl{color:#7fe6a8}
+  .cta-want{text-align:left;font-size:13.5px;color:#dde6f4;margin:14px 0;padding-left:2px}
+  .cta-want li{margin:5px 0;list-style:none;display:flex;gap:8px;align-items:flex-start}
+  .cta-want li::before{content:"›";color:#7fe6a8;font-family:"M PLUS Rounded 1c";font-weight:800;font-size:16px;line-height:1.4}
+  .keyword{
+    display:inline-block;background:#fff;color:var(--ink);font-family:"M PLUS Rounded 1c";
+    font-weight:800;font-size:15px;padding:3px 12px;border-radius:8px;margin:0 2px;
+  }
+  .cta-after{font-size:12.5px;color:#aebbd2;margin-top:16px;line-height:1.7}
+  .restart{margin-top:18px;text-align:center}
+  .restart button{background:none;border:none;color:var(--no);font-size:13px;font-family:"M PLUS Rounded 1c";font-weight:700;cursor:pointer;padding:8px}
+  .footer{font-size:10.5px;color:#aab4c6;text-align:center;margin-top:22px;line-height:1.7}
+
+  :focus-visible{outline:3px solid var(--blue);outline-offset:2px;border-radius:8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ===== SCREEN 1: INTRO ===== -->
+  <section class="screen active" id="screen-intro">
+    <div class="topbar"><span class="eyebrow">SPORTS NUTRITION CHECK</span></div>
+    <div class="intro-card">
+      <span class="intro-emoji">🍙</span>
+      <h1 class="display">3分でわかる！<br><span class="hl">あなたの食事改善チェック</span></h1>
+      <p class="lead">
+        スポーツをしているあなたへ。<br>
+        今の食事の習慣を、かんたんな <b>YES / NO</b> でふりかえってみましょう。<br>
+        「できていること」と「これから意識できそうなこと」が見えてきます。
+      </p>
+      <div class="meta-row">
+        <span class="chip">⏱ 約3分</span>
+        <span class="chip">✅ 全20問</span>
+        <span class="chip">📱 タップだけ</span>
+      </div>
+      <div class="genres">
+        チェックするジャンル：<br>
+        <b>朝食 / タンパク質 / 炭水化物 / 野菜・果物 / 水分 / 食事タイミング / 外食・コンビニ / 睡眠</b>
+      </div>
+    </div>
+    <div class="start-area">
+      <button class="btn btn-primary" id="start-btn">チェックをはじめる →</button>
+      <p class="start-note">※ これは一般的な栄養の習慣をふりかえるための内容です</p>
+    </div>
+  </section>
+
+  <!-- ===== SCREEN 2: QUIZ ===== -->
+  <section class="screen" id="screen-quiz">
+    <div class="quiz-head">
+      <div class="progress-top">
+        <div class="qcount">Q<span id="q-now">1</span> <small style="font-weight:500;color:var(--no);font-size:13px">/ 20</small></div>
+        <div class="qcat" id="q-cat">朝食</div>
+      </div>
+      <div class="bar"><i id="bar-fill"></i></div>
+    </div>
+    <div class="q-card">
+      <div class="q-emoji" id="q-emoji">🍙</div>
+      <div class="q-text" id="q-text">質問テキスト</div>
+      <div class="yn">
+        <button class="yes" id="btn-yes">YES<small>あてはまる</small></button>
+        <button class="no" id="btn-no">NO<small>あてはまらない</small></button>
+      </div>
+    </div>
+    <div class="back-link"><button id="btn-back">← ひとつ戻る</button></div>
+  </section>
+
+  <!-- ===== SCREEN 3: RESULT ===== -->
+  <section class="screen" id="screen-result">
+    <div class="res-head"><span class="res-eyebrow">YOUR RESULT</span></div>
+
+    <div class="gauge-card">
+      <div class="level-emoji" id="level-emoji">🌱</div>
+      <div class="level-title display" id="level-title">タイトル</div>
+      <div class="score-line">YESの数：<b id="yes-count">0</b> / 20</div>
+      <div class="gauge"><i id="gauge-fill"></i></div>
+      <div class="gauge-scale"><span>これから</span><span>土台あり</span><span>意識が高い</span></div>
+      <div class="res-msg" id="res-msg"></div>
+    </div>
+
+    <div class="sec-title">💡 意識するとよさそうなポイント</div>
+    <p class="sec-sub">あなたの回答から、伸びしろがありそうなジャンルをピックアップしました。</p>
+    <div class="tips" id="tips"></div>
+
+    <div class="cta-card">
+      <div class="disc">
+        この診断は、一般的な栄養の習慣をふりかえるための内容です。実際に必要なポイントは、競技・目標・練習量・体格などによって一人ひとり変わってきます。
+      </div>
+      <h2>あなたに合わせた<br><span class="hl">優先順位</span>を、一緒に整理しませんか？</h2>
+      <ul class="cta-want">
+        <li>自分には何が必要なのか知りたい</li>
+        <li>今の食事を見てほしい</li>
+        <li>どこから意識すればいいか優先順位を知りたい</li>
+      </ul>
+      <p style="font-size:14px;color:#fff;margin:18px 0 0;line-height:1.7">
+        という方は、LINEで<span class="keyword">食事</span>と<br>送ってください。
+      </p>
+      <p style="font-size:13px;color:#dde6f4;margin:6px 0 18px">
+        送っていただくと、まず受付メッセージが届きます。<br>そこから、あなたの状況に合わせて意識するとよいポイントを一緒に整理します。
+      </p>
+      <button class="btn btn-line" id="line-btn">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2C6.48 2 2 5.7 2 10.25c0 4.06 3.54 7.46 8.34 8.1.32.07.76.21.87.49.1.25.07.64.03.9l-.14.84c-.04.25-.2.98.86.53 1.06-.45 5.7-3.36 7.78-5.75C21.1 13.7 22 12.06 22 10.25 22 5.7 17.52 2 12 2z"/></svg>
+        LINEで相談してみる
+      </button>
+      <p class="cta-after">ボタンを押したら、トーク画面で <b style="color:#7fe6a8">「食事」</b> と送るだけ。<br>すぐに受付メッセージが届くので、そのまま気になることを送ってください。</p>
+    </div>
+
+    <div class="restart"><button id="restart-btn">↺ もう一度チェックする</button></div>
+    <p class="footer">
+      ※本コンテンツは一般的な栄養に関する情報の提供を目的としたものであり、特定の効果・効能を保証するものではありません。<br>
+      体調に不安がある場合や、持病・通院中の方は、医師等の専門家にご相談ください。
+    </p>
+  </section>
+
+</div>
+
+<script>
+  // ====== LINE URL ======
+  var LINE_URL = "https://lin.ee/Q4GoCAV";
+
+  // ====== Questions (YES = 良い習慣 / NO = 伸びしろ) ======
+  var QUESTIONS = [
+    {cat:"朝食", emoji:"🍙", text:"ほぼ毎日、朝食を食べている"},
+    {cat:"朝食", emoji:"🍞", text:"朝食で、ごはんやパンなどの主食をとっている"},
+    {cat:"タンパク質", emoji:"🥚", text:"毎食、肉・魚・卵・大豆・乳製品などを食べている"},
+    {cat:"タンパク質", emoji:"🥛", text:"練習後は、できるだけ早めに何か食べる・飲むようにしている"},
+    {cat:"タンパク質", emoji:"🍗", text:"間食でもタンパク質を意識することがある"},
+    {cat:"炭水化物", emoji:"🍚", text:"練習量が多い日は、ごはんやパンの量を意識して増やしている"},
+    {cat:"炭水化物", emoji:"🍌", text:"練習前に、おにぎりやバナナなどでエネルギーをとっている"},
+    {cat:"野菜・果物", emoji:"🥗", text:"1日の中で、野菜を食べるようにしている"},
+    {cat:"野菜・果物", emoji:"🍎", text:"果物を食べる習慣がある"},
+    {cat:"水分", emoji:"💧", text:"練習中は、こまめに水分をとっている"},
+    {cat:"水分", emoji:"🚰", text:"のどが渇く前から、水分補給を意識している"},
+    {cat:"水分", emoji:"💦", text:"汗の量や練習量に合わせて、飲む量を変えている"},
+    {cat:"食事タイミング", emoji:"⏰", text:"1日3食、だいたい決まった時間に食べている"},
+    {cat:"食事タイミング", emoji:"🌙", text:"夜おそい時間の食事を、できるだけ避けている"},
+    {cat:"食事タイミング", emoji:"🔁", text:"練習の前後で、食べるタイミングを意識している"},
+    {cat:"外食・コンビニ", emoji:"🏪", text:"外食やコンビニでも、栄養バランスを意識して選んでいる"},
+    {cat:"外食・コンビニ", emoji:"🥤", text:"揚げ物や甘い飲み物に、かたよりすぎないようにしている"},
+    {cat:"睡眠", emoji:"😴", text:"1日6〜8時間くらいの睡眠をとれている"},
+    {cat:"睡眠", emoji:"🛏️", text:"寝る直前の、たくさんの食事は避けている"},
+    {cat:"全体", emoji:"📈", text:"体調や体重の変化を、なんとなくでも気にしている"}
+  ];
+
+  // ====== Improvement copy per category (薬機法・コンプラ配慮：断定せず可能性表現) ======
+  var TIPS = {
+    "朝食":        {emoji:"🍙", title:"朝食", body:"朝食は1日のリズムづくりの入り口とされています。主食(エネルギー源)を加えるなど、内容を少し意識すると、より整えやすくなる可能性があります。"},
+    "タンパク質":  {emoji:"🥚", title:"タンパク質", body:"タンパク質は、体をつくる材料のひとつとされています。毎食「肉・魚・卵・大豆・乳製品」のいずれかを取り入れることを意識すると良いでしょう。"},
+    "炭水化物":    {emoji:"🍚", title:"炭水化物", body:"炭水化物は、体を動かすときの主なエネルギー源のひとつとされています。練習量に合わせて主食の量を調整することを意識すると良いでしょう。"},
+    "野菜・果物":  {emoji:"🥗", title:"野菜・果物", body:"野菜や果物は、ビタミンやミネラルなどをとる手段のひとつとされています。1日の中で少しずつ取り入れることを意識すると良いでしょう。"},
+    "水分":        {emoji:"💧", title:"水分", body:"汗をかく場面では、こまめな水分補給が一般的にすすめられています。のどが渇く前から、少しずつとることを意識すると良いでしょう。"},
+    "食事タイミング":{emoji:"⏰", title:"食事のタイミング", body:"食事のタイミングは、練習や生活リズムと関わると言われています。食事の時間や、練習前後のとり方を一定にすることを意識すると良いでしょう。"},
+    "外食・コンビニ":{emoji:"🏪", title:"外食・コンビニ", body:"外食やコンビニでも「主食・主菜・副菜」をそろえる視点を持つと、栄養バランスを意識しやすくなるとされています。"},
+    "睡眠":        {emoji:"😴", title:"睡眠", body:"睡眠は、コンディションづくりの土台のひとつと言われています。睡眠時間や、寝る直前の食事を見直すことを意識すると良いでしょう。"},
+    "全体":        {emoji:"📈", title:"ふりかえりの習慣", body:"体調や体重の変化に少し目を向けておくと、自分に合うリズムをつかみやすくなるとされています。記録までいかなくても、気にかけることから始めると良いでしょう。"}
+  };
+
+  // ====== Result levels (5段階・前向き表現) ======
+  var LEVELS = [
+    {min:17, emoji:"🔥", title:"栄養への意識が高い土台", msg:"すでに多くの習慣が身についていますね。<b>その土台をどう活かすか</b>を整理すると、さらに伸ばせるポイントが見えてくることがあります。"},
+    {min:13, emoji:"💪", title:"良い習慣＋これからの伸びしろ", msg:"基本はしっかりできています。<b>あと少し意識するポイント</b>を整理すると、今よりも整えやすくなる可能性があります。"},
+    {min:9,  emoji:"🌿", title:"土台はあり、整理で変わりそう", msg:"できていることもたくさんあります。<b>優先順位をつけて意識する</b>ことで、ぐっと取り組みやすくなる可能性があります。"},
+    {min:5,  emoji:"🌱", title:"これから意識できるポイントが多め", msg:"伸びしろがたっぷりあるということでもあります。<b>まずはどこか1つから</b>意識してみると、変化を実感しやすくなることがあります。"},
+    {min:0,  emoji:"🌟", title:"ここからが伸びしろ", msg:"今がスタートのタイミングです。<b>無理に全部ではなく、できそうな1つ</b>から始めると、続けやすくなるとされています。"}
+  ];
+
+  // ====== State ======
+  var answers = new Array(QUESTIONS.length).fill(null);
+  var idx = 0;
+
+  // ====== Elements ======
+  var $ = function(id){ return document.getElementById(id); };
+  var screens = {
+    intro: $("screen-intro"),
+    quiz: $("screen-quiz"),
+    result: $("screen-result")
+  };
+  function show(name){
+    for(var k in screens){ screens[k].classList.remove("active"); }
+    screens[name].classList.add("active");
+    window.scrollTo({top:0, behavior:"instant" in window ? "instant" : "auto"});
+  }
+
+  // ====== Quiz render ======
+  function renderQuestion(){
+    var q = QUESTIONS[idx];
+    $("q-now").textContent = (idx+1);
+    $("q-cat").textContent = q.cat;
+    $("q-emoji").textContent = q.emoji;
+    $("q-text").textContent = q.text;
+    var pct = (idx / QUESTIONS.length) * 100;
+    $("bar-fill").style.width = pct + "%";
+    $("btn-back").style.visibility = (idx === 0) ? "hidden" : "visible";
+  }
+
+  function answer(val){
+    answers[idx] = val;
+    if(idx < QUESTIONS.length - 1){
+      idx++;
+      renderQuestion();
+    } else {
+      $("bar-fill").style.width = "100%";
+      showResult();
+    }
+  }
+
+  function goBack(){
+    if(idx > 0){ idx--; renderQuestion(); }
+  }
+
+  // ====== Result render ======
+  function showResult(){
+    var yes = 0;
+    for(var i=0;i<answers.length;i++){ if(answers[i] === true) yes++; }
+
+    // level
+    var lv = LEVELS[LEVELS.length-1];
+    for(var j=0;j<LEVELS.length;j++){ if(yes >= LEVELS[j].min){ lv = LEVELS[j]; break; } }
+    $("level-emoji").textContent = lv.emoji;
+    $("level-title").textContent = lv.title;
+    $("yes-count").textContent = yes;
+    $("res-msg").innerHTML = lv.msg;
+
+    // category gap scoring: count NO per category
+    var noByCat = {};
+    var totalByCat = {};
+    for(var k=0;k<QUESTIONS.length;k++){
+      var c = QUESTIONS[k].cat;
+      totalByCat[c] = (totalByCat[c]||0) + 1;
+      if(answers[k] === false){ noByCat[c] = (noByCat[c]||0) + 1; }
+    }
+    // rank categories by number of NO (desc)
+    var ranked = [];
+    for(var c2 in noByCat){ if(noByCat[c2] > 0){ ranked.push({cat:c2, no:noByCat[c2]}); } }
+    ranked.sort(function(a,b){ return b.no - a.no; });
+
+    var tipsEl = $("tips");
+    tipsEl.innerHTML = "";
+
+    if(ranked.length === 0){
+      // all YES — celebrate, still invite
+      var good = document.createElement("div");
+      good.className = "tip good";
+      good.innerHTML = '<h3>👏 とても良い習慣です</h3><p>大きな伸びしろは見当たりませんでした。ここから先は、競技や目標に合わせた「より細かい優先順位」を整理していく段階かもしれません。</p>';
+      tipsEl.appendChild(good);
+    } else {
+      var topN = ranked.slice(0, 4); // show up to 4
+      for(var t=0;t<topN.length;t++){
+        var info = TIPS[topN[t].cat];
+        if(!info) continue;
+        var el = document.createElement("div");
+        el.className = "tip";
+        el.innerHTML = '<h3>'+info.emoji+' '+info.title+'</h3><p>'+info.body+'</p>';
+        tipsEl.appendChild(el);
+      }
+    }
+
+    show("result");
+    // animate gauge after paint
+    requestAnimationFrame(function(){
+      requestAnimationFrame(function(){
+        $("gauge-fill").style.width = ((yes/QUESTIONS.length)*100) + "%";
+      });
+    });
+  }
+
+  // ====== Reset ======
+  function reset(){
+    answers = new Array(QUESTIONS.length).fill(null);
+    idx = 0;
+    $("gauge-fill").style.width = "0%";
+    renderQuestion();
+    show("intro");
+  }
+
+  // ====== Bind ======
+  $("start-btn").addEventListener("click", function(){ idx = 0; renderQuestion(); show("quiz"); });
+  $("btn-yes").addEventListener("click", function(){ answer(true); });
+  $("btn-no").addEventListener("click", function(){ answer(false); });
+  $("btn-back").addEventListener("click", goBack);
+  $("line-btn").addEventListener("click", function(){ window.open(LINE_URL, "_blank", "noopener"); });
+  $("restart-btn").addEventListener("click", reset);
+
+  // init
+  renderQuestion();
+</script>
+</body>
+</html>
