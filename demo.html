@@ -1,0 +1,553 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>東洋堂治療院｜千葉県船橋市習志野台（完全予約制）</title>
+<meta name="description" content="千葉県船橋市習志野台の東洋堂治療院。あん摩マッサージ指圧・はり・きゅう。完全予約制。ご予約はLINE・WEB・お電話にて承っております。">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+<style>
+/* ==========================================================================
+   0. Design Tokens
+   ========================================================================== */
+:root{
+  --white:      #FFFFFF;
+  --paper:      #F7F8F4;
+  --paper-deep: #EFF2EA;
+  --sage:       #6B8E6E;
+  --sage-dark:  #435C46;
+  --sage-pale:  #E4ECE3;
+  --gold:       #B8925A;
+  --gold-deep:  #9A7640;
+  --ink:        #2B322E;
+  --ink-soft:   #64716A;
+  --line:       #E1E6DE;
+  --shadow:     0 20px 40px -20px rgba(53, 68, 56, 0.18);
+  --shadow-sm:  0 8px 20px -12px rgba(53, 68, 56, 0.18);
+  --radius-lg:  28px;
+  --radius-md:  20px;
+  --radius-sm:  14px;
+  --font-display: "Shippori Mincho", serif;
+  --font-body: "Zen Kaku Gothic New", sans-serif;
+  --container: 1080px;
+}
+*{ box-sizing:border-box; margin:0; padding:0; }
+html{ scroll-behavior:smooth; }
+body{ font-family: var(--font-body); color: var(--ink); background: var(--white); line-height: 1.85; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+img{ max-width:100%; display:block; }
+a{ color:inherit; text-decoration:none; }
+ul{ list-style:none; }
+button{ font-family:inherit; cursor:pointer; border:none; background:none; }
+.container{ max-width:var(--container); margin:0 auto; padding:0 24px; }
+h1,h2,h3,h4{ font-family:var(--font-display); color:var(--sage-dark); font-weight:700; letter-spacing:.02em; }
+@media (prefers-reduced-motion: reduce){ *{ animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important; } }
+
+.reveal{ opacity:0; transform:translateY(28px); transition:opacity .8s ease, transform .8s ease; }
+.reveal.is-visible{ opacity:1; transform:translateY(0); }
+.reveal-stagger > *{ opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease; }
+.reveal-stagger.is-visible > *{ opacity:1; transform:translateY(0); }
+.reveal-stagger.is-visible > *:nth-child(1){ transition-delay:.05s; }
+.reveal-stagger.is-visible > *:nth-child(2){ transition-delay:.15s; }
+.reveal-stagger.is-visible > *:nth-child(3){ transition-delay:.25s; }
+.reveal-stagger.is-visible > *:nth-child(4){ transition-delay:.35s; }
+.reveal-stagger.is-visible > *:nth-child(5){ transition-delay:.45s; }
+.reveal-stagger.is-visible > *:nth-child(6){ transition-delay:.55s; }
+
+.eyebrow{ display:inline-flex; align-items:center; gap:8px; font-size:.78rem; letter-spacing:.22em; color:var(--gold-deep); font-weight:700; text-transform:uppercase; margin-bottom:14px; }
+.eyebrow::before{ content:""; width:22px; height:1px; background:var(--gold); display:inline-block; }
+.section{ padding:88px 0; position:relative; }
+.section--paper{ background:var(--paper); }
+.section-head{ text-align:center; max-width:640px; margin:0 auto 52px; }
+.section-head h2{ font-size:clamp(1.55rem, 4vw, 2.15rem); line-height:1.5; }
+.section-head p{ color:var(--ink-soft); margin-top:16px; font-size:.98rem; }
+
+.btn{ display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:16px 30px; border-radius:100px; font-weight:700; font-size:.96rem; transition:transform .25s ease, box-shadow .25s ease, background .25s ease; white-space:nowrap; }
+.btn--line{ background:#06C755; color:#fff; box-shadow:0 12px 24px -10px rgba(6,199,85,.55); }
+.btn--line:hover{ transform:translateY(-2px); box-shadow:0 16px 30px -10px rgba(6,199,85,.65); }
+.btn--web{ background:var(--sage-dark); color:#fff; box-shadow:0 12px 24px -10px rgba(67,92,70,.5); }
+.btn--web:hover{ transform:translateY(-2px); box-shadow:0 16px 30px -10px rgba(67,92,70,.6); }
+.btn--ghost{ background:transparent; color:var(--sage-dark); border:1.5px solid var(--sage); }
+.btn--ghost:hover{ background:var(--sage-pale); }
+.btn--tel{ background:var(--gold); color:#fff; box-shadow:0 12px 24px -10px rgba(184,146,90,.55); }
+.btn--tel:hover{ transform:translateY(-2px); }
+.btn-row{ display:flex; flex-wrap:wrap; gap:14px; justify-content:center; }
+.ico{ width:20px; height:20px; flex-shrink:0; }
+
+/* Header */
+.site-header{ position:fixed; top:0; left:0; right:0; z-index:100; padding:14px 0; background:rgba(255,255,255,0); transition:background .35s ease, box-shadow .35s ease, padding .35s ease; }
+.site-header.is-scrolled{ background:rgba(255,255,255,.92); backdrop-filter:blur(10px); box-shadow:0 4px 24px -12px rgba(43,50,46,.18); padding:10px 0; }
+.site-header .container{ display:flex; align-items:center; justify-content:space-between; gap:16px; }
+.logo{ display:flex; align-items:center; gap:10px; }
+.logo-mark{ width:40px; height:40px; border-radius:50%; background:linear-gradient(135deg, var(--sage) 0%, var(--sage-dark) 100%); display:flex; align-items:center; justify-content:center; color:#fff; font-family:var(--font-display); font-size:1.1rem; font-weight:700; flex-shrink:0; }
+.logo-text{ font-family:var(--font-display); font-weight:700; color:var(--sage-dark); line-height:1.2; }
+.logo-text small{ display:block; font-family:var(--font-body); font-size:.62rem; color:var(--ink-soft); font-weight:500; letter-spacing:.08em; }
+.header-cta{ display:none; }
+@media (min-width:860px){ .header-cta{ display:flex; gap:10px; } .header-cta .btn{ padding:11px 20px; font-size:.85rem; } }
+
+/* Hero */
+.hero{ position:relative; min-height:92svh; display:flex; align-items:flex-end; padding:140px 0 64px; overflow:hidden; background:var(--sage-dark); }
+.hero-media{ position:absolute; inset:0; z-index:0; }
+.hero-media img{ width:100%; height:100%; object-fit:cover; opacity:.5; }
+.hero-media::after{ content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(31,44,33,.55) 0%, rgba(31,44,33,.35) 35%, rgba(28,38,30,.92) 100%); }
+.ki-glow{ position:absolute; top:-10%; right:-15%; width:60vw; height:60vw; max-width:640px; max-height:640px; border-radius:50%; z-index:0; background:radial-gradient(circle, rgba(184,146,90,.32) 0%, rgba(184,146,90,0) 70%); animation:breathe 7s ease-in-out infinite; pointer-events:none; }
+@keyframes breathe{ 0%,100%{ transform:scale(1); opacity:.7; } 50%{ transform:scale(1.18); opacity:1; } }
+.hero-content{ position:relative; z-index:2; color:#fff; width:100%; }
+.hero-eyebrow{ display:inline-flex; align-items:center; gap:10px; color:var(--gold); font-size:.78rem; letter-spacing:.24em; font-weight:700; margin-bottom:22px; text-transform:uppercase; }
+.hero-eyebrow::before{ content:""; width:26px; height:1px; background:var(--gold); }
+.hero h1{ color:#fff; font-size:clamp(1.9rem, 5.6vw, 3rem); line-height:1.55; font-weight:700; letter-spacing:.02em; margin-bottom:20px; }
+.hero-sub{ color:rgba(255,255,255,.86); font-size:clamp(.95rem,2.4vw,1.05rem); max-width:520px; margin-bottom:34px; }
+.hero .btn-row{ justify-content:flex-start; margin-bottom:40px; }
+.trust-row{ display:flex; flex-wrap:wrap; gap:10px; }
+.trust-chip{ display:flex; align-items:center; gap:8px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.28); padding:9px 16px; border-radius:100px; font-size:.8rem; color:#fff; backdrop-filter:blur(4px); }
+.trust-chip .ico{ width:16px; height:16px; color:var(--gold); }
+
+/* 施術メニュー */
+.menu-grid{ display:grid; gap:16px; grid-template-columns:1fr; }
+@media (min-width:640px){ .menu-grid{ grid-template-columns:repeat(2,1fr); } }
+@media (min-width:980px){ .menu-grid{ grid-template-columns:repeat(3,1fr); } }
+.menu-card{ background:var(--white); border:1px solid var(--line); border-radius:var(--radius-lg); padding:28px 24px; box-shadow:var(--shadow-sm); }
+.menu-card .tag{ display:inline-block; font-size:.68rem; font-weight:700; color:var(--sage-dark); background:var(--sage-pale); padding:4px 12px; border-radius:100px; margin-bottom:14px; }
+.menu-card h3{ font-size:1.08rem; margin-bottom:8px; }
+.menu-card p{ font-size:.84rem; color:var(--ink-soft); }
+.menu-note{ text-align:center; font-size:.85rem; color:var(--ink-soft); margin-top:28px; }
+
+/* 施術所について（許可事項のみ） */
+.about-grid{ display:grid; gap:20px; grid-template-columns:1fr; }
+@media (min-width:640px){ .about-grid{ grid-template-columns:repeat(2,1fr); } }
+@media (min-width:980px){ .about-grid{ grid-template-columns:repeat(3,1fr); } }
+.about-card{ background:var(--white); border:1px solid var(--line); border-radius:var(--radius-md); padding:26px 22px; box-shadow:var(--shadow-sm); text-align:center; }
+.about-card .ico-wrap{ width:52px; height:52px; margin:0 auto 14px; border-radius:50%; background:var(--sage-pale); color:var(--sage-dark); display:flex; align-items:center; justify-content:center; }
+.about-card h4{ font-size:.96rem; margin-bottom:6px; }
+.about-card p{ font-size:.8rem; color:var(--ink-soft); }
+
+/* ご利用の流れ */
+.flow{ position:relative; max-width:520px; margin:0 auto; }
+.flow-line{ position:absolute; left:29px; top:30px; bottom:30px; width:2px; background:repeating-linear-gradient(180deg, var(--sage) 0, var(--sage) 6px, transparent 6px, transparent 12px); }
+.flow-step{ position:relative; display:flex; gap:20px; padding-bottom:34px; }
+.flow-step:last-child{ padding-bottom:0; }
+.flow-num{ width:60px; height:60px; border-radius:50%; flex-shrink:0; z-index:1; background:var(--white); border:2px solid var(--sage); color:var(--sage-dark); display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-weight:700; font-size:1.05rem; box-shadow:var(--shadow-sm); }
+.flow-step.is-final .flow-num{ background:var(--gold); border-color:var(--gold); color:#fff; }
+.flow-body{ background:var(--white); border:1px solid var(--line); border-radius:var(--radius-md); padding:18px 22px; flex:1; box-shadow:var(--shadow-sm); }
+.flow-body h4{ font-size:1.02rem; margin-bottom:4px; }
+.flow-body p{ color:var(--ink-soft); font-size:.86rem; }
+
+/* FAQ */
+.faq-list{ max-width:760px; margin:0 auto; display:flex; flex-direction:column; gap:12px; }
+.faq-item{ background:var(--white); border:1px solid var(--line); border-radius:var(--radius-md); overflow:hidden; }
+.faq-q{ width:100%; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:20px 22px; text-align:left; font-weight:700; font-size:.94rem; color:var(--sage-dark); }
+.faq-q .q-mark{ width:28px; height:28px; border-radius:50%; background:var(--sage-pale); color:var(--sage-dark); display:flex; align-items:center; justify-content:center; font-family:var(--font-display); flex-shrink:0; font-size:.85rem; }
+.faq-q .chevron{ transition:transform .3s ease; color:var(--sage); flex-shrink:0; }
+.faq-item.is-open .chevron{ transform:rotate(180deg); }
+.faq-a{ max-height:0; overflow:hidden; transition:max-height .35s ease; }
+.faq-a-inner{ padding:0 22px 20px 66px; color:var(--ink-soft); font-size:.88rem; }
+
+/* アクセス */
+.access-wrap{ display:grid; gap:32px; }
+@media (min-width:900px){ .access-wrap{ grid-template-columns:1fr 1fr; gap:0; } }
+.access-map{ aspect-ratio:4/3; background:var(--paper-deep); border-radius:var(--radius-lg); display:flex; align-items:center; justify-content:center; color:var(--sage-dark); overflow:hidden; box-shadow:var(--shadow-sm); }
+@media (min-width:900px){ .access-map{ border-radius:var(--radius-lg) 0 0 var(--radius-lg); aspect-ratio:auto; height:100%; min-height:420px; } }
+.access-info{ background:var(--white); border:1px solid var(--line); border-radius:var(--radius-lg); padding:36px 30px; box-shadow:var(--shadow-sm); }
+@media (min-width:900px){ .access-info{ border-radius:0 var(--radius-lg) var(--radius-lg) 0; border-left:none; } }
+.access-info h3{ font-size:1.4rem; margin-bottom:6px; }
+.access-info .sub-shop{ font-size:.82rem; color:var(--ink-soft); margin-bottom:24px; }
+.access-row{ display:flex; gap:14px; padding:14px 0; border-top:1px solid var(--line); }
+.access-row:first-of-type{ border-top:none; }
+.access-row .ico-wrap{ width:38px; height:38px; border-radius:10px; background:var(--sage-pale); color:var(--sage-dark); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.access-row .label{ font-size:.72rem; color:var(--ink-soft); font-weight:700; letter-spacing:.05em; margin-bottom:3px; }
+.access-row .value{ font-size:.92rem; font-weight:700; }
+.access-row .value small{ display:block; font-weight:500; color:var(--ink-soft); font-size:.78rem; margin-top:2px; }
+.access-cta{ margin-top:24px; display:flex; flex-wrap:wrap; gap:10px; }
+.access-cta .btn{ padding:12px 20px; font-size:.84rem; }
+
+/* 最終CTA */
+.final-cta{ position:relative; background:var(--sage-dark); color:#fff; text-align:center; padding:96px 0; overflow:hidden; }
+.final-cta .ki-glow{ top:auto; bottom:-20%; left:-10%; }
+.final-cta .eyebrow{ color:var(--gold); justify-content:center; }
+.final-cta .eyebrow::before{ display:none; }
+.final-cta h2{ color:#fff; font-size:clamp(1.5rem,4.2vw,2.3rem); line-height:1.6; margin-bottom:18px; position:relative; z-index:1; }
+.final-cta p.lead{ color:rgba(255,255,255,.82); max-width:520px; margin:0 auto 38px; position:relative; z-index:1; }
+.final-cta .btn-row{ position:relative; z-index:1; margin-bottom:26px; }
+.final-cta .reassure{ color:rgba(255,255,255,.7); font-size:.85rem; position:relative; z-index:1; }
+
+/* Footer */
+footer{ background:#1F2B21; color:rgba(255,255,255,.72); padding:48px 0 100px; font-size:.82rem; }
+@media (min-width:860px){ footer{ padding-bottom:48px; } }
+.footer-top{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:24px; margin-bottom:28px; }
+.footer-brand{ display:flex; align-items:center; gap:10px; color:#fff; font-family:var(--font-display); font-weight:700; }
+footer .footer-links{ display:flex; gap:20px; flex-wrap:wrap; }
+footer hr{ border:none; border-top:1px solid rgba(255,255,255,.12); margin:24px 0; }
+.footer-bottom{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; }
+.footer-legal{ font-size:.72rem; color:rgba(255,255,255,.45); margin-top:18px; line-height:1.7; }
+
+/* 固定CTA */
+.sticky-cta{ position:fixed; left:0; right:0; bottom:0; z-index:200; background:rgba(255,255,255,.97); backdrop-filter:blur(10px); box-shadow:0 -8px 24px -12px rgba(43,50,46,.25); padding:10px 14px; display:flex; gap:10px; transform:translateY(110%); transition:transform .4s ease; }
+.sticky-cta.is-visible{ transform:translateY(0); }
+.sticky-cta .btn{ flex:1; padding:13px 10px; font-size:.85rem; }
+@media (min-width:860px){ .sticky-cta{ display:none; } }
+
+.skip-link{ position:absolute; left:-999px; top:0; background:var(--sage-dark); color:#fff; padding:12px 20px; z-index:999; border-radius:0 0 10px 0; }
+.skip-link:focus{ left:0; }
+:focus-visible{ outline:3px solid var(--gold); outline-offset:2px; }
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">本文へスキップ</a>
+
+<!-- ============================== HEADER ============================== -->
+<header class="site-header" id="siteHeader">
+  <div class="container">
+    <a href="#top" class="logo" aria-label="東洋堂治療院 トップへ">
+      <span class="logo-mark">東</span>
+      <span class="logo-text">東洋堂治療院<small>千葉県船橋市 ｜ 完全予約制</small></span>
+    </a>
+    <div class="header-cta">
+      <a href="#access" class="btn btn--ghost" style="padding:11px 18px;">アクセス</a>
+      <a href="https://line.me/R/ti/p/@tohyodo" class="btn btn--line" target="_blank" rel="noopener">LINEで予約</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============================== 1. HERO ============================== -->
+<section class="hero" id="top">
+  <div class="hero-media">
+    <!-- ヒーロー画像プレースホルダー：院内・外観写真に差し替え -->
+    <img src="https://placehold.co/1600x1200/2f3f31/2f3f31" alt="東洋堂治療院 施術所" loading="eager">
+  </div>
+  <div class="ki-glow" aria-hidden="true"></div>
+  <div class="container hero-content">
+    <p class="hero-eyebrow">千葉県船橋市習志野台</p>
+    <h1 class="reveal">東洋堂治療院</h1>
+    <p class="hero-sub reveal">あん摩マッサージ指圧・はり・きゅうの施術所です。完全予約制にて、お一人おひとりのご予約時間を大切にご案内しております。</p>
+    <div class="btn-row reveal">
+      <a href="https://line.me/R/ti/p/@tohyodo" class="btn btn--line" target="_blank" rel="noopener">
+        <svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 5.94 2 10.7c0 3.02 2.03 5.7 5.13 7.24-.23.83-.83 3-.9 3.32-.1.43.16.42.34.31.14-.09 2.2-1.44 3.1-2.03.75.11 1.53.16 2.33.16 5.52 0 10-3.94 10-8.7S17.52 2 12 2Z"/></svg>
+        LINEで予約する
+      </a>
+      <a href="https://www.shinq-compass.jp/salon/reserve/2595" class="btn btn--web" target="_blank" rel="noopener">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="3"/><path d="M8 2v4M16 2v4M3 9h18"/></svg>
+        WEBで予約する
+      </a>
+    </div>
+    <div class="trust-row reveal">
+      <span class="trust-chip"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>完全予約制</span>
+      <span class="trust-chip"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l7 4v6c0 5-3 8-7 10-4-2-7-5-7-10V6l7-4Z"/></svg>国家資格保有</span>
+      <span class="trust-chip"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>予約に基づく施術</span>
+      <span class="trust-chip"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10l8-6 8 6v10M2 20h20"/></svg>駐車設備あり</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== 2. 施術メニュー ============================== -->
+<section class="section" id="menu">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow" style="justify-content:center;">Menu</p>
+      <h2>施術メニューのご案内</h2>
+      <p>ご提供している施術の種類です。内容の詳細やお身体に合わせたご案内は、お電話・LINEにて承っております。</p>
+    </div>
+    <div class="menu-grid reveal-stagger">
+      <div class="menu-card">
+        <span class="tag">業務種目</span>
+        <h3>あん摩マッサージ指圧</h3>
+        <p>ご予約制にて承っております。詳しくはお問い合わせください。</p>
+      </div>
+      <div class="menu-card">
+        <span class="tag">業務種目</span>
+        <h3>はり</h3>
+        <p>ご予約制にて承っております。詳しくはお問い合わせください。</p>
+      </div>
+      <div class="menu-card">
+        <span class="tag">業務種目</span>
+        <h3>きゅう</h3>
+        <p>ご予約制にて承っております。詳しくはお問い合わせください。</p>
+      </div>
+    </div>
+    <p class="menu-note reveal">上記以外のメニューにつきましても、お電話・LINEにてご案内しております。お気軽にお問い合わせください。</p>
+  </div>
+</section>
+
+<!-- ============================== 3. 施術所について ============================== -->
+<section class="section section--paper" id="about">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow" style="justify-content:center;">About</p>
+      <h2>施術所について</h2>
+    </div>
+    <div class="about-grid reveal-stagger">
+      <div class="about-card">
+        <div class="ico-wrap"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h4>完全予約制</h4>
+        <p>予約に基づき施術をご案内しております。</p>
+      </div>
+      <div class="about-card">
+        <div class="ico-wrap"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l7 4v6c0 5-3 8-7 10-4-2-7-5-7-10V6l7-4Z"/></svg></div>
+        <h4>国家資格保有</h4>
+        <p>国家資格を有する施術者が在籍しております。</p>
+      </div>
+      <div class="about-card">
+        <div class="ico-wrap"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+        <h4>休日・夜間の施術</h4>
+        <p>営業時間・定休日は「アクセス」欄をご確認ください。</p>
+      </div>
+      <div class="about-card">
+        <div class="ico-wrap"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10l8-6 8 6v10M2 20h20"/></svg></div>
+        <h4>駐車設備</h4>
+        <p>専用駐車スペースをご用意しております。</p>
+      </div>
+      <div class="about-card">
+        <div class="ico-wrap"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="17" rx="3"/><path d="M8 2v4M16 2v4M3 9h18"/></svg></div>
+        <h4>出張による施術</h4>
+        <p>出張施術についてはお問い合わせください。</p>
+      </div>
+      <div class="about-card">
+        <div class="ico-wrap"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16v14H4z"/><path d="M4 6l8 6 8-6"/></svg></div>
+        <h4>お問い合わせ</h4>
+        <p>フリーダイヤル・LINEにて承っております。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== 4. ご予約からご来院までの流れ ============================== -->
+<section class="section" id="flow">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow" style="justify-content:center;">Flow</p>
+      <h2>ご予約からご来院までの流れ</h2>
+    </div>
+    <div class="flow reveal">
+      <div class="flow-line" aria-hidden="true"></div>
+      <div class="flow-step">
+        <div class="flow-num">1</div>
+        <div class="flow-body"><h4>ご予約</h4><p>LINE・WEB予約フォーム・お電話のいずれかからご予約ください。</p></div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">2</div>
+        <div class="flow-body"><h4>ご来院</h4><p>ご予約のお時間に、施術所へお越しください。</p></div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">3</div>
+        <div class="flow-body"><h4>受付・ご案内</h4><p>受付後、担当の施術者がご案内いたします。</p></div>
+      </div>
+      <div class="flow-step is-final">
+        <div class="flow-num">4</div>
+        <div class="flow-body"><h4>お会計・次回のご予約</h4><p>お会計後、ご希望があれば次回のご予約を承ります。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== 5. FAQ ============================== -->
+<section class="section section--paper" id="faq">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow" style="justify-content:center;">FAQ</p>
+      <h2>よくあるご質問</h2>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span>予約は必要ですか？</span>
+          <span class="q-mark" aria-hidden="true">Q</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">当院は完全予約制です。LINE・WEB予約フォーム・お電話のいずれかからご予約をお願いいたします。</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span>駐車場はありますか？</span>
+          <span class="q-mark" aria-hidden="true">Q</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">施術所近くに専用駐車スペースをご用意しております。ご来院前にお気軽にお問い合わせください。</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span>営業日・営業時間を教えてください。</span>
+          <span class="q-mark" aria-hidden="true">Q</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">ページ下部の「アクセス」欄に営業時間・定休日を記載しております。あわせてご確認ください。</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span>予約の変更・キャンセルはできますか？</span>
+          <span class="q-mark" aria-hidden="true">Q</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">お電話またはLINEにて承っております。ご予約時間が近づいている場合は、お早めにご連絡ください。</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span>出張での施術はお願いできますか？</span>
+          <span class="q-mark" aria-hidden="true">Q</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">出張による施術も承っております。詳しくはお電話・LINEにてご相談ください。</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== 6. アクセス ============================== -->
+<section class="section" id="access">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow" style="justify-content:center;">Access</p>
+      <h2>アクセス</h2>
+    </div>
+    <div class="access-wrap reveal">
+      <div class="access-map">
+        <!-- Googleマップ埋め込み -->
+        <iframe title="東洋堂治療院 地図" width="100%" height="100%" style="border:0;" loading="lazy"
+          src="https://www.google.com/maps?q=千葉県船橋市習志野台4-45-15&output=embed"></iframe>
+      </div>
+      <div class="access-info">
+        <h3>東洋堂治療院</h3>
+        <p class="sub-shop">漢方・自然薬 東洋堂　併設</p>
+
+        <div class="access-row">
+          <div class="ico-wrap"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.5-7-11a7 7 0 0 1 14 0c0 4.5-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+          <div><p class="label">住所</p><p class="value">〒274-0815<br>千葉県船橋市習志野台4-45-15</p></div>
+        </div>
+        <div class="access-row">
+          <div class="ico-wrap"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+          <div><p class="label">営業時間</p><p class="value">AM10:00〜PM8:00<small>最終受付時間はお問い合わせください</small></p></div>
+        </div>
+        <div class="access-row">
+          <div class="ico-wrap"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="17" rx="3"/><path d="M8 2v4M16 2v4M3 9h18"/></svg></div>
+          <div><p class="label">定休日</p><p class="value">第一・第三・第五日曜日<br>毎週火曜日</p></div>
+        </div>
+        <div class="access-row">
+          <div class="ico-wrap"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10l8-6 8 6v10M2 20h20"/></svg></div>
+          <div><p class="label">駐車場</p><p class="value">専用駐車スペースあり</p></div>
+        </div>
+        <div class="access-row">
+          <div class="ico-wrap"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16v14H4z"/><path d="M4 6l8 6 8-6"/></svg></div>
+          <div><p class="label">電話番号（フリーダイヤル）</p><p class="value">0120-193-289</p></div>
+        </div>
+        <div class="access-row">
+          <div class="ico-wrap"><svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 5.94 2 10.7c0 3.02 2.03 5.7 5.13 7.24-.23.83-.83 3-.9 3.32-.1.43.16.42.34.31.14-.09 2.2-1.44 3.1-2.03.75.11 1.53.16 2.33.16 5.52 0 10-3.94 10-8.7S17.52 2 12 2Z"/></svg></div>
+          <div><p class="label">LINE</p><p class="value">ID検索：@tohyodo</p></div>
+        </div>
+
+        <div class="access-cta">
+          <a href="tel:0120193289" class="btn btn--tel">
+            <svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16v14H4z"/><path d="M4 6l8 6 8-6"/></svg>
+            電話で予約
+          </a>
+          <a href="https://line.me/R/ti/p/@tohyodo" class="btn btn--line" target="_blank" rel="noopener">LINEで予約</a>
+          <a href="https://www.shinq-compass.jp/salon/reserve/2595" class="btn btn--web" target="_blank" rel="noopener">WEBで予約</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== 7. 最終CTA ============================== -->
+<section class="final-cta">
+  <div class="ki-glow" aria-hidden="true"></div>
+  <div class="container">
+    <p class="eyebrow reveal">Contact</p>
+    <h2 class="reveal">ご予約は、LINE・WEB・お電話から<br>承っております。</h2>
+    <p class="lead reveal">当院は完全予約制です。ご不明な点がございましたら、お気軽にお問い合わせください。</p>
+    <div class="btn-row reveal">
+      <a href="https://line.me/R/ti/p/@tohyodo" class="btn btn--line" target="_blank" rel="noopener">LINEで予約する</a>
+      <a href="https://www.shinq-compass.jp/salon/reserve/2595" class="btn btn--web" target="_blank" rel="noopener">WEBで予約する</a>
+      <a href="tel:0120193289" class="btn btn--tel">電話で予約する</a>
+    </div>
+    <p class="reassure reveal">まずはお気軽にご相談ください。</p>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================== FOOTER ============================== -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand"><span class="logo-mark" style="width:34px;height:34px;font-size:.9rem;">東</span>東洋堂治療院</div>
+      <div class="footer-links">
+        <a href="#menu">施術メニュー</a>
+        <a href="#about">施術所について</a>
+        <a href="#flow">ご利用の流れ</a>
+        <a href="#faq">よくあるご質問</a>
+        <a href="#access">アクセス</a>
+      </div>
+    </div>
+    <hr>
+    <div class="footer-bottom">
+      <span>〒274-0815 千葉県船橋市習志野台4-45-15　フリーダイヤル 0120-193-289</span>
+      <span>&copy; 東洋堂治療院 ／ 漢方・自然薬 東洋堂</span>
+    </div>
+    <p class="footer-legal">本ページは、あん摩マッサージ指圧師、はり師、きゅう師等に関する法律その他関係法令に基づく広告規制に配慮して作成しています。掲載内容についてご不明な点がある場合は、所轄の保健所または専門家にご確認ください。</p>
+  </div>
+</footer>
+
+<!-- スマホ固定CTA -->
+<div class="sticky-cta" id="stickyCta">
+  <a href="https://line.me/R/ti/p/@tohyodo" class="btn btn--line" target="_blank" rel="noopener">LINE予約</a>
+  <a href="https://www.shinq-compass.jp/salon/reserve/2595" class="btn btn--web" target="_blank" rel="noopener">WEB予約</a>
+  <a href="tel:0120193289" class="btn btn--tel" aria-label="電話で予約する">
+    <svg class="ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16v14H4z"/><path d="M4 6l8 6 8-6"/></svg>
+  </a>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var header = document.getElementById('siteHeader');
+  var stickyCta = document.getElementById('stickyCta');
+  function onScroll(){
+    var y = window.scrollY || document.documentElement.scrollTop;
+    if (y > 60) { header.classList.add('is-scrolled'); } else { header.classList.remove('is-scrolled'); }
+    if (y > 480) { stickyCta.classList.add('is-visible'); } else { stickyCta.classList.remove('is-visible'); }
+  }
+  document.addEventListener('scroll', onScroll, { passive:true });
+  onScroll();
+
+  var reveals = document.querySelectorAll('.reveal, .reveal-stagger');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(function(el){ io.observe(el); });
+  } else {
+    reveals.forEach(function(el){ el.classList.add('is-visible'); });
+  }
+
+  document.querySelectorAll('.faq-item').forEach(function(item){
+    var q = item.querySelector('.faq-q');
+    var a = item.querySelector('.faq-a');
+    q.addEventListener('click', function(){
+      var isOpen = item.classList.contains('is-open');
+      document.querySelectorAll('.faq-item.is-open').forEach(function(openItem){
+        if (openItem !== item) {
+          openItem.classList.remove('is-open');
+          openItem.querySelector('.faq-q').setAttribute('aria-expanded','false');
+          openItem.querySelector('.faq-a').style.maxHeight = null;
+        }
+      });
+      if (isOpen) {
+        item.classList.remove('is-open');
+        q.setAttribute('aria-expanded','false');
+        a.style.maxHeight = null;
+      } else {
+        item.classList.add('is-open');
+        q.setAttribute('aria-expanded','true');
+        a.style.maxHeight = a.scrollHeight + 'px';
+      }
+    });
+  });
+});
+</script>
+
+</body>
+</html>
