@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>栄養コンテンツ（初級）｜栄養まなびログ</title>
+<meta name="description" content="何をどれだけ食べるか。体づくりの土台になる6つのテーマ。">
+<meta property="og:title" content="まずは、ここから">
+<meta property="og:description" content="何をどれだけ食べるか。体づくりの土台になる6つのテーマ。">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0C3F59; --aqua:#16A6D9; --light:#BFE3F2;
+    --bg:#eef7fb; --ink:#1b2a33; --sub:#43606f; --line:#e4eef3;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{margin:0;font-family:"Noto Sans JP",sans-serif;font-size:16px;line-height:1.9;color:var(--ink);background:#fff;}
+  .wrap{max-width:640px;margin:0 auto;padding:0 20px;}
+  .back{display:inline-block;margin:22px 0 0;font-size:14px;color:var(--sub);text-decoration:none;}
+  .back:hover,.back:focus-visible{color:var(--aqua);}
+  .back{display:inline-block;margin:22px 0 0;font-size:14px;color:var(--sub);text-decoration:none;}
+  .back:hover{color:var(--aqua);}
+  header{padding:26px 0 34px;}
+  header .eyebrow{font-size:12px;letter-spacing:.2em;color:var(--aqua);font-weight:700;margin-bottom:16px;}
+  header h1{font-size:27px;line-height:1.5;font-weight:900;color:var(--navy);margin:0 0 18px;}
+  header .rule{width:56px;height:4px;background:var(--aqua);margin-bottom:18px;}
+  header p{margin:0;font-size:16px;color:var(--sub);}
+  .group{padding:30px 0;border-top:1px solid var(--line);}
+  .group h2{font-size:14px;font-weight:700;color:var(--aqua);letter-spacing:.12em;margin:0 0 16px;}
+  .card{display:block;text-decoration:none;color:inherit;border:1px solid var(--line);border-radius:4px;padding:18px 20px;margin-bottom:12px;transition:border-color .15s,background .15s;}
+  .card:last-child{margin-bottom:0;}
+  .card:hover,.card:focus-visible{border-color:var(--aqua);background:var(--bg);}
+  .soon{border:1px dashed var(--line);border-radius:4px;padding:18px 20px;margin-bottom:12px;color:#8fa8b5;}
+  .soon:last-child{margin-bottom:0;}
+  .soon .t{font-size:17px;font-weight:700;line-height:1.5;}
+  .soon .d{font-size:14px;line-height:1.7;margin-top:4px;}
+  .card:focus-visible{outline:2px solid var(--aqua);outline-offset:2px;}
+  .card .t{font-size:18px;font-weight:700;color:var(--navy);line-height:1.5;}
+  .card .d{font-size:14px;color:var(--sub);line-height:1.7;margin-top:4px;}
+  .soon{border:1px dashed var(--line);border-radius:4px;padding:18px 20px;margin-bottom:12px;color:#8fa8b5;}
+  .soon:last-child{margin-bottom:0;}
+  .soon .t{font-size:17px;font-weight:700;line-height:1.5;}
+  .soon .d{font-size:14px;line-height:1.7;margin-top:4px;}
+  footer{padding:30px 0 60px;border-top:1px solid var(--line);font-size:13px;color:#6d8592;line-height:1.85;}
+  footer u{text-decoration:underline;}
+  @media (max-width:600px){
+    body{font-size:15.5px;}
+    .wrap{padding:0 18px;}
+    header h1{font-size:23px;}
+    .group{padding:26px 0;}
+    .card{padding:16px 18px;}
+    .card .t{font-size:17px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="../">← 栄養まなびログ</a>
+
+  <header>
+    <div class="eyebrow">栄養コンテンツ｜初級</div>
+    <h1>まずは、ここから</h1>
+    <div class="rule"></div>
+    <p>何をどれだけ食べるか。体づくりの土台になる6つのテーマです。</p>
+  </header>
+
+  <div class="group">
+    <div class="soon">
+      <div class="t">基礎：必要なエネルギーと量</div>
+      <div class="d">自分に必要な量をどう見積もるか。PFCバランスの考え方。</div>
+    </div>
+    <a class="card" href="./protein.html">
+      <div class="t">タンパク質</div>
+      <div class="d">体づくりの土台になる栄養素。必要な量と、摂るタイミングの考え方。</div>
+    </a>
+    <div class="soon">
+      <div class="t">糖質とトレーニング前後の血糖</div>
+      <div class="d">動くためのエネルギー源。練習前後に何をどう摂るか。</div>
+    </div>
+    <div class="soon">
+      <div class="t">脂質</div>
+      <div class="d">減らしすぎても困る栄養素。種類による違いと摂り方。</div>
+    </div>
+    <div class="soon">
+      <div class="t">ビタミン（D・B群・C）</div>
+      <div class="d">量は少なくても、足りないと動きに出てくる栄養素。</div>
+    </div>
+    <div class="soon">
+      <div class="t">ミネラル（鉄・カルシウム・マグネシウム・亜鉛）</div>
+      <div class="d">競技者が不足しやすいミネラルと、その補い方。</div>
+    </div>
+  </div>
+
+  <footer>
+    <u>掲載内容は一般的な栄養や生活習慣に関する情報提供を目的としたものであり、特定の疾病の診断・治療・予防を目的としたものではありません。</u>
+    感じ方には個人差があります。体調に不安がある場合や、通院・服薬をされている場合は、医師や専門家にご相談ください。<br>
+    発行：カズ／スポーツ栄養プランナー
+  </footer>
+
+</div>
+</body>
+</html>
