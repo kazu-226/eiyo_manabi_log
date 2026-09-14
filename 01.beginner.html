@@ -1,0 +1,673 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>必要なエネルギー量とPFCバランス｜社会人アスリートのための計算資料</title>
+<meta name="description" content="自分に必要なエネルギー量とPFCバランスを、除脂肪体重ベースの推定式で算出する資料。計算の根拠と、グラムを実際の食事に落とし込む方法まで。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0C3F59;
+  --aqua:#16A6D9;
+  --lblue:#BFE3F2;
+  --wash:#eef7fb;
+  --ink:#1b2a33;
+  --mute:#43606f;
+  --line:#BFE3F2;
+  --rule:#e4eef3;
+  --faint:#8fa8b5;
+  --paper:#ffffff;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:'Noto Sans JP',system-ui,sans-serif;
+  color:var(--ink);
+  background:var(--paper);
+  line-height:1.9;
+  font-size:16px;
+  -webkit-text-size-adjust:100%;
+}
+.wrap{max-width:760px;margin:0 auto;padding:0 22px;}
+h2{
+  font-size:1.45rem;line-height:1.5;font-weight:700;
+  margin:0 0 18px;letter-spacing:.01em;
+}
+h3{font-size:1.05rem;font-weight:700;margin:32px 0 10px;}
+p{margin:0 0 16px;}
+a{color:var(--aqua);}
+
+/* ---------- hero ---------- */
+.hero{
+  background:var(--navy);
+  color:#fff;position:relative;overflow:hidden;
+  padding:74px 0 62px;
+}
+.hero::after{
+  content:"";position:absolute;right:-90px;top:-40px;width:420px;height:420px;
+  background:repeating-linear-gradient(115deg,rgba(255,255,255,.075) 0 2px,transparent 2px 16px);
+  transform:rotate(-8deg);pointer-events:none;
+}
+.hero .wrap{position:relative;z-index:1;}
+.hero-lead{
+  font-family:'Bebas Neue',sans-serif;font-size:.95rem;letter-spacing:.22em;
+  color:var(--lblue);margin:0 0 20px;
+}
+.hero h1{
+  font-size:1.85rem;line-height:1.65;font-weight:700;margin:0 0 22px;
+}
+.hero p{color:var(--lblue);margin:0;font-size:1rem;}
+.hero-meta{
+  margin-top:34px;padding-top:20px;border-top:1px solid rgba(255,255,255,.18);
+  font-size:.85rem;color:var(--lblue);line-height:1.8;
+}
+
+/* ---------- sections ---------- */
+section{padding:56px 0;border-bottom:1px solid var(--rule);}
+section.tight{padding:44px 0;}
+.kicker{
+  display:inline-block;font-family:'Bebas Neue',sans-serif;
+  font-size:1.5rem;color:var(--aqua);letter-spacing:.06em;margin:0 0 4px;
+}
+
+/* ---------- calculator ---------- */
+#calc{background:var(--wash);border-bottom:1px solid var(--rule);}
+.card{
+  background:#fff;border:1px solid var(--line);border-radius:14px;
+  padding:26px 22px;
+}
+.field{margin-bottom:20px;}
+.field:last-child{margin-bottom:0;}
+label.lb{display:block;font-weight:700;font-size:.95rem;margin-bottom:7px;}
+.hint{font-size:.8rem;color:var(--mute);font-weight:400;line-height:1.7;margin-top:5px;}
+input[type=number]{
+  width:100%;padding:12px 14px;font-size:1.05rem;font-family:inherit;
+  border:1px solid var(--line);border-radius:9px;background:#fff;color:var(--ink);
+}
+input[type=number]::placeholder{color:var(--faint);font-size:.9rem;}
+input[type=number]:focus,.seg button:focus-visible,.acc-h:focus-visible{
+  outline:3px solid var(--aqua);outline-offset:2px;
+}
+.seg{display:flex;flex-wrap:wrap;gap:8px;}
+.seg button{
+  flex:1 1 auto;min-width:88px;padding:11px 10px;font-family:inherit;font-size:.9rem;
+  border:1px solid var(--line);background:#fff;color:var(--mute);
+  border-radius:9px;cursor:pointer;transition:background .12s,color .12s,border-color .12s;
+}
+.seg button[aria-pressed="true"]{
+  background:var(--navy);border-color:var(--navy);color:#fff;font-weight:700;
+}
+
+/* ---------- result ---------- */
+.result{margin-top:26px;}
+.energy{
+  background:var(--navy);color:#fff;border-radius:14px;padding:24px 22px;text-align:center;
+}
+.energy .lbl{font-size:.85rem;color:var(--lblue);margin:0 0 4px;}
+.energy .num{
+  font-family:'Bebas Neue',sans-serif;font-size:4.1rem;line-height:1;letter-spacing:.01em;
+}
+.energy .unit{font-family:'Noto Sans JP',sans-serif;font-size:1rem;margin-left:6px;color:var(--lblue);}
+.energy .sub{font-size:.83rem;color:var(--lblue);margin:10px 0 0;line-height:1.8;}
+
+.bar{display:flex;height:13px;border-radius:7px;overflow:hidden;margin:20px 0 16px;}
+.bar i{display:block;}
+.bar .p{background:var(--navy);}
+.bar .f{background:var(--aqua);}
+.bar .c{background:var(--lblue);}
+
+.macros{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+.macro{
+  border:1px solid var(--line);border-radius:11px;padding:15px 12px;text-align:center;background:#fff;
+}
+.macro .nm{font-size:.83rem;color:var(--mute);margin-bottom:2px;}
+.macro .g{font-family:'Bebas Neue',sans-serif;font-size:2.3rem;line-height:1.05;}
+.macro .g span{font-family:'Noto Sans JP',sans-serif;font-size:.85rem;margin-left:3px;}
+.macro .kc{font-size:.76rem;color:var(--mute);margin-top:3px;line-height:1.6;}
+.macro.p{border-top:3px solid var(--navy);}
+.macro.f{border-top:3px solid var(--aqua);}
+.macro.c{border-top:3px solid var(--lblue);}
+
+.per-meal{
+  margin-top:16px;padding:14px 16px;background:var(--wash);border-radius:11px;
+  font-size:.88rem;line-height:1.85;
+}
+.note{
+  margin-top:14px;padding:14px 16px 14px 18px;border-radius:0 11px 11px 0;font-size:.85rem;line-height:1.8;
+  background:var(--wash);color:var(--navy);border:1px solid var(--lblue);border-left:4px solid var(--aqua);
+}
+.note:empty{display:none;}
+.note strong{font-weight:700;}
+
+.copy{
+  width:100%;margin-top:16px;padding:14px;font-family:inherit;font-size:.92rem;font-weight:700;
+  background:#fff;color:var(--navy);border:1px solid var(--navy);border-radius:11px;cursor:pointer;
+}
+.copy:focus-visible{outline:3px solid var(--aqua);outline-offset:2px;}
+.copy[data-done="1"]{background:var(--navy);color:#fff;}
+
+.close-list{list-style:none;padding:0;margin:24px 0 0;}
+.close-list li{
+  border:1px solid var(--line);border-radius:12px;background:var(--wash);
+  padding:18px 20px;margin-bottom:12px;
+}
+.sign{
+  margin:26px 0 0;padding:20px 22px;background:var(--wash);
+  border:1px solid var(--line);border-left:4px solid var(--aqua);border-radius:0 12px 12px 0;
+  font-size:.95rem;line-height:1.9;
+}
+.close-list .t{font-weight:700;margin-bottom:5px;}
+.close-list p{margin:0;font-size:.92rem;color:var(--mute);line-height:1.85;}
+
+/* ---------- accordion ---------- */
+.acc{border:1px solid var(--line);border-radius:11px;overflow:hidden;margin-top:22px;background:#fff;}
+.acc-h{
+  width:100%;text-align:left;background:#fff;border:0;cursor:pointer;
+  font-family:inherit;font-size:.95rem;font-weight:700;color:var(--ink);
+  padding:16px 18px;display:flex;justify-content:space-between;align-items:center;gap:12px;
+}
+.acc-h .mk{color:var(--aqua);font-size:1.3rem;line-height:1;flex:0 0 auto;}
+.acc-b{display:none;padding:0 18px 20px;font-size:.9rem;line-height:1.9;color:var(--ink);}
+.acc.open .acc-b{display:block;}
+.acc-b table{width:100%;border-collapse:collapse;margin:12px 0 16px;font-size:.85rem;}
+.acc-b th,.acc-b td{border:1px solid var(--rule);padding:8px 10px;text-align:center;}
+.acc-b th{background:var(--wash);font-weight:700;}
+.acc-b td:first-child,.acc-b th:first-child{text-align:left;}
+.src{font-size:.8rem;color:var(--mute);line-height:1.85;margin:0;}
+.src li{margin-bottom:6px;}
+
+/* ---------- order (P→F→C) ---------- */
+.order{list-style:none;padding:0;margin:24px 0 0;counter-reset:o;}
+.order li{
+  position:relative;padding:18px 0 18px 54px;border-top:1px solid var(--rule);counter-increment:o;
+}
+.order li::before{
+  content:counter(o);position:absolute;left:0;top:18px;
+  width:34px;height:34px;border-radius:50%;background:var(--navy);color:#fff;
+  font-family:'Bebas Neue',sans-serif;font-size:1.25rem;
+  display:flex;align-items:center;justify-content:center;
+}
+.order .t{font-weight:700;margin-bottom:4px;}
+.order p{margin:0;font-size:.92rem;color:var(--mute);line-height:1.85;}
+
+/* ---------- conversion table ---------- */
+.conv{width:100%;border-collapse:collapse;font-size:.88rem;margin-top:18px;}
+.conv th,.conv td{border-bottom:1px solid var(--rule);padding:11px 8px;text-align:left;}
+.conv th{background:var(--wash);font-weight:700;font-size:.82rem;}
+.conv td:nth-child(2),.conv th:nth-child(2){text-align:right;white-space:nowrap;}
+
+/* ---------- pitfalls ---------- */
+.pit{border-left:3px solid var(--aqua);padding:2px 0 2px 18px;margin:26px 0;}
+.pit .t{font-weight:700;margin-bottom:6px;}
+.pit p{margin:0;font-size:.93rem;color:var(--mute);}
+
+/* ---------- loop ---------- */
+.loop{background:var(--wash);border-radius:14px;padding:24px 22px;margin-top:22px;}
+.loop ul{margin:0;padding-left:1.2em;font-size:.93rem;}
+.loop li{margin-bottom:9px;}
+
+/* ---------- footer ---------- */
+footer{background:var(--navy);color:var(--lblue);padding:40px 0;font-size:.8rem;line-height:1.9;}
+footer u{text-decoration:underline;}
+footer p{margin:0 0 12px;}
+footer p:last-child{margin:0;}
+
+@media(max-width:560px){
+  .hero h1{font-size:1.5rem;}
+  .energy .num{font-size:3.3rem;}
+  .macros{grid-template-columns:1fr;}
+  .macro{display:flex;align-items:baseline;justify-content:space-between;text-align:left;}
+  .macro .kc{margin:0;}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  *{transition:none!important;}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="hero-lead">ENERGY &amp; PFC</p>
+    <h1>増やすべきか減らすべきかを、体感で決めていないか。</h1>
+    <p>自分の必要量を知らないまま食事を変えても、当たりを引くまで試行錯誤が続く。</p>
+    <p class="hero-meta">
+      この資料は、除脂肪体重をもとにした推定式で1日の必要エネルギー量を出し、そこからP・F・Cを決めるまでを一本の流れにしたものです。<br>
+      P・F・Cとは、たんぱく質（Protein）、脂質（Fat）、炭水化物（Carbohydrate）の頭文字です。食事から摂るエネルギーは、ほぼこの3つでできています。どれか一つを増やせば、同じエネルギー量のなかで他のどれかが減る関係にあります。<br><br>対象：週に数回トレーニングしている社会人アスリート。中高生も使えますが、成長期は計算の前提が変わるため、該当する箇所に注記を出しています。
+    </p>
+  </div>
+</header>
+
+<section id="calc">
+  <div class="wrap">
+    <span class="kicker">01</span>
+    <h2>まず、自分の数字を出す</h2>
+    <p>何事も、いまの自分の現状を知ることが大切です。</p>
+
+    <div class="card">
+      <div class="field">
+        <label class="lb" for="w">体重（kg）</label>
+        <input type="number" id="w" value="65" min="30" max="150" step="0.1" inputmode="decimal">
+      </div>
+
+      <div class="field">
+        <label class="lb" for="bf">体脂肪率（％）</label>
+        <input type="number" id="bf" placeholder="わからなければ空欄のままで可" min="3" max="50" step="0.1" inputmode="decimal">
+        <p class="hint">空欄のときは仮の値で計算します。体組成計の数字でかまわないので、入れたほうが精度は上がります。</p>
+      </div>
+
+      <div class="field">
+        <label class="lb" for="sex">性別</label>
+        <div class="seg" id="sex" role="group" aria-label="性別">
+          <button type="button" data-v="m" aria-pressed="true">男性</button>
+          <button type="button" data-v="f" aria-pressed="false">女性</button>
+        </div>
+        <p class="hint">体脂肪率が空欄のときの仮定値にのみ使います。</p>
+      </div>
+
+      <div class="field">
+        <label class="lb" for="age">年齢</label>
+        <input type="number" id="age" value="30" min="12" max="80" step="1" inputmode="numeric">
+        <p class="hint">18歳未満の場合は、成長に使われるぶんのエネルギーを上乗せして計算します。</p>
+      </div>
+
+      <div class="field">
+        <label class="lb" for="sport">トレーニングの中身</label>
+        <div class="seg" id="sport" role="group" aria-label="トレーニングの中身">
+          <button type="button" data-v="power" aria-pressed="true">筋力・瞬発系</button>
+          <button type="button" data-v="endurance" aria-pressed="false">持久系</button>
+          <button type="button" data-v="ball" aria-pressed="false">球技系</button>
+          <button type="button" data-v="other" aria-pressed="false">軽い運動中心</button>
+        </div>
+        <p class="hint">筋トレ・短距離・跳躍などは筋力・瞬発系。ランや自転車、長時間の有酸素は持久系。</p>
+      </div>
+
+      <div class="field">
+        <label class="lb" for="phase">いまの時期</label>
+        <div class="seg" id="phase" role="group" aria-label="いまの時期">
+          <button type="button" data-v="normal" aria-pressed="true">通常練習期</button>
+          <button type="button" data-v="off" aria-pressed="false">オフ期・休養期</button>
+        </div>
+        <p class="hint">週の練習量がいつもどおりなら通常練習期。故障や繁忙期で動けていない時期はオフ期を選んでください。</p>
+      </div>
+
+      <div class="field">
+        <label class="lb" for="goal">目的</label>
+        <div class="seg" id="goal" role="group" aria-label="目的">
+          <button type="button" data-v="keep" aria-pressed="true">維持</button>
+          <button type="button" data-v="gain" aria-pressed="false">増量</button>
+          <button type="button" data-v="cut" aria-pressed="false">減量</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="result">
+      <div class="energy">
+        <p class="lbl" id="elbl">1日のエネルギー目安</p>
+        <div><span class="num" id="kcal">—</span><span class="unit">kcal</span></div>
+        <p class="sub" id="esub"></p>
+      </div>
+
+      <div class="bar" aria-hidden="true">
+        <i class="p" id="barP" style="width:25%"></i>
+        <i class="f" id="barF" style="width:25%"></i>
+        <i class="c" id="barC" style="width:50%"></i>
+      </div>
+
+      <div class="macros">
+        <div class="macro p">
+          <div class="nm">たんぱく質</div>
+          <div class="g" id="gP">—<span>g</span></div>
+          <div class="kc" id="kP"></div>
+        </div>
+        <div class="macro f">
+          <div class="nm">脂質</div>
+          <div class="g" id="gF">—<span>g</span></div>
+          <div class="kc" id="kF"></div>
+        </div>
+        <div class="macro c">
+          <div class="nm">炭水化物</div>
+          <div class="g" id="gC">—<span>g</span></div>
+          <div class="kc" id="kC"></div>
+        </div>
+      </div>
+
+      <div class="per-meal" id="perMeal"></div>
+      <div class="note" id="note"></div>
+      <button type="button" class="copy" id="copyBtn">この結果をコピーする</button>
+      <p class="hint" style="text-align:center">体重はコピーされません。</p>
+    </div>
+
+    <div class="acc" id="acc1">
+      <button class="acc-h" type="button" aria-expanded="false">この数字はどう出しているのか<span class="mk">＋</span></button>
+      <div class="acc-b">
+        <p><strong>エネルギー量</strong>：国立スポーツ科学センター（JISS）の栄養サポートで用いられている推定式を使っています。基礎代謝量を「除脂肪体重 × 28.5kcal」で出し、そこに種目と時期に応じた身体活動レベル（PAL）を掛けたものが、1日の推定エネルギー必要量です。</p>
+        <p>除脂肪体重 ＝ 体重 ×（1 − 体脂肪率 ÷ 100）</p>
+        <p>推定エネルギー必要量 ＝ 除脂肪体重 × 28.5 × PAL</p>
+        <table>
+          <tr><th>種目カテゴリー</th><th>通常練習期</th><th>オフ期</th></tr>
+          <tr><td>持久系</td><td>2.50</td><td>1.75</td></tr>
+          <tr><td>筋力・瞬発系</td><td>2.00</td><td>1.75</td></tr>
+          <tr><td>球技系</td><td>2.00</td><td>1.75</td></tr>
+          <tr><td>軽い運動中心</td><td>1.75</td><td>1.50</td></tr>
+        </table>
+        <p><strong>成長期の上乗せ</strong>：18歳未満の場合、身体が大きくなるぶんのエネルギー（エネルギー蓄積量）を加算しています。日本人の食事摂取基準では、12〜14歳で男子20kcal・女子25kcal、15〜17歳で男女とも10kcal（いずれも1日あたり）が示されています。また、この年代では減量の設定を表示していません。</p>
+        <p><strong>たんぱく質</strong>：エネルギー量と同じくJISSで用いられている値を基準にしています。体重1kgあたり1日で、瞬発・筋力系2.0g、球技系1.75g、持久系1.5g。国際的な推奨では1.2〜2.0gの幅が示されており、この範囲に収まります。減量を選んだ場合は、除脂肪量の減少を抑える目的で上乗せしています（エネルギーが不足している状況では2.0gを超える設定にも根拠が示されています）。</p>
+        <p>表示している「調整の幅」は、その種目で許容されるレンジを体重に掛けたものです。増量期は上限寄り、オフ期は下限寄り、といった調整の余地がこの範囲にあります。</p>
+        <p><strong>脂質</strong>：総エネルギーの25％を基準にしています。国際的な推奨では総エネルギーの20〜35％の範囲が示されており、その中央付近にあたります。あわせて体重1kgあたり0.8gを下限として、これを下回らないよう調整しています。</p>
+        <p><strong>炭水化物</strong>：総エネルギーからたんぱく質と脂質を引いた残りです。目安として体重1kgあたり3〜12gという幅が示されており、トレーニング量が多いほど上限側に寄ります。算出結果が3gを下回る場合は注意表示が出ます。</p>
+        <p><strong>目的別の調整</strong>：増量は推定必要量の＋10％、減量は−15％で計算しています。減量幅を大きく取るほど除脂肪量が落ちやすくなるため、極端な設定は避けています。</p>
+        <p class="src">主な参照元：</p>
+        <ul class="src">
+          <li>国立スポーツ科学センター「アスリートのエネルギー必要量の推定」Journal of High Performance Sport 5（2020）</li>
+          <li>日本スポーツ協会 公認スポーツ指導者養成テキスト「アスリートの栄養・食事」掲載のPAL表</li>
+          <li>日本スポーツ栄養研究誌 第2巻（2008）アスリートのたんぱく質必要量</li>
+          <li>Nutrition and Athletic Performance（米国スポーツ医学会ほか 合同声明, 2016）</li>
+          <li>厚生労働省 日本人の食事摂取基準（2020年版）エネルギー蓄積量</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="kicker">02</span>
+    <h2>なぜ、たんぱく質より先に総量なのか</h2>
+    <p>たんぱく質を増やしたのに身体が変わらない、というときに真っ先に疑うのは総エネルギー量です。摂取エネルギーが足りていない状態では、身体は入ってきたたんぱく質を身体づくりの材料ではなくエネルギー源として使う方向に傾きます。材料として使いたいなら、先に燃やす分を別で用意しておく必要があります。</p>
+    <p>スポーツ栄養では、摂取エネルギーから運動で使った分を引いた残りを「利用可能エネルギー」と呼びます。この残りが少ない状態が続くと、骨やホルモン、コンディションの面で影響が出る可能性が指摘されています。除脂肪量1kgあたり45kcal程度が目安として示されており、下回るほどリスク側に寄ると考えられています。</p>
+    <p>つまり、食事を組む順番は「総量を決める → そのなかでP・F・Cを配分する」です。この順番が逆になっていると、何をどう足しても噛み合いません。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="kicker">03</span>
+    <h2>P・F・Cを決める順番</h2>
+    <p>三つを同時に決めようとすると必ず破綻します。決める順番があり、最後の炭水化物は基本的に「残り」です。</p>
+    <ol class="order">
+      <li>
+        <div class="t">たんぱく質を先に確保する</div>
+        <p>身体づくりの材料になる栄養素で、必要量が体重に紐づいて決まります。総エネルギーが増減しても、ここは大きく動かしません。1回の食事にまとめるより、朝・昼・夕・補食に分けて配置するほうが現実的です。</p>
+      </li>
+      <li>
+        <div class="t">脂質は「下限を守る枠」として置く</div>
+        <p>削りやすいので真っ先に減らされがちですが、ホルモンの材料になり、脂溶性のビタミンの吸収にも関わります。総エネルギーの20〜30％程度を枠として先に確保し、それ以上は削らないと決めておくほうが安全です。</p>
+      </li>
+      <li>
+        <div class="t">炭水化物は残り全部</div>
+        <p>練習の強度と量を支える燃料です。総量からPとFを引いた残りがそのまま炭水化物になります。練習量が多い時期ほどここが大きくなり、オフ期には自然に縮む。この上下で練習量に合わせる、という考え方になります。</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="kicker">04</span>
+    <h2>グラムを、食べ物に翻訳する</h2>
+    <p>「たんぱく質120g」のままでは行動に移りません。よく使う食品の含有量を頭に入れておくと、外食でもコンビニでも足し算ができるようになります。</p>
+    <table class="conv">
+      <tr><th>食品</th><th>目安量</th><th>主な内訳</th></tr>
+      <tr><td>ごはん（茶碗1杯）</td><td>150g</td><td>炭水化物 約55g／約230kcal</td></tr>
+      <tr><td>食パン（6枚切り1枚）</td><td>60g</td><td>炭水化物 約27g／約150kcal</td></tr>
+      <tr><td>鶏むね肉（皮なし）</td><td>100g</td><td>たんぱく質 約23g／約110kcal</td></tr>
+      <tr><td>さけ（切り身1切れ）</td><td>80g</td><td>たんぱく質 約18g／約110kcal</td></tr>
+      <tr><td>卵</td><td>1個</td><td>たんぱく質 約6g／脂質 約5g</td></tr>
+      <tr><td>納豆</td><td>1パック</td><td>たんぱく質 約8g／約90kcal</td></tr>
+      <tr><td>ギリシャヨーグルト</td><td>1個</td><td>たんぱく質 約10g／約100kcal</td></tr>
+      <tr><td>木綿豆腐</td><td>1/2丁（150g）</td><td>たんぱく質 約10g／約110kcal</td></tr>
+    </table>
+    <p class="hint">製品や部位によって差があります。手元の栄養成分表示があればそちらが正確です。</p>
+
+    <h3>社会人の一日に落とすと</h3>
+    <p>仕事のある日は、たんぱく質が夕食に偏りがちです。朝と昼で各25〜30gを取りにいけるかどうかで、一日の合計はかなり変わります。朝に卵と納豆、昼の定食で主菜をひとつ増やす、程度の調整で足ります。</p>
+    <p>練習が終わるのが21時を回る日は、帰ってから全部食べようとすると量が入りません。トレーニング前後に分けて、練習後はおにぎりと乳製品のような形で糖質とたんぱく質を先に入れ、帰宅後の食事を軽くする組み方のほうが現実的です。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="kicker">05</span>
+    <h2>よくある失敗</h2>
+    <div class="pit">
+      <div class="t">たんぱく質だけ増やして、総量が足りていない</div>
+      <p>いちばん多いパターンです。総量が不足したままでは、増やしたたんぱく質がエネルギーとして使われる方向に傾きます。まず総エネルギーを満たしてから配分を考える順番に戻してください。</p>
+    </div>
+    <div class="pit">
+      <div class="t">脂質を削りすぎている</div>
+      <p>カロリー調整で最初に手を付けやすい場所ですが、下限を割ると回復や体調の面で影響が出る可能性があります。総エネルギーの20％を下回る設計は、期間を区切らないなら避けたほうが無難です。</p>
+    </div>
+    <div class="pit">
+      <div class="t">練習量が変わったのに、食事が変わっていない</div>
+      <p>必要量は時期で動きます。オフ期に通常練習期の量をそのまま食べ続ければ余りますし、逆に大会前に量が増えているのに食事が据え置きなら足りません。計算機の「いまの時期」を切り替えて、差分を確認してみてください。</p>
+    </div>
+    <div class="pit">
+      <div class="t">計算値を正解だと思っている</div>
+      <p>推定式はあくまで統計的な出発点です。同じ体重でも消化吸収や日中の活動量で実際の必要量は変わります。出た数字は仮説として扱ってください。</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="kicker">06</span>
+    <h2>量が満たせたら、次に質を見る</h2>
+    <p>ここまでは全部、量の話でした。順番として、質はその次です。総量もPFCも合っていない状態で、食材の産地や添加物の有無を詰めていっても、何が効いて何が効かなかったのかを判定できません。土台が動いているうちに上物をいじると、原因が特定できなくなります。</p>
+    <p>逆に言えば、量が2週間安定して回るようになった時点で、伸びしろは質に移ります。同じ100gのたんぱく質でも、中身が毎日同じものか、分散しているかで、一緒に入ってくる栄養素がまったく変わってくるからです。</p>
+
+    <h3>質を見るときの3つの軸</h3>
+    <ol class="order">
+      <li>
+        <div class="t">たんぱく質の出どころを散らす</div>
+        <p>肉だけ、あるいは特定の一品だけで毎日の必要量を満たしていると、鉄や亜鉛、脂質の種類が偏ります。肉・魚・卵・大豆・乳製品を日単位で回すだけで、意識しなくても付随する栄養素の幅が広がります。</p>
+      </li>
+      <li>
+        <div class="t">炭水化物を精製されたものだけにしない</div>
+        <p>量が必要な種目ほど、手早く摂れるものに寄りがちです。糖質をエネルギーとして使う過程にはビタミンB群が関わるとされており、その供給源も炭水化物と一緒に入ってくることが多い。一日のうち何食かを、精製度の低いものや主食以外の供給源に振り分ける考え方があります。</p>
+      </li>
+      <li>
+        <div class="t">補うものは、いちばん最後に検討する</div>
+        <p>食事で埋まっていない部分が特定できて初めて、それを補う手段の話になります。順番が逆になると、何を補っているのか自分でも説明できなくなる。あくまで土台があったうえでのプラスα、という位置づけは崩さないほうがいいと考えています。</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="wrap">
+    <span class="kicker">07</span>
+    <h2>今日のうちに、ここまでやる</h2>
+    <p>読んで納得しただけでは、明日の食事は一つも変わりません。この資料を閉じる前に、3つ済ませてください。どれも数分で終わります。</p>
+    <ol class="close-list">
+      <li>
+        <div class="t">出した数字をコピーして、このLINEに送る</div>
+        <p>計算機の下にあるボタンで、結果をそのままコピーできます。体重はコピーされないようにしてあるので、貼り付けて送ってもらえれば大丈夫です。合っているか判断がつかない状態のまま進めるより、先に一度見たほうが早いと思います。</p>
+      </li>
+      <li>
+        <div class="t">明日の朝食と昼食だけ、先に決める</div>
+        <p>一日ぶんを組み替えようとすると続きません。たんぱく質が落ちやすいのは朝と昼です。この2食で各25〜30gに届く組み合わせを、いま決めておく。</p>
+      </li>
+      <li>
+        <div class="t">カレンダーに2週間後の印を入れる</div>
+        <p>その日に体重を測り直して、計算機にもう一度入れる。合っていたか外れていたかが分かって、初めて調整が始まります。</p>
+      </li>
+    </ol>
+    <p class="sign">今回の内容で気になることがあれば、LINEで連絡ください。直接回答させていただきます。</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p><u>本資料は一般的な栄養情報の提供を目的としたものであり、個別の診断・治療・指導を行うものではありません。</u></p>
+    <p>記載している数値は推定式および公表されている推奨レンジに基づく目安であり、個人の体質、健康状態、競技特性によって適切な量は異なります。<u>疾患の治療中の方、通院中の方、食事制限の指示を受けている方は、必ず主治医または管理栄養士にご相談ください。</u></p>
+    <p>計算結果はブラウザ内で処理しており、入力した内容が送信・保存されることはありません。</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var PAL={endurance:{normal:2.50,off:1.75},power:{normal:2.00,off:1.75},ball:{normal:2.00,off:1.75},other:{normal:1.75,off:1.50}};
+  var PRO={
+    endurance:{def:1.5,cut:1.8,lo:1.2,hi:1.8},
+    power:{def:2.0,cut:2.2,lo:1.6,hi:2.2},
+    ball:{def:1.75,cut:2.0,lo:1.4,hi:2.0},
+    other:{def:1.4,cut:1.6,lo:1.2,hi:1.6}
+  };
+  var GOAL={keep:{r:1.00,t:"1日のエネルギー目安"},gain:{r:1.10,t:"増量時のエネルギー目安"},cut:{r:0.85,t:"減量時のエネルギー目安"}};
+  var DEFBF={m:18,f:25};
+  var state={sex:"m",sport:"power",phase:"normal",goal:"keep"};
+
+  function seg(id){
+    var box=document.getElementById(id);
+    box.addEventListener("click",function(e){
+      var b=e.target.closest("button");
+      if(!b)return;
+      Array.prototype.forEach.call(box.querySelectorAll("button"),function(x){
+        x.setAttribute("aria-pressed", x===b ? "true" : "false");
+      });
+      state[id]=b.getAttribute("data-v");
+      calc();
+    });
+  }
+  ["sex","sport","phase","goal"].forEach(seg);
+
+  document.getElementById("w").addEventListener("input",calc);
+  document.getElementById("bf").addEventListener("input",calc);
+
+  function calc(){
+    var w=parseFloat(document.getElementById("w").value);
+    var bfRaw=document.getElementById("bf").value;
+    var bf=parseFloat(bfRaw);
+    var assumed=false;
+    if(isNaN(bf)||bf<=0){bf=DEFBF[state.sex];assumed=true;}
+    if(isNaN(w)||w<=0){return;}
+
+    var age=parseInt(document.getElementById("age").value,10);
+    if(isNaN(age)||age<12){age=30;}
+    var minor=age<18;
+
+    var cutBtn=document.querySelector('#goal button[data-v="cut"]');
+    cutBtn.style.display=minor?"none":"";
+    if(minor&&state.goal==="cut"){
+      state.goal="keep";
+      Array.prototype.forEach.call(document.querySelectorAll("#goal button"),function(x){
+        x.setAttribute("aria-pressed", x.getAttribute("data-v")==="keep" ? "true" : "false");
+      });
+    }
+
+    var ffm=w*(1-bf/100);
+    var bmr=ffm*28.5;
+    var pal=PAL[state.sport][state.phase];
+    var grow=0;
+    if(minor){grow=(age<15)?(state.sex==="m"?20:25):10;}
+    var tee=bmr*pal+grow;
+    var g=GOAL[state.goal];
+    var target=tee*g.r;
+
+    var pr=PRO[state.sport];
+    var pPerKg=(state.goal==="cut")?pr.cut:pr.def;
+    var pG=w*pPerKg;
+    var pK=pG*4;
+
+    var fK=target*0.25;
+    var fG=fK/9;
+    var fMin=w*0.8;
+    if(fG<fMin){fG=fMin;fK=fG*9;}
+
+    var cK=target-pK-fK;
+    var cG=cK/4;
+    if(cG<0){cG=0;cK=0;}
+
+    document.getElementById("elbl").textContent=g.t;
+    document.getElementById("kcal").textContent=Math.round(target/10)*10;
+    document.getElementById("esub").innerHTML=
+      "除脂肪体重 "+ffm.toFixed(1)+"kg ／ 推定基礎代謝 "+Math.round(bmr)+"kcal ／ 身体活動レベル "+pal.toFixed(2)+
+      (state.goal==="keep" ? "" : "<br>維持の目安は "+Math.round(tee/10)*10+"kcal");
+
+    document.getElementById("gP").innerHTML=Math.round(pG)+"<span>g</span>";
+    document.getElementById("gF").innerHTML=Math.round(fG)+"<span>g</span>";
+    document.getElementById("gC").innerHTML=Math.round(cG)+"<span>g</span>";
+    document.getElementById("kP").innerHTML=Math.round(pK)+"kcal／体重1kgあたり"+pPerKg.toFixed(2).replace(/0$/,"")+"g"+
+      "<br>調整の幅："+Math.round(w*pr.lo)+"〜"+Math.round(w*pr.hi)+"g";
+    document.getElementById("kF").textContent=Math.round(fK)+"kcal／総エネルギーの"+Math.round(fK/target*100)+"%";
+    document.getElementById("kC").textContent=Math.round(cK)+"kcal／体重1kgあたり"+(cG/w).toFixed(1)+"g";
+
+    var tot=pK+fK+cK;
+    document.getElementById("barP").style.width=(pK/tot*100)+"%";
+    document.getElementById("barF").style.width=(fK/tot*100)+"%";
+    document.getElementById("barC").style.width=(cK/tot*100)+"%";
+
+    document.getElementById("perMeal").innerHTML=
+      "3食＋補食1回に均等に割ると、1回あたり<strong>たんぱく質 約"+Math.round(pG/4)+"g、炭水化物 約"+Math.round(cG/4)+"g</strong>。"+
+      "まずは朝と昼でたんぱく質を各"+Math.round(pG/4)+"g前後まで持っていけるかを見てください。";
+
+    last={
+      kcal:Math.round(target/10)*10,
+      p:Math.round(pG),f:Math.round(fG),c:Math.round(cG),
+      cond:LABEL.sport[state.sport]+"・"+LABEL.phase[state.phase]+"・"+LABEL.goal[state.goal]+"・体脂肪率"+bf.toFixed(0)+"%"+(assumed?"（仮定値）":"")
+    };
+
+    var msgs=[];
+    if(minor){msgs.push("成長期のため、身体が大きくなるぶんのエネルギー（"+grow+"kcal）を上乗せしています。<strong>この時期に体重を落とす目的でエネルギーを絞ると、身長の伸びやコンディションに影響が出る可能性が指摘されています。</strong>そのため減量の設定は表示していません。体重階級のある競技などで調整が必要な場合は、指導者や専門家に相談してください。");}
+    if(assumed){msgs.push("体脂肪率が未入力のため、仮に"+DEFBF[state.sex]+"％として計算しています。実測値を入れると精度が上がります。");}
+    if(target<bmr){msgs.push("<strong>推定基礎代謝を下回っています。</strong>この設定を続けるとコンディションや除脂肪量に影響が出る可能性があります。減量幅を緩めるか、期間を区切って取り組んでください。");}
+    if(cG/w<3){msgs.push("<strong>炭水化物が体重1kgあたり3gを下回っています。</strong>練習の強度を保ちにくくなる可能性があります。総エネルギーを上げるか、脂質の枠を見直してください。");}
+    document.getElementById("note").innerHTML=msgs.join("<br><br>");
+  }
+
+  var LABEL={
+    sport:{endurance:"持久系",power:"筋力・瞬発系",ball:"球技系",other:"軽い運動中心"},
+    phase:{normal:"通常練習期",off:"オフ期"},
+    goal:{keep:"維持",gain:"増量",cut:"減量"}
+  };
+  var last={};
+
+  document.getElementById("copyBtn").addEventListener("click",function(){
+    var b=this;
+    var d=new Date();
+    var txt=
+      "【"+(d.getMonth()+1)+"/"+d.getDate()+" 時点の目安】\n"+
+      "エネルギー "+last.kcal+"kcal\n"+
+      "たんぱく質 "+last.p+"g ／ 脂質 "+last.f+"g ／ 炭水化物 "+last.c+"g\n"+
+      "条件："+last.cond+"\n"+
+      "2週間後に体重を測り直して再計算する";
+    var done=function(){
+      b.textContent="コピーしました";
+      b.setAttribute("data-done","1");
+      setTimeout(function(){b.textContent="この結果をコピーする";b.removeAttribute("data-done");},2200);
+    };
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(done,function(){fallback(txt,done);});
+    }else{fallback(txt,done);}
+  });
+
+  function fallback(txt,done){
+    var ta=document.createElement("textarea");
+    ta.value=txt;ta.setAttribute("readonly","");
+    ta.style.position="fixed";ta.style.top="-1000px";
+    document.body.appendChild(ta);ta.select();
+    try{document.execCommand("copy");done();}catch(e){}
+    document.body.removeChild(ta);
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll(".acc"),function(a){
+    var h=a.querySelector(".acc-h");
+    h.addEventListener("click",function(){
+      var open=a.classList.toggle("open");
+      h.setAttribute("aria-expanded",open?"true":"false");
+      h.querySelector(".mk").textContent=open?"−":"＋";
+    });
+  });
+
+  calc();
+})();
+</script>
+</body>
+</html>
