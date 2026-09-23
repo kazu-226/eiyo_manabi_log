@@ -23,25 +23,47 @@
   .wrap{max-width:640px;margin:0 auto;padding:0 20px;}
   .back{display:inline-block;margin:22px 0 0;font-size:14px;color:var(--sub);text-decoration:none;}
   .back:hover,.back:focus-visible{color:var(--aqua);}
-  .back{display:inline-block;margin:22px 0 0;font-size:14px;color:var(--sub);text-decoration:none;}
-  .back:hover{color:var(--aqua);}
   header{padding:26px 0 34px;}
   header .eyebrow{font-size:12px;letter-spacing:.2em;color:var(--aqua);font-weight:700;margin-bottom:16px;}
   header h1{font-size:27px;line-height:1.5;font-weight:900;color:var(--navy);margin:0 0 18px;}
   header .rule{width:56px;height:4px;background:var(--aqua);margin-bottom:18px;}
   header p{margin:0;font-size:16px;color:var(--sub);}
+  .steps{list-style:none;margin:22px 0 0;padding:0;border-left:2px solid var(--light);}
+  .steps li{position:relative;padding:0 0 16px 22px;}
+  .steps li:last-child{padding-bottom:0;}
+  .steps li::before{content:"";position:absolute;left:-7px;top:7px;width:12px;height:12px;border-radius:50%;background:#fff;border:2px solid var(--light);}
+  .steps li.now::before{background:var(--aqua);border-color:var(--aqua);}
+  .steps .when{display:block;font-size:12px;font-weight:700;color:#8fa8b5;}
+  .steps .name{display:block;font-size:16px;font-weight:700;color:var(--sub);line-height:1.6;}
+  .steps .what{display:block;font-size:14px;color:#6d8592;line-height:1.7;}
+  .steps li.now .when{color:var(--aqua);}
+  .steps li.now .name{color:var(--navy);font-size:17px;}
+  .steps li.now .what{color:var(--sub);}
   .group{padding:30px 0;border-top:1px solid var(--line);}
   .group h2{font-size:14px;font-weight:700;color:var(--aqua);letter-spacing:.12em;margin:0 0 16px;}
-  .card{display:block;text-decoration:none;color:inherit;border:1px solid var(--line);border-radius:4px;padding:18px 20px;margin-bottom:12px;transition:border-color .15s,background .15s;}
+  .guide{margin:0 0 16px;font-size:14px;color:var(--sub);}
+  .card{display:flex;align-items:center;gap:14px;text-decoration:none;color:inherit;background:#fff;border:1px solid var(--light);border-radius:10px;padding:18px 18px 18px 20px;margin-bottom:12px;box-shadow:0 2px 0 var(--light);transition:border-color .15s,background .15s,transform .1s,box-shadow .1s;}
+  .card .body{flex:1;min-width:0;}
+  .card .go{display:inline-block;margin-top:10px;font-size:13px;font-weight:700;color:var(--aqua);}
+  .card .arrow{flex:none;width:36px;height:36px;border-radius:50%;background:var(--aqua);color:#fff;display:flex;align-items:center;justify-content:center;}
+  .card .arrow svg{width:16px;height:16px;}
+  .card.featured{background:var(--navy);border-color:var(--navy);box-shadow:0 3px 0 #072a3c;padding:22px 18px 22px 20px;}
+  .card.featured:hover,.card.featured:focus-visible{background:#0f4d6c;border-color:#0f4d6c;}
+  .card.featured .t{color:#fff;font-size:20px;}
+  .card.featured .d{color:var(--light);}
+  .card.featured .note{display:block;margin-top:10px;padding-top:10px;border-top:1px solid rgba(191,227,242,.3);font-size:13.5px;color:#fff;line-height:1.7;}
+  .card.featured .go{color:var(--light);}
+  .card.featured .arrow{background:#fff;color:var(--navy);}
+  .card.featured:active{box-shadow:0 0 0 #072a3c;}
+  .card .badge{display:inline-block;margin-bottom:8px;padding:2px 10px;border-radius:999px;background:var(--aqua);color:#fff;font-size:12px;font-weight:700;line-height:1.8;}
+  .sub{margin:28px 0 12px;font-size:14px;font-weight:700;color:var(--navy);}
+  .card:active{transform:translateY(2px);box-shadow:0 0 0 var(--light);}
   .card:last-child{margin-bottom:0;}
   .card:hover,.card:focus-visible{border-color:var(--aqua);background:var(--bg);}
-  .soon{border:1px dashed var(--line);border-radius:4px;padding:18px 20px;margin-bottom:12px;color:#8fa8b5;}
-  .soon:last-child{margin-bottom:0;}
-  .soon .t{font-size:17px;font-weight:700;line-height:1.5;}
-  .soon .d{font-size:14px;line-height:1.7;margin-top:4px;}
+  @media (prefers-reduced-motion:reduce){.card{transition:none;}.card:active{transform:none;}}
   .card:focus-visible{outline:2px solid var(--aqua);outline-offset:2px;}
-  .card .t{font-size:18px;font-weight:700;color:var(--navy);line-height:1.5;}
-  .card .d{font-size:14px;color:var(--sub);line-height:1.7;margin-top:4px;}
+  .card .t{display:block;font-size:18px;font-weight:700;color:var(--navy);line-height:1.5;}
+  .card .d{display:block;font-size:14px;color:var(--sub);line-height:1.7;margin-top:4px;}
   .soon{border:1px dashed var(--line);border-radius:4px;padding:18px 20px;margin-bottom:12px;color:#8fa8b5;}
   .soon:last-child{margin-bottom:0;}
   .soon .t{font-size:17px;font-weight:700;line-height:1.5;}
@@ -55,45 +77,91 @@
     .group{padding:26px 0;}
     .card{padding:16px 18px;}
     .card .t{font-size:17px;}
+    .card.featured .t{font-size:19px;}
   }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <a class="back" href="../">← 栄養まなびログ</a>
+  <a class="back" href="https://lin.ee/Ov0R2Dv">← LINEに戻る</a>
 
   <header>
     <div class="eyebrow">栄養コンテンツ｜初級</div>
     <h1>まずは、ここから</h1>
     <div class="rule"></div>
-    <p>何をどれだけ食べるか。体づくりの土台になる6つのテーマです。</p>
+    <p>栄養の学びも、スポーツがうまくなる順番と同じです。今回は、その最初の「ルールを知る」段階です。</p>
+    <ol class="steps">
+      <li class="now">
+        <span class="when">今回</span>
+        <span class="name">ルールを知る</span>
+        <span class="what">競技もルールを知らないと始まらないように、まずは栄養の基本を知る。</span>
+      </li>
+      <li>
+        <span class="when">次に</span>
+        <span class="name">基礎・土台を固める</span>
+        <span class="what">基礎練習を積み重ねるように、知ったことを毎日の食事で続けて身につける。</span>
+      </li>
+      <li>
+        <span class="when">その先</span>
+        <span class="name">スキルをつける</span>
+        <span class="what">試合で技を使い分けるように、練習や試合に合わせて食事を使いこなす。</span>
+      </li>
+    </ol>
   </header>
 
   <div class="group">
-    <div class="soon">
-      <div class="t">基礎：必要なエネルギーと量</div>
-      <div class="d">自分に必要な量をどう見積もるか。PFCバランスの考え方。</div>
-    </div>
-    <a class="card" href="./protein.html">
-      <div class="t">タンパク質</div>
-      <div class="d">体づくりの土台になる栄養素。必要な量と、摂るタイミングの考え方。</div>
+    <p class="guide">気になるテーマを押すと、それぞれの解説ページが開きます。</p>
+    <a class="card featured" href="https://kazu-226.github.io/eiyo_manabi_log/01.beginner.energy.html">
+      <span class="body">
+        <span class="badge">最初に、全員に読んでほしい内容</span>
+        <span class="t">必要なエネルギー量とPFCバランス</span>
+        <span class="d">体重と体脂肪率から1日の必要量を計算。P・F・Cを決める順番と、食事への落とし込み方。</span>
+        <span class="note">ここで出した自分の数字が、ほかのテーマを読むときの基準になります。</span>
+        <span class="go">ページを読む</span>
+      </span>
+      <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg></span>
     </a>
-    <div class="soon">
-      <div class="t">糖質とトレーニング前後の血糖</div>
-      <div class="d">動くためのエネルギー源。練習前後に何をどう摂るか。</div>
-    </div>
-    <div class="soon">
-      <div class="t">脂質</div>
-      <div class="d">減らしすぎても困る栄養素。種類による違いと摂り方。</div>
-    </div>
-    <div class="soon">
-      <div class="t">ビタミン（D・B群・C）</div>
-      <div class="d">量は少なくても、足りないと動きに出てくる栄養素。</div>
-    </div>
-    <div class="soon">
-      <div class="t">ミネラル（鉄・カルシウム・マグネシウム・亜鉛）</div>
-      <div class="d">競技者が不足しやすいミネラルと、その補い方。</div>
-    </div>
+    <p class="sub">栄養素ごとのテーマ</p>
+    <a class="card" href="https://kazu-226.github.io/eiyo_manabi_log/01.beginner.protein.html">
+      <span class="body">
+        <span class="t">プロテインは「基準」で選ぶ</span>
+        <span class="d">どれを飲むかより、何を基準に選ぶか。そもそも必要かの判断と、選ぶときの8つの基準。</span>
+        <span class="go">ページを読む</span>
+      </span>
+      <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg></span>
+    </a>
+    <a class="card" href="https://kazu-226.github.io/eiyo_manabi_log/01.beginner.carbohydrat.html">
+      <span class="body">
+        <span class="t">糖質は「量」より「タイミング」</span>
+        <span class="d">トレーニングの前・中・後に、何をいつ摂るか。吸収の速さによる使い分け。</span>
+        <span class="go">ページを読む</span>
+      </span>
+      <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg></span>
+    </a>
+    <a class="card" href="https://kazu-226.github.io/eiyo_manabi_log/01.beginner.lipids.html">
+      <span class="body">
+        <span class="t">脂質は、削らずに選ぶ</span>
+        <span class="d">体のなかでの役割と目安量。減らしすぎたときのリスクと、質・タイミングの選び方。</span>
+        <span class="go">ページを読む</span>
+      </span>
+      <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg></span>
+    </a>
+    <a class="card" href="https://kazu-226.github.io/eiyo_manabi_log/01.beginner.vitamin.html">
+      <span class="body">
+        <span class="t">ビタミン（D・B群・C）</span>
+        <span class="d">食べたものをエネルギーに変える裏方。3つの働きと、多く含む食品・とり方。</span>
+        <span class="go">ページを読む</span>
+      </span>
+      <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg></span>
+    </a>
+    <a class="card" href="https://kazu-226.github.io/eiyo_manabi_log/01.beginner.mineral.html">
+      <span class="body">
+        <span class="t">ミネラル（鉄・カルシウム・マグネシウム・亜鉛）</span>
+        <span class="d">汗と練習量で不足しやすい4つ。1日の目安量と、食事でのとり方。</span>
+        <span class="go">ページを読む</span>
+      </span>
+      <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg></span>
+    </a>
   </div>
 
   <footer>
