@@ -287,6 +287,8 @@ footer p:last-child{margin:0;}
   border-radius:99px;padding:2px 10px;margin-left:8px;vertical-align:2px;
 }
 .road-lead{font-size:1rem;}
+.stage-body .go{display:inline-block;margin-top:10px;font-size:.86rem;font-weight:700;color:var(--aqua);text-decoration:none;}
+.stage-body .go:hover{text-decoration:underline;}
 @media(max-width:560px){
   .stage{grid-template-columns:44px 1fr;gap:12px;}
   .dot{width:44px;height:44px;}
@@ -314,6 +316,23 @@ footer p:last-child{margin:0;}
 .topics .pts li{background:#fff;border:1px solid var(--line);border-radius:999px;padding:4px 11px;font-size:.76rem;font-weight:700;color:var(--navy);}
 .topics .go{display:inline-block;margin-top:14px;font-size:.86rem;font-weight:700;color:var(--aqua);}
 .topics .go::after{content:" →";}
+.topics li{position:relative;}
+.topics .en{padding-right:84px;}
+.done-toggle{
+  position:absolute;right:16px;top:16px;
+  font:inherit;font-size:.75rem;font-weight:500;color:var(--faint);
+  background:#fff;border:1px solid var(--line);border-radius:99px;padding:3px 12px;cursor:pointer;
+}
+.topics li.is-done .done-toggle{background:var(--aqua);border-color:var(--aqua);color:#fff;}
+.topics li.is-done a{background:#fff;}
+
+/* ===== progress ===== */
+.note{color:var(--mute);font-size:.95rem;}
+.progress{background:var(--wash);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:26px 0 0;}
+.progress-top{display:flex;justify-content:space-between;align-items:baseline;font-size:.9rem;color:var(--mute);}
+.progress-num{font-family:'Bebas Neue',sans-serif;font-size:1.7rem;color:var(--navy);letter-spacing:.04em;}
+.bar{height:8px;background:#fff;border-radius:99px;overflow:hidden;margin-top:8px;border:1px solid var(--line);}
+.bar span{display:block;height:100%;width:0;background:var(--aqua);border-radius:99px;transition:width .4s ease;}
 </style>
 </head>
 <body>
@@ -342,7 +361,8 @@ footer p:last-child{margin:0;}
           <p class="tag">KNOW THE RULES</p>
           <h3>ルールを知る</h3>
           <span class="sport">スポーツでいえば：競技のルールを覚える</span>
-          <p>栄養素それぞれの役割と、自分に必要な量を知る段階。何をどれだけ食べればいいのか、判断の軸をつくります。</p>
+          <p>必要なエネルギー量とPFCバランスで自分の数字を出し、たんぱく質・糖質・脂質・ビタミン・ミネラルの役割を知る段階。何をどれだけ食べればいいのか、判断の軸をつくります。</p>
+          <a class="go" href="https://kazu-226.github.io/eiyo_manabi_log/01.beginner/agenda.html">STEP 01へ戻る →</a>
         </div>
       </li>
       <li class="stage">
@@ -351,7 +371,8 @@ footer p:last-child{margin:0;}
           <p class="tag">BUILD THE BASICS</p>
           <h3>基礎を固める</h3>
           <span class="sport">スポーツでいえば：基本動作をくり返して体に染み込ませる</span>
-          <p>知ったルールを、毎日の食事で当たり前にできるようにする段階。忙しい日でも崩れない食事の型をつくります。</p>
+          <p>食べるタイミング、腸内環境、サプリの選び方、体重・体組成の管理を学ぶ段階。知ったルールを毎日の食事で当たり前にできるよう、崩れにくい食事の型をつくります。</p>
+          <a class="go" href="https://kazu-226.github.io/eiyo_manabi_log/02.basic/agenda.html">STEP 02へ戻る →</a>
         </div>
       </li>
       <li class="stage now">
@@ -360,7 +381,7 @@ footer p:last-child{margin:0;}
           <p class="tag">LEVEL UP YOUR SKILLS</p>
           <h3>スキルを高める<span class="here">いまここ</span></h3>
           <span class="sport">スポーツでいえば：試合で勝つための技術と戦術を磨く</span>
-          <p>練習や試合、目的に合わせて食事を使いこなす段階。基礎の上に、勝つための一手を積み上げます。</p>
+          <p>コンビニ・外食・飲み会など整えられない日の食事と、睡眠を軸にしたリカバリーを学ぶ段階。理想どおりにいかない日でも大きく外さず、疲れを翌日に残さない力をつけます。</p>
         </div>
       </li>
     </ol>
@@ -392,10 +413,19 @@ footer p:last-child{margin:0;}
     <span class="kicker">CONTENTS</span>
     <h2>STEP 03 で学ぶ、2つのテーマ</h2>
     <p>どちらも「理想どおりにいかない日」の話です。気になるほうから読んでかまいません。</p>
+    <p class="note">読み終えたら「読んだ」を押すと、進み具合がこの端末に記録されます。</p>
+
+    <div class="progress" aria-live="polite">
+      <div class="progress-top">
+        <span>読んだ資料</span>
+        <span><span class="progress-num" id="doneCount">0</span> / 2</span>
+      </div>
+      <div class="bar"><span id="bar"></span></div>
+    </div>
 
     <ul class="topics">
-      <li>
-        <a href="real.html">
+      <li class="topic" data-id="real">
+        <a href="https://kazu-226.github.io/eiyo_manabi_log/03.advance/real.html">
           <span class="en">REAL LIFE NUTRITION</span>
           <span class="t">コンビニ・外食・飲み会の現実解</span>
           <span class="d">理想の食事は、理想の一日にしか置けません。整えられない日の目標は「取り返す」ことではなく「大きく外さない」こと。選べるなかで何を足すかを、場面ごとに整理しました。</span>
@@ -407,9 +437,10 @@ footer p:last-child{margin:0;}
           </ul>
           <span class="go">このページを読む</span>
         </a>
+        <button class="done-toggle" type="button">読んだ</button>
       </li>
-      <li>
-        <a href="recovery.html">
+      <li class="topic" data-id="recovery">
+        <a href="https://kazu-226.github.io/eiyo_manabi_log/03.advance/recovery.html">
           <span class="en">RECOVERY</span>
           <span class="t">リカバリーの基本。疲れは「流れ」で考える</span>
           <span class="d">疲れの正体はひとつではありません。食事と水分で体を流れる中身を変え、体の流れを整え、そして眠る。練習の疲れを翌日に持ち越さないための考え方をまとめました。</span>
@@ -421,6 +452,7 @@ footer p:last-child{margin:0;}
           </ul>
           <span class="go">このページを読む</span>
         </a>
+        <button class="done-toggle" type="button">読んだ</button>
       </li>
     </ul>
   </div>
@@ -446,12 +478,12 @@ footer p:last-child{margin:0;}
 
     <div class="callout">
       <p class="ttl">STEP 01・02 がまだの人へ</p>
-      <p>STEP 03 は、1日に必要なエネルギー量とPFCバランス、食事のタイミングがわかっている前提で書いています。まだの人は、先に<a href="../01.beginner/energy.html">「必要なエネルギー量とPFCバランス」</a>と<a href="../02.basic/00.html">STEP 02</a>を読んでおくと、内容がぐっと使いやすくなります。</p>
+      <p>STEP 03 は、STEP 01「ルールを知る」とSTEP 02「基礎を固める」の内容をふまえて書いています。まだの人は、先に<a href="https://kazu-226.github.io/eiyo_manabi_log/01.beginner/agenda.html">STEP 01</a>と<a href="https://kazu-226.github.io/eiyo_manabi_log/02.basic/agenda.html">STEP 02</a>を読んでおくと、内容がぐっと使いやすくなります。</p>
     </div>
 
-    <a class="button line" href="https://line.me/R/ti/p/@167yqdei">
-      <span class="lb">自分の場合はどうすればいい？ LINEで相談する</span>
-      <span class="sb">生活リズムや競技、練習量に合わせて、無理なく続けられる形を一緒に考えます。</span>
+    <a class="button line" href="https://line.me/R/oaMessage/%40167yqdei/?%E5%80%8B%E5%88%A5%E7%9B%B8%E8%AB%87">
+      <span class="lb">「個別相談」と送る</span>
+      <span class="sb">ここまでがスポーツでいう「スキルを高める」内容です。現在、個別相談も行っています。興味がある方は「個別相談」と送ってください。</span>
     </a>
   </div>
 </section>
@@ -461,9 +493,39 @@ footer p:last-child{margin:0;}
     <p><u>本資料は一般的な栄養情報の提供を目的としたものであり、個別の診断・治療・指導を行うものではありません。</u></p>
     <p>記載している内容は、公表されている資料や研究にもとづく一般的な目安です。適切な量や方法は、個人の体質、健康状態、競技特性によって異なります。<u>疾患の治療中の方、通院中の方、食事制限の指示を受けている方は、必ず主治医または管理栄養士にご相談ください。</u></p>
     <p>LINEでの個別相談では、内容に応じて商品のご紹介を含む場合があります。</p>
+    <p>「読んだ」の記録はこの端末のブラウザ内にのみ保存され、送信されることはありません。</p>
   </div>
 </footer>
 
+<script>
+(function(){
+  var KEY='eiyo_advance_done';
+  var done={};
+  try{ done=JSON.parse(localStorage.getItem(KEY)||'{}')||{}; }catch(e){ done={}; }
+  var items=document.querySelectorAll('.topic');
+  function render(){
+    var n=0;
+    items.forEach(function(li){
+      var on=!!done[li.dataset.id];
+      li.classList.toggle('is-done',on);
+      var b=li.querySelector('.done-toggle');
+      b.textContent=on?'読んだ ✓':'読んだ';
+      b.setAttribute('aria-pressed',on);
+      if(on) n++;
+    });
+    document.getElementById('doneCount').textContent=n;
+    document.getElementById('bar').style.width=(n/items.length*100)+'%';
+  }
+  items.forEach(function(li){
+    li.querySelector('.done-toggle').addEventListener('click',function(){
+      done[li.dataset.id]=!done[li.dataset.id];
+      try{ localStorage.setItem(KEY,JSON.stringify(done)); }catch(e){}
+      render();
+    });
+  });
+  render();
+})();
+</script>
 <script>
 (function(){
   var stages=document.querySelectorAll('.stage');
