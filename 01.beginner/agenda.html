@@ -1,1 +1,454 @@
 
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<script>document.documentElement.classList.add("js");</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>栄養の基本｜目次｜社会人アスリートのための栄養資料</title>
+<meta name="description" content="エネルギー量・たんぱく質・糖質・脂質・ビタミン・ミネラル。社会人アスリートが最初に押さえたい栄養の基本を6つの資料にまとめた目次ページです。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0C3F59;
+  --aqua:#16A6D9;
+  --lblue:#BFE3F2;
+  --wash:#eef7fb;
+  --ink:#1b2a33;
+  --mute:#43606f;
+  --line:#BFE3F2;
+  --rule:#e4eef3;
+  --faint:#8fa8b5;
+  --paper:#ffffff;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:'Noto Sans JP',system-ui,sans-serif;
+  color:var(--ink);
+  background:var(--paper);
+  line-height:1.9;
+  font-size:16px;
+  -webkit-text-size-adjust:100%;
+}
+.wrap{max-width:760px;margin:0 auto;padding:0 22px;}
+h2{font-size:1.45rem;line-height:1.5;font-weight:700;margin:0 0 18px;letter-spacing:.01em;}
+p{margin:0 0 16px;}
+a{color:var(--aqua);}
+
+/* ---------- hero ---------- */
+.hero{background:var(--navy);color:#fff;position:relative;overflow:hidden;padding:74px 0 62px;}
+.hero::after{
+  content:"";position:absolute;right:-90px;top:-40px;width:420px;height:420px;
+  background:repeating-linear-gradient(115deg,rgba(255,255,255,.075) 0 2px,transparent 2px 16px);
+  transform:rotate(-8deg);pointer-events:none;
+}
+.hero .wrap{position:relative;z-index:1;}
+.hero-lead{font-family:'Bebas Neue',sans-serif;font-size:.95rem;letter-spacing:.22em;color:var(--lblue);margin:0 0 20px;}
+.hero h1{font-size:1.85rem;line-height:1.65;font-weight:700;margin:0 0 22px;}
+.hero p{color:var(--lblue);margin:0;font-size:1rem;}
+.hero-meta{margin-top:34px;padding-top:20px;border-top:1px solid rgba(255,255,255,.18);font-size:.85rem;color:var(--lblue);line-height:1.8;}
+
+/* ---------- sections ---------- */
+section{padding:56px 0;border-bottom:1px solid var(--rule);}
+.kicker{display:inline-block;font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:var(--aqua);letter-spacing:.06em;margin:0 0 4px;}
+.note{color:var(--mute);font-size:.95rem;}
+
+/* ---------- progress ---------- */
+.progress{background:var(--wash);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:26px 0 0;}
+.progress-top{display:flex;justify-content:space-between;align-items:baseline;font-size:.9rem;color:var(--mute);}
+.progress-num{font-family:'Bebas Neue',sans-serif;font-size:1.7rem;color:var(--navy);letter-spacing:.04em;}
+.bar{height:8px;background:#fff;border-radius:99px;overflow:hidden;margin-top:8px;border:1px solid var(--line);}
+.bar span{display:block;height:100%;width:0;background:var(--aqua);border-radius:99px;transition:width .4s ease;}
+
+/* ---------- lesson list ---------- */
+.lessons{list-style:none;margin:30px 0 0;padding:0;display:grid;gap:16px;}
+.lesson{position:relative;}
+.lesson a.card{
+  display:grid;grid-template-columns:74px 1fr;gap:18px;align-items:start;
+  text-decoration:none;color:inherit;background:#fff;
+  border:1px solid var(--line);border-radius:16px;padding:22px 22px 20px;
+  transition:border-color .2s,box-shadow .2s,transform .2s;
+}
+.lesson a.card:hover{border-color:var(--aqua);box-shadow:0 8px 24px rgba(12,63,89,.10);transform:translateY(-2px);}
+.lesson a.card:focus-visible{outline:3px solid var(--aqua);outline-offset:3px;}
+.no{
+  width:74px;height:74px;border-radius:14px;background:var(--navy);color:#fff;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1;
+}
+.no b{font-family:'Bebas Neue',sans-serif;font-size:2.4rem;font-weight:400;}
+.tag{font-family:'Bebas Neue',sans-serif;font-size:.95rem;letter-spacing:.14em;color:var(--aqua);margin:0 0 2px;}
+.lesson h3{font-size:1.12rem;line-height:1.55;margin:0 0 6px;font-weight:700;}
+.lesson p{font-size:.92rem;color:var(--mute);margin:0;line-height:1.8;}
+.go{display:inline-block;margin-top:10px;font-size:.85rem;font-weight:700;color:var(--aqua);}
+.done-toggle{
+  position:absolute;right:16px;top:16px;
+  font:inherit;font-size:.75rem;font-weight:500;color:var(--faint);
+  background:#fff;border:1px solid var(--line);border-radius:99px;padding:3px 12px;cursor:pointer;
+}
+.lesson.is-done .done-toggle{background:var(--aqua);border-color:var(--aqua);color:#fff;}
+.lesson.is-done .no{background:var(--aqua);}
+
+
+/* ---------- featured (energy) ---------- */
+.lesson.featured a.card{
+  background:var(--navy);border:2px solid var(--aqua);padding:30px 26px 28px;
+  grid-template-columns:92px 1fr;box-shadow:0 12px 32px rgba(12,63,89,.22);
+  position:relative;overflow:hidden;
+}
+.lesson.featured a.card::after{
+  content:"";position:absolute;right:-70px;top:-50px;width:260px;height:260px;
+  background:repeating-linear-gradient(115deg,rgba(255,255,255,.07) 0 2px,transparent 2px 14px);
+  transform:rotate(-8deg);pointer-events:none;
+}
+.lesson.featured a.card > span{position:relative;z-index:1;}
+.lesson.featured a.card:hover{border-color:#fff;box-shadow:0 16px 38px rgba(12,63,89,.3);}
+.lesson.featured .no{width:92px;height:92px;background:var(--aqua);}
+.lesson.featured .no b{font-size:3rem;}
+.lesson.featured .tag{color:var(--lblue);}
+.lesson.featured h3{color:#fff;font-size:1.4rem;}
+.lesson.featured p{color:var(--lblue);font-size:.98rem;}
+.lesson.featured .go{
+  color:var(--navy);background:#fff;border-radius:99px;padding:8px 18px;margin-top:16px;
+}
+.badge{
+  display:inline-block;background:var(--aqua);color:#fff;font-size:.78rem;font-weight:700;
+  border-radius:99px;padding:3px 12px;margin:0 0 10px;letter-spacing:.04em;
+}
+.lesson.featured .done-toggle{background:transparent;border-color:rgba(255,255,255,.4);color:var(--lblue);z-index:1;}
+.lesson.featured.is-done .done-toggle{background:#fff;border-color:#fff;color:var(--navy);}
+.lesson.featured.is-done .no{background:#fff;color:var(--navy);}
+.divider{
+  display:flex;align-items:center;gap:12px;margin:14px 0 2px;
+  font-size:.85rem;font-weight:700;color:var(--mute);
+}
+.divider::before,.divider::after{content:"";flex:1;height:1px;background:var(--line);}
+
+
+/* ---------- roadmap ---------- */
+#roadmap{background:var(--wash);}
+.road{list-style:none;margin:28px 0 0;padding:0;position:relative;}
+.road::before{content:"";position:absolute;left:27px;top:10px;bottom:10px;width:2px;background:var(--line);}
+.stage{position:relative;display:grid;grid-template-columns:56px 1fr;gap:18px;padding:0 0 22px;}
+.stage:last-child{padding-bottom:0;}
+.dot{
+  width:56px;height:56px;border-radius:50%;background:#fff;border:2px solid var(--line);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1;
+  position:relative;z-index:1;color:var(--faint);
+}
+.dot small{font-family:'Bebas Neue',sans-serif;font-size:.7rem;letter-spacing:.14em;}
+.dot b{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;font-weight:400;margin-top:2px;}
+.stage-body{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px;}
+.stage-body .tag{margin:0;}
+.stage-body h3{font-size:1.1rem;margin:0 0 6px;}
+.stage-body p{font-size:.92rem;color:var(--mute);margin:0;line-height:1.8;}
+.sport{display:block;font-size:.82rem;color:var(--navy);font-weight:700;margin-bottom:6px;}
+.stage.now .dot{background:var(--navy);border-color:var(--navy);color:#fff;}
+.stage.now .dot small{color:var(--lblue);}
+.stage.now .stage-body{border:2px solid var(--aqua);}
+.here{
+  display:inline-block;background:var(--aqua);color:#fff;font-size:.72rem;font-weight:700;
+  border-radius:99px;padding:2px 10px;margin-left:8px;vertical-align:2px;
+}
+.soon{display:inline-block;margin-top:10px;font-size:.8rem;color:var(--faint);font-weight:500;}
+.road-lead{font-size:1rem;}
+
+
+
+/* ---------- next ---------- */
+#next{background:var(--wash);border-bottom:none;}
+.next-card{
+  display:block;text-decoration:none;color:#fff;background:var(--navy);
+  border-radius:18px;padding:34px 28px 30px;position:relative;overflow:hidden;
+  box-shadow:0 12px 32px rgba(12,63,89,.22);transition:transform .2s,box-shadow .2s;
+}
+.next-card::after{
+  content:"";position:absolute;right:-80px;top:-60px;width:300px;height:300px;
+  background:repeating-linear-gradient(115deg,rgba(255,255,255,.07) 0 2px,transparent 2px 14px);
+  transform:rotate(-8deg);pointer-events:none;
+}
+.next-card:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(12,63,89,.3);}
+.next-card:focus-visible{outline:3px solid var(--aqua);outline-offset:4px;}
+.next-card > *{position:relative;z-index:1;}
+.next-label{font-family:'Bebas Neue',sans-serif;font-size:2.4rem;letter-spacing:.08em;line-height:1;color:var(--aqua);margin:0 0 6px;}
+.next-step{font-family:'Bebas Neue',sans-serif;font-size:.95rem;letter-spacing:.2em;color:var(--lblue);margin:0 0 14px;}
+.next-card h2{color:#fff;font-size:1.6rem;margin:0 0 12px;}
+.next-card p{color:var(--lblue);font-size:.95rem;margin:0;}
+.next-btn{
+  display:inline-flex;align-items:center;gap:10px;margin-top:22px;
+  background:#fff;color:var(--navy);font-weight:700;font-size:.95rem;
+  border-radius:99px;padding:12px 24px;
+}
+.next-btn span{transition:transform .2s;}
+.next-card:hover .next-btn span{transform:translateX(4px);}
+@media(max-width:560px){
+  .next-card{padding:28px 20px 26px;}
+  .next-card h2{font-size:1.35rem;}
+  .next-btn{width:100%;justify-content:center;}
+}
+
+/* ---------- scroll reveal ---------- */
+.js .stage{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease;}
+.js .stage.is-visible{opacity:1;transform:none;}
+.js .road::before{transform:scaleY(0);transform-origin:top;transition:transform 1.4s ease;}
+.js .road.is-visible::before{transform:scaleY(1);}
+@media(prefers-reduced-motion:reduce){
+  .js .stage,.js .road::before{opacity:1;transform:none;}
+}
+
+/* ---------- footer ---------- */
+footer{background:var(--navy);color:var(--lblue);padding:40px 0;font-size:.8rem;line-height:1.9;}
+footer u{text-decoration:underline;}
+footer p{margin:0 0 12px;}
+footer p:last-child{margin:0;}
+
+@media(max-width:560px){
+  .hero h1{font-size:1.5rem;}
+  .lesson a.card{grid-template-columns:58px 1fr;gap:14px;padding:20px 16px 18px;}
+  .no{width:58px;height:58px;}
+  .no b{font-size:1.8rem;}
+  .lesson h3{padding-right:64px;}
+  .lesson.featured a.card{grid-template-columns:1fr;padding:26px 20px 24px;}
+  .lesson.featured .no{width:64px;height:64px;}
+  .lesson.featured .no b{font-size:2.2rem;}
+  .lesson.featured h3{font-size:1.25rem;padding-right:0;}
+  .stage{grid-template-columns:44px 1fr;gap:12px;}
+  .dot{width:44px;height:44px;}
+  .dot b{font-size:1.3rem;}
+  .dot small{font-size:.6rem;}
+  .road::before{left:21px;}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  *{transition:none!important;}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="hero-lead">STEP 01 / KNOW THE RULES</p>
+    <h1>栄養のルール</h1>
+    <p>ルールを知り、基礎を固め、スキルを高める。<br>これは栄養も同じ。</p>
+    <div class="hero-meta">今回は、栄養のルールを知るための知識をプレゼント！</div>
+  </div>
+</header>
+
+<main>
+<section id="roadmap">
+  <div class="wrap">
+    <span class="kicker">ROADMAP</span>
+    <h2>ルールを知ったら、次は基礎とスキル。</h2>
+    <p class="road-lead">スポーツも、ルールを知らないまま練習しても上達しません。栄養も同じです。このページの6つの資料は、その「ルール」にあたる部分。ここを押さえたうえで、基礎を固め、スキルを高めるステップへ進みます。</p>
+
+    <ol class="road">
+      <li class="stage now">
+        <span class="dot"><small>STEP</small><b>01</b></span>
+        <div class="stage-body">
+          <p class="tag">KNOW THE RULES</p>
+          <h3>ルールを知る<span class="here">いまここ</span></h3>
+          <span class="sport">スポーツでいえば：競技のルールを覚える</span>
+          <p>栄養素それぞれの役割と、自分に必要な量を知る段階。何をどれだけ食べればいいのか、判断の軸をつくります。</p>
+        </div>
+      </li>
+      <li class="stage">
+        <span class="dot"><small>STEP</small><b>02</b></span>
+        <div class="stage-body">
+          <p class="tag">BUILD THE BASICS</p>
+          <h3>基礎を固める</h3>
+          <span class="sport">スポーツでいえば：基本動作をくり返して体に染み込ませる</span>
+          <p>知ったルールを、毎日の食事で当たり前にできるようにする段階。忙しい日でも崩れない食事の型をつくります。</p>
+          <!-- 公開したら次の行を <a class="go" href="../02.xxx/">STEP 02へ進む →</a> に差し替え -->
+          <span class="soon">コンテンツ公開予定</span>
+        </div>
+      </li>
+      <li class="stage">
+        <span class="dot"><small>STEP</small><b>03</b></span>
+        <div class="stage-body">
+          <p class="tag">LEVEL UP YOUR SKILLS</p>
+          <h3>スキルを高める</h3>
+          <span class="sport">スポーツでいえば：試合で勝つための技術と戦術を磨く</span>
+          <p>練習や試合、目的に合わせて食事を使いこなす段階。基礎の上に、勝つための一手を積み上げます。</p>
+          <!-- 公開したら次の行を <a class="go" href="../03.xxx/">STEP 03へ進む →</a> に差し替え -->
+          <span class="soon">コンテンツ公開予定</span>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+<section id="contents">
+  <div class="wrap">
+    <span class="kicker">CONTENTS</span>
+    <h2>目次</h2>
+    <p class="note">読み終えたら「読んだ」を押すと、進み具合がこの端末に記録されます。</p>
+
+    <div class="progress" aria-live="polite">
+      <div class="progress-top">
+        <span>読んだ資料</span>
+        <span><span class="progress-num" id="doneCount">0</span> / 6</span>
+      </div>
+      <div class="bar"><span id="bar"></span></div>
+    </div>
+
+    <ol class="lessons" id="lessons">
+      <li class="lesson featured" data-id="energy">
+        <a class="card" href="energy.html">
+          <span class="no"><b>01</b></span>
+          <span>
+            <span class="badge">まずはここから｜基礎の基礎</span>
+            <p class="tag">ENERGY &amp; PFC</p>
+            <h3>必要なエネルギー量とPFCバランス</h3>
+            <p>まずは自分の数字を出す。除脂肪体重から必要量を計算し、グラムを実際の食事に落とし込みます。</p>
+            <span class="go">自分の数字を出してみる →</span>
+          </span>
+        </a>
+        <button class="done-toggle" type="button">読んだ</button>
+      </li>
+
+      <li class="divider" aria-hidden="true">数字が出たら、中身を整える</li>
+
+      <li class="lesson" data-id="protein">
+        <a class="card" href="protein.html">
+          <span class="no"><b>02</b></span>
+          <span>
+            <p class="tag">PROTEIN</p>
+            <h3>プロテインは「基準」で選ぶ</h3>
+            <p>どれを飲むかより、何を基準に選ぶか。そもそも必要かどうかから、選ぶときに見ている8つの基準まで。</p>
+            <span class="go">資料を読む →</span>
+          </span>
+        </a>
+        <button class="done-toggle" type="button">読んだ</button>
+      </li>
+
+      <li class="lesson" data-id="carbohydrates">
+        <a class="card" href="carbohydrates.html">
+          <span class="no"><b>03</b></span>
+          <span>
+            <p class="tag">CARBOHYDRATES</p>
+            <h3>糖質は「量」より「タイミング」</h3>
+            <p>トレーニング前・中・後で、いつ何を摂るか。吸収の速さによる使い分けと、相性のいい栄養素をまとめました。</p>
+            <span class="go">資料を読む →</span>
+          </span>
+        </a>
+        <button class="done-toggle" type="button">読んだ</button>
+      </li>
+
+      <li class="lesson" data-id="lipids">
+        <a class="card" href="lipids.html">
+          <span class="no"><b>04</b></span>
+          <span>
+            <p class="tag">LIPIDS</p>
+            <h3>脂質は、削るものではなく選ぶもの</h3>
+            <p>真っ先に削られがちな脂質の役割、目安量、選び方、練習前後でのタイミングの変え方。</p>
+            <span class="go">資料を読む →</span>
+          </span>
+        </a>
+        <button class="done-toggle" type="button">読んだ</button>
+      </li>
+
+      <li class="lesson" data-id="vitamin">
+        <a class="card" href="vitamin.html">
+          <span class="no"><b>05</b></span>
+          <span>
+            <p class="tag">VITAMIN</p>
+            <h3>ビタミンは、エネルギーを最大化するマネージャー</h3>
+            <p>アスリートがとくに意識したいビタミンD・B群・Cの働きと、毎日の食事でまとめて整えるコツ。</p>
+            <span class="go">資料を読む →</span>
+          </span>
+        </a>
+        <button class="done-toggle" type="button">読んだ</button>
+      </li>
+
+      <li class="lesson" data-id="mineral">
+        <a class="card" href="mineral.html">
+          <span class="no"><b>06</b></span>
+          <span>
+            <p class="tag">MINERAL</p>
+            <h3>ミネラル</h3>
+            <p>ミネラルの基本と、アスリートが不足しやすいミネラルの働き・多く含む食品・とり方をまとめた資料です。</p>
+            <span class="go">資料を読む →</span>
+          </span>
+        </a>
+        <button class="done-toggle" type="button">読んだ</button>
+      </li>
+    </ol>
+  </div>
+</section>
+
+
+<section id="next">
+  <div class="wrap">
+    <!-- STEP 02「基礎を固める」の目次ページ -->
+    <a class="next-card" href="https://kazu-226.github.io/eiyo_manabi_log/02.basic/agenda.html">
+      <p class="next-label">NEXT</p>
+      <p class="next-step">STEP 02 / BUILD THE BASICS</p>
+      <h2>基礎を固める</h2>
+      <p>ルールがわかったら、次は毎日の食事で当たり前にできるようにする段階へ。忙しい日でも崩れない、自分の食事の型をつくります。</p>
+      <span class="next-btn">STEP 02へ進む <span aria-hidden="true">→</span></span>
+    </a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><u>本資料は一般的な栄養情報の提供を目的としたものであり、個別の診断・治療・指導を行うものではありません。</u></p>
+    <p>記載している数値は推定式および公表されている推奨レンジに基づく目安であり、個人の体質、健康状態、競技特性によって適切な量は異なります。<u>疾患の治療中の方、通院中の方、食事制限の指示を受けている方は、必ず主治医または管理栄養士にご相談ください。</u></p>
+    <p>「読んだ」の記録はこの端末のブラウザ内にのみ保存され、送信されることはありません。</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var KEY='eiyo_beginner_done';
+  var done={};
+  try{ done=JSON.parse(localStorage.getItem(KEY)||'{}')||{}; }catch(e){ done={}; }
+  var items=document.querySelectorAll('.lesson');
+  function render(){
+    var n=0;
+    items.forEach(function(li){
+      var on=!!done[li.dataset.id];
+      li.classList.toggle('is-done',on);
+      var b=li.querySelector('.done-toggle');
+      b.textContent=on?'読んだ ✓':'読んだ';
+      b.setAttribute('aria-pressed',on);
+      if(on) n++;
+    });
+    document.getElementById('doneCount').textContent=n;
+    document.getElementById('bar').style.width=(n/items.length*100)+'%';
+  }
+  items.forEach(function(li){
+    li.querySelector('.done-toggle').addEventListener('click',function(){
+      done[li.dataset.id]=!done[li.dataset.id];
+      try{ localStorage.setItem(KEY,JSON.stringify(done)); }catch(e){}
+      render();
+    });
+  });
+  render();
+})();
+</script>
+<script>
+(function(){
+  var stages=document.querySelectorAll('.stage');
+  var road=document.querySelector('.road');
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!('IntersectionObserver' in window)||reduce){
+    stages.forEach(function(el){el.classList.add('is-visible');});
+    if(road) road.classList.add('is-visible');
+    return;
+  }
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target); }
+    });
+  },{threshold:0.35,rootMargin:'0px 0px -8% 0px'});
+  if(road) io.observe(road);
+  stages.forEach(function(el){ io.observe(el); });
+})();
+</script>
+</body>
+</html>
