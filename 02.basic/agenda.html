@@ -146,9 +146,30 @@ a{color:var(--aqua);}
 .next .d{font-size:.92rem;color:var(--lblue);line-height:1.85;}
 .next .go{
   display:inline-block !important;margin-top:18px;padding:10px 20px;border-radius:99px;
-  background:var(--aqua);color:#fff;font-size:.9rem;font-weight:700;line-height:1.5;
+  background:#fff;color:var(--navy);font-size:.9rem;font-weight:700;line-height:1.5;
 }
 @media(prefers-reduced-motion:reduce){.next{transition:none;}}
+
+/* ===== 部品：progress（読んだ資料の記録） ===== */
+.note{color:var(--mute);font-size:.95rem;}
+.progress{background:var(--wash);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:26px 0 0;}
+.progress-top{display:flex;justify-content:space-between;align-items:baseline;font-size:.9rem;color:var(--mute);}
+.progress-num{font-family:'Bebas Neue',sans-serif;font-size:1.7rem;color:var(--navy);letter-spacing:.04em;}
+.bar{height:8px;background:#fff;border-radius:99px;overflow:hidden;margin-top:8px;border:1px solid var(--line);}
+.bar span{display:block;height:100%;width:0;background:var(--aqua);border-radius:99px;transition:width .4s ease;}
+.toc li{position:relative;}
+.toc li a{padding-right:96px;}
+.done-toggle{
+  position:absolute;right:16px;top:16px;
+  font:inherit;font-size:.75rem;font-weight:500;color:var(--faint);line-height:1.8;
+  background:#fff;border:1px solid var(--line);border-radius:99px;padding:3px 12px;cursor:pointer;
+}
+.done-toggle:focus-visible{outline:3px solid var(--aqua);outline-offset:2px;}
+.toc li.is-done .done-toggle{background:var(--aqua);border-color:var(--aqua);color:#fff;}
+.toc li.is-done a{border-left-color:var(--navy);}
+.toc li.is-done .no{color:var(--navy);}
+@media(max-width:560px){.toc li a{padding-right:16px;padding-top:52px;}}
+@media(prefers-reduced-motion:reduce){.bar span{transition:none;}}
 
 /* ===== footer ===== */
 footer{background:var(--navy);color:var(--lblue);padding:38px 0;font-size:.79rem;line-height:1.9;}
@@ -202,6 +223,12 @@ footer p:last-child{margin:0;}
   .rm .t{font-size:1.08rem;}
 }
 
+.rm a.card{display:block;color:inherit;text-decoration:none;transition:border-color .2s,box-shadow .2s;}
+.rm a.card:hover{border-color:var(--aqua);box-shadow:0 4px 14px rgba(12,63,89,.08);}
+.rm a.card:focus-visible{outline:3px solid var(--aqua);outline-offset:3px;}
+.rm .link{display:inline-block;margin-top:12px;font-size:.85rem;font-weight:700;color:var(--aqua);}
+@media(prefers-reduced-motion:reduce){.rm a.card{transition:none;}}
+
 /* ===== 部品：toc（コンテンツ一覧） ===== */
 .toc{list-style:none;margin:24px 0 0;padding:0;display:grid;gap:14px;}
 .toc a{
@@ -238,18 +265,19 @@ footer p:last-child{margin:0;}
 <section class="roadmap-sec">
   <div class="wrap">
     <span class="kicker">ROADMAP</span>
-    <h2>ルールを知ったら、次は基礎とスキル。</h2>
+    <h2>ルールを知ったら、次は基礎を固める。</h2>
     <p>スポーツも、ルールを知らないまま練習しても上達しません。栄養も同じです。このページの4つの資料は、その「基礎」にあたる部分。STEP01で知ったルールを、毎日の食事で当たり前にできるようにしていきます。</p>
 
     <ol class="rm" aria-label="学習ステップ">
       <li>
         <div class="badge"><span class="s">STEP</span><span class="no">01</span></div>
-        <div class="card">
+        <a class="card" href="https://kazu-226.github.io/eiyo_manabi_log/01.beginner/agenda.html">
           <p class="en">KNOW THE RULES</p>
           <p class="t">ルールを知る</p>
           <p class="sp">スポーツでいえば：競技のルールを覚える</p>
           <p class="d">栄養素それぞれの役割と、自分に必要な量を知る段階。何をどれだけ食べればいいのか、判断の軸をつくります。</p>
-        </div>
+          <span class="link">STEP 01 へ戻る</span>
+        </a>
       </li>
       <li class="now" aria-current="step">
         <div class="badge"><span class="s">STEP</span><span class="no">02</span></div>
@@ -262,13 +290,13 @@ footer p:last-child{margin:0;}
       </li>
       <li>
         <div class="badge"><span class="s">STEP</span><span class="no">03</span></div>
-        <div class="card">
+        <a class="card" href="https://kazu-226.github.io/eiyo_manabi_log/03.advance/agenda.html">
           <p class="en">LEVEL UP YOUR SKILLS</p>
           <p class="t">スキルを高める</p>
           <p class="sp">スポーツでいえば：試合で勝つための技術と戦術を磨く</p>
           <p class="d">練習や試合、目的に合わせて食事を使いこなす段階。基礎の上に、勝つための一手を積み上げます。</p>
-          <p class="soon">コンテンツ公開予定</p>
-        </div>
+          <span class="link">STEP 03 を見る</span>
+        </a>
       </li>
     </ol>
   </div>
@@ -302,44 +330,57 @@ footer p:last-child{margin:0;}
 
     <div class="block">
       <p>気になるものから読んで大丈夫です。迷ったら、今日の食事からすぐ変えられる01から始めてください。</p>
+      <p class="note">読み終えたら「読んだ」を押すと、進み具合がこの端末に記録されます。</p>
     </div>
 
-    <ul class="toc">
-      <li>
-        <a href="timing.html">
+    <div class="progress" aria-live="polite">
+      <div class="progress-top">
+        <span>読んだ資料</span>
+        <span><span class="progress-num" id="doneCount">0</span> / 4</span>
+      </div>
+      <div class="bar"><span id="bar"></span></div>
+    </div>
+
+    <ul class="toc" id="lessons">
+      <li class="lesson" data-id="timing">
+        <a href="https://kazu-226.github.io/eiyo_manabi_log/02.basic/timing.html">
           <span class="no">01</span>
           <span class="en">MEAL TIMING</span>
           <span class="t">食べるタイミングの基本</span>
-          <span class="d">何を食べるかより、いつ食べるか。朝・練習前・練習中・練習後・就寝前の5つに分けて、いつもの食事の置き場所を見直します。</span>
+          <span class="d">何を食べるかより、いつ食べるか。朝・トレーニング前・トレーニング中・トレーニング後・就寝前の5つに分けて、いつもの食事の置き場所を見直します。</span>
           <span class="go">このページを読む</span>
         </a>
+        <button class="done-toggle" type="button" aria-pressed="false">読んだ</button>
       </li>
-      <li>
-        <a href="intestine.html">
+      <li class="lesson" data-id="intestine">
+        <a href="https://kazu-226.github.io/eiyo_manabi_log/02.basic/intestine.html">
           <span class="no">02</span>
-          <span class="en">GUT HEALTH</span>
+          <span class="en">NUTRITION BASICS</span>
           <span class="t">競技者のための腸活ガイド</span>
           <span class="d">腸を整えることは、スポーツでいう「基礎練」。減らす・増やす・育てるの3つと、セルフチェックで今の自分の位置を確かめます。</span>
           <span class="go">このページを読む</span>
         </a>
+        <button class="done-toggle" type="button" aria-pressed="false">読んだ</button>
       </li>
-      <li>
-        <a href="supplement.html">
+      <li class="lesson" data-id="supplement">
+        <a href="https://kazu-226.github.io/eiyo_manabi_log/02.basic/supplement.html">
           <span class="no">03</span>
           <span class="en">SUPPLEMENT</span>
           <span class="t">サプリメントは「基準」で選ぶ</span>
           <span class="d">「おすすめは？」の前に、まず選び方を。原材料、配合量、品質管理、安全性など、中身を見て選ぶための基準をまとめました。</span>
           <span class="go">このページを読む</span>
         </a>
+        <button class="done-toggle" type="button" aria-pressed="false">読んだ</button>
       </li>
-      <li>
-        <a href="management.html">
+      <li class="lesson" data-id="management">
+        <a href="https://kazu-226.github.io/eiyo_manabi_log/02.basic/management.html">
           <span class="no">04</span>
           <span class="en">BODY COMPOSITION</span>
           <span class="t">体重・体組成のコントロール</span>
           <span class="d">体重計の数字より、体の中身。正しい測り方と、筋肉を残しながら減量・増量するための考え方を整理しました。</span>
           <span class="go">このページを読む</span>
         </a>
+        <button class="done-toggle" type="button" aria-pressed="false">読んだ</button>
       </li>
     </ul>
   </div>
@@ -354,7 +395,7 @@ footer p:last-child{margin:0;}
       <p>毎日の食事の型ができてきたら、次は練習や試合、目的に合わせて食事を使いこなすステップです。</p>
     </div>
 
-    <a class="next" href="../03.advance/00.html">
+    <a class="next" href="https://kazu-226.github.io/eiyo_manabi_log/03.advance/agenda.html">
       <span class="lead">STEP 03 / LEVEL UP YOUR SKILLS</span>
       <span class="t">スキルを高める</span>
       <span class="sp">スポーツでいえば：試合で勝つための技術と戦術を磨く</span>
@@ -371,6 +412,36 @@ footer p:last-child{margin:0;}
     <p>LINEでの個別相談では、内容に応じて商品のご紹介を含む場合があります。</p>
   </div>
 </footer>
+
+<script>
+(function(){
+  var KEY='eiyo_basic_done';
+  var done={};
+  try{ done=JSON.parse(localStorage.getItem(KEY)||'{}')||{}; }catch(e){ done={}; }
+  var items=document.querySelectorAll('#lessons .lesson');
+  function render(){
+    var n=0;
+    items.forEach(function(li){
+      var on=!!done[li.dataset.id];
+      li.classList.toggle('is-done',on);
+      var b=li.querySelector('.done-toggle');
+      b.textContent=on?'読んだ ✓':'読んだ';
+      b.setAttribute('aria-pressed',on);
+      if(on) n++;
+    });
+    document.getElementById('doneCount').textContent=n;
+    document.getElementById('bar').style.width=(n/items.length*100)+'%';
+  }
+  items.forEach(function(li){
+    li.querySelector('.done-toggle').addEventListener('click',function(){
+      done[li.dataset.id]=!done[li.dataset.id];
+      try{ localStorage.setItem(KEY,JSON.stringify(done)); }catch(e){}
+      render();
+    });
+  });
+  render();
+})();
+</script>
 
 </body>
 </html>
