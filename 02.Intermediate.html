@@ -3,662 +3,182 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>コンビニ・外食・飲み会の現実解｜整えられない日の食事の考え方</title>
-<meta name="description" content="コンビニ、外食、飲み会。理想どおりに食べられない日に、何を優先して、何を諦めるか。トレーニングを続けている社会人・学生向けの現実的な考え方をまとめました。">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>栄養コンテンツ（基礎）｜栄養まなびログ</title>
+<meta name="description" content="知ったことを、毎日の食事で続けて身につける。体づくりの基礎・土台を固めるテーマ。">
+<meta property="og:title" content="基礎・土台を固める">
+<meta property="og:description" content="知ったことを、毎日の食事で続けて身につける。体づくりの基礎・土台を固めるテーマ。">
+<meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
-:root{
-  --navy:#0C3F59;
-  --aqua:#16A6D9;
-  --lblue:#BFE3F2;
-  --wash:#eef7fb;
-  --ink:#1b2a33;
-  --mute:#43606f;
-  --line:#BFE3F2;
-  --rule:#e4eef3;
-  --faint:#8fa8b5;
-  --paper:#ffffff;
-  box-sizing:border-box;
-  padding-top:env(safe-area-inset-top,0px);
-  padding-bottom:env(safe-area-inset-bottom,0px);
-}
-*{box-sizing:border-box;}
-body{
-  margin:0;
-  font-family:'Noto Sans JP',system-ui,sans-serif;
-  color:var(--ink);
-  background:var(--paper);
-  line-height:1.9;
-  font-size:16px;
-  -webkit-text-size-adjust:100%;
-}
-.wrap{max-width:720px;margin:0 auto;padding:0 22px;}
-
-/* ===== hero ===== */
-.hero{background:var(--navy);color:#fff;position:relative;overflow:hidden;padding:64px 0 54px;}
-.hero::after{
-  content:"";position:absolute;right:-90px;top:-40px;width:400px;height:400px;
-  background:repeating-linear-gradient(115deg,rgba(255,255,255,.075) 0 2px,transparent 2px 16px);
-  transform:rotate(-8deg);pointer-events:none;
-}
-.hero .wrap{position:relative;z-index:1;}
-.hero-lead{font-family:'Bebas Neue',sans-serif;font-size:.9rem;letter-spacing:.22em;color:var(--lblue);margin:0 0 18px;}
-.hero h1{font-size:1.7rem;line-height:1.65;font-weight:700;margin:0 0 18px;}
-.hero p{color:var(--lblue);margin:0;font-size:.98rem;}
-.hero-meta{margin-top:30px;padding-top:18px;border-top:1px solid rgba(191,227,242,.3);font-size:.84rem;color:var(--lblue);line-height:1.8;}
-
-/* ===== section ===== */
-section{padding:52px 0;border-bottom:1px solid var(--rule);}
-.kicker{display:inline-block;font-family:'Bebas Neue',sans-serif;font-size:1.45rem;color:var(--aqua);letter-spacing:.06em;margin:0 0 4px;}
-h2{font-size:1.35rem;line-height:1.55;font-weight:700;margin:0 0 18px;}
-h3{font-size:1.02rem;font-weight:700;margin:30px 0 10px;}
-p{margin:0 0 16px;}
-a{color:var(--aqua);}
-
-/* ===== 部品：block ===== */
-.block{margin:0 0 26px;}
-.block:last-child{margin-bottom:0;}
-
-/* ===== 部品：pull ===== */
-.pull{
-  margin:26px 0;padding:2px 0 2px 20px;border-left:4px solid var(--aqua);
-  font-size:1.05rem;line-height:1.85;font-weight:700;color:var(--navy);
-}
-
-/* ===== 部品：strongp ===== */
-.strongp{font-weight:700;color:var(--navy);}
-
-/* ===== 部品：ul ===== */
-.ul{margin:18px 0;padding:0;list-style:none;}
-.ul li{position:relative;padding:0 0 0 20px;margin-bottom:11px;font-size:.95rem;}
-.ul li::before{content:"";position:absolute;left:2px;top:.75em;width:7px;height:7px;border-radius:50%;background:var(--aqua);}
-.ul li:last-child{margin-bottom:0;}
-
-/* ===== 部品：callout ===== */
-.callout{
-  margin:24px 0;padding:18px 20px;background:var(--wash);
-  border:1px solid var(--line);border-left:4px solid var(--aqua);border-radius:0 12px 12px 0;
-  font-size:.92rem;line-height:1.85;
-}
-.callout p{margin:0 0 10px;}
-.callout p:last-child{margin:0;}
-.callout .ttl{font-weight:700;color:var(--navy);margin-bottom:6px;}
-
-/* ===== 部品：band ===== */
-.band{
-  margin:30px 0;padding:26px 22px;background:var(--navy);color:var(--lblue);
-  border-radius:14px;position:relative;overflow:hidden;
-}
-.band::after{
-  content:"";position:absolute;right:-60px;top:-30px;width:250px;height:250px;
-  background:repeating-linear-gradient(115deg,rgba(255,255,255,.07) 0 2px,transparent 2px 16px);
-  transform:rotate(-8deg);pointer-events:none;
-}
-.band p{position:relative;z-index:1;font-size:.94rem;line-height:1.9;margin:0 0 13px;}
-.band p:last-child{margin:0;}
-.band .ttl{color:#fff;font-weight:700;font-size:1.1rem;line-height:1.6;margin-bottom:14px;}
-.band .ul{position:relative;z-index:1;}
-.band .ul li::before{background:var(--aqua);}
-.band .ul li{color:var(--lblue);}
-
-/* ===== 部品：button ===== */
-.button{
-  display:block;margin:26px 0;padding:18px 22px;background:var(--navy);color:#fff;
-  border-radius:12px;text-decoration:none;text-align:center;
-}
-.button .lb{display:block;font-weight:700;font-size:1rem;line-height:1.6;}
-.button .sb{display:block;margin-top:5px;font-size:.83rem;color:var(--lblue);line-height:1.7;}
-
-/* ===== 部品：fig ===== */
-/* 図版。1セクションに1点まで。svg は幅100%で縮む */
-.fig{margin:30px 0;}
-.fig svg{display:block;width:100%;max-width:420px;height:auto;margin:0 auto;}
-.fig .cap{margin:12px 0 0;font-size:.82rem;color:var(--mute);line-height:1.8;}
-
-/* ===== 部品：profile ===== */
-.profile{display:flex;gap:22px;align-items:flex-start;margin:0 0 6px;}
-.profile .pic{flex:0 0 132px;width:132px;aspect-ratio:1/1;border-radius:14px;overflow:hidden;background:var(--wash);}
-.profile .pic img{display:block;width:100%;height:100%;object-fit:cover;}
-.profile .name{font-size:1.2rem;font-weight:700;color:var(--navy);margin:4px 0 8px;line-height:1.5;}
-.profile .bio{font-size:.95rem;color:var(--mute);line-height:1.85;margin:0;}
-
-/* ===== 部品：illust ===== */
-/* セクション冒頭のイラスト。h2 の直後に置く */
-.illust{margin:0 0 26px;}
-.illust svg{display:block;width:100%;height:auto;border-radius:14px;}
-
-/* ===== 部品：hero-illust ===== */
-.hero-illust{margin:30px 0 0;}
-.hero-illust svg{display:block;width:100%;height:auto;}
-
-/* ===== footer ===== */
-footer{background:var(--navy);color:var(--lblue);padding:38px 0;font-size:.79rem;line-height:1.9;}
-footer u{text-decoration:underline;}
-footer p{margin:0 0 12px;}
-footer p:last-child{margin:0;}
-
-@media(max-width:560px){
-  .profile{gap:16px;}
-  .profile .pic{flex-basis:108px;width:108px;}
-  .profile .bio{font-size:.9rem;}
-  .hero h1{font-size:1.42rem;}
-  .pull{font-size:1rem;}
-}
+  :root{
+    --navy:#0C3F59; --aqua:#16A6D9; --light:#BFE3F2;
+    --bg:#eef7fb; --ink:#1b2a33; --sub:#43606f; --line:#e4eef3;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{margin:0;font-family:"Noto Sans JP",sans-serif;font-size:16px;line-height:1.9;color:var(--ink);background:#fff;}
+  .wrap{max-width:640px;margin:0 auto;padding:0 20px;}
+  .back{display:inline-block;margin:22px 0 0;font-size:14px;color:var(--sub);text-decoration:none;}
+  .back:hover,.back:focus-visible{color:var(--aqua);}
+  header{padding:26px 0 34px;}
+  header .eyebrow{font-size:12px;letter-spacing:.2em;color:var(--aqua);font-weight:700;margin-bottom:16px;}
+  header h1{font-size:27px;line-height:1.5;font-weight:900;color:var(--navy);margin:0 0 18px;}
+  header .rule{width:56px;height:4px;background:var(--aqua);margin-bottom:18px;}
+  header p{margin:0;font-size:16px;color:var(--sub);}
+  .steps{list-style:none;margin:22px 0 0;padding:0;border-left:2px solid var(--light);}
+  .steps li{position:relative;padding:0 0 16px 22px;}
+  .steps li:last-child{padding-bottom:0;}
+  .steps li::before{content:"";position:absolute;left:-7px;top:7px;width:12px;height:12px;border-radius:50%;background:#fff;border:2px solid var(--light);}
+  .steps li.done::before{background:var(--light);border-color:var(--light);}
+  .steps li.done .name a{color:var(--sub);text-decoration:underline;text-underline-offset:3px;}
+  .steps li.done .name a:hover,.steps li.done .name a:focus-visible{color:var(--aqua);}
+  .steps li.now::before{background:var(--aqua);border-color:var(--aqua);}
+  .steps .when{display:block;font-size:12px;font-weight:700;color:#8fa8b5;}
+  .steps .name{display:block;font-size:16px;font-weight:700;color:var(--sub);line-height:1.6;}
+  .steps .what{display:block;font-size:14px;color:#6d8592;line-height:1.7;}
+  .steps li.now .when{color:var(--aqua);}
+  .steps li.now .name{color:var(--navy);font-size:17px;}
+  .steps li.now .what{color:var(--sub);}
+  .group{padding:30px 0;border-top:1px solid var(--line);}
+  .group h2{font-size:14px;font-weight:700;color:var(--aqua);letter-spacing:.12em;margin:0 0 16px;}
+  .guide{margin:0 0 16px;font-size:14px;color:var(--sub);}
+  .card{display:flex;align-items:center;gap:14px;text-decoration:none;color:inherit;background:#fff;border:1px solid var(--light);border-radius:10px;padding:18px 18px 18px 20px;margin-bottom:12px;box-shadow:0 2px 0 var(--light);transition:border-color .15s,background .15s,transform .1s,box-shadow .1s;}
+  .card .body{flex:1;min-width:0;}
+  .card .go{display:inline-block;margin-top:10px;font-size:13px;font-weight:700;color:var(--aqua);}
+  .card .arrow{flex:none;width:36px;height:36px;border-radius:50%;background:var(--aqua);color:#fff;display:flex;align-items:center;justify-content:center;}
+  .card .arrow svg{width:16px;height:16px;}
+  .card.featured{background:var(--navy);border-color:var(--navy);box-shadow:0 3px 0 #072a3c;padding:22px 18px 22px 20px;}
+  .card.featured:hover,.card.featured:focus-visible{background:#0f4d6c;border-color:#0f4d6c;}
+  .card.featured .t{color:#fff;font-size:20px;}
+  .card.featured .d{color:var(--light);}
+  .card.featured .note{display:block;margin-top:10px;padding-top:10px;border-top:1px solid rgba(191,227,242,.3);font-size:13.5px;color:#fff;line-height:1.7;}
+  .card.featured .go{color:var(--light);}
+  .card.featured .arrow{background:#fff;color:var(--navy);}
+  .card.featured:active{box-shadow:0 0 0 #072a3c;}
+  .card .badge{display:inline-block;margin-bottom:8px;padding:2px 10px;border-radius:999px;background:var(--aqua);color:#fff;font-size:12px;font-weight:700;line-height:1.8;}
+  .sub{margin:28px 0 12px;font-size:14px;font-weight:700;color:var(--navy);}
+  .card:active{transform:translateY(2px);box-shadow:0 0 0 var(--light);}
+  .card:last-child{margin-bottom:0;}
+  .card:hover,.card:focus-visible{border-color:var(--aqua);background:var(--bg);}
+  @media (prefers-reduced-motion:reduce){.card{transition:none;}.card:active{transform:none;}}
+  .card:focus-visible{outline:2px solid var(--aqua);outline-offset:2px;}
+  .card .t{display:block;font-size:18px;font-weight:700;color:var(--navy);line-height:1.5;}
+  .card .d{display:block;font-size:14px;color:var(--sub);line-height:1.7;margin-top:4px;}
+  .soon{border:1px dashed var(--line);border-radius:4px;padding:18px 20px;margin-bottom:12px;color:#8fa8b5;}
+  .soon:last-child{margin-bottom:0;}
+  .soon .t{font-size:17px;font-weight:700;line-height:1.5;}
+  .soon .d{font-size:14px;line-height:1.7;margin-top:4px;}
+  footer{padding:30px 0 60px;border-top:1px solid var(--line);font-size:13px;color:#6d8592;line-height:1.85;}
+  footer u{text-decoration:underline;}
+  @media (max-width:600px){
+    body{font-size:15.5px;}
+    .wrap{padding:0 18px;}
+    header h1{font-size:23px;}
+    .group{padding:26px 0;}
+    .card{padding:16px 18px;}
+    .card .t{font-size:17px;}
+    .card.featured .t{font-size:19px;}
+  }
 </style>
 </head>
 <body>
-
-<header class="hero">
-  <div class="wrap">
-    <p class="hero-lead">REAL LIFE NUTRITION</p>
-    <h1>コンビニ・外食・飲み会。<br>整えられない日を、どう乗り切るか。</h1>
-    <p>理想の食事は、理想の一日にしか置けません。問題は、そうじゃない日のほうが多いことです。</p>
-    <p class="hero-meta">
-      この記事は「何を食べてはいけないか」ではなく、「選べるなかで何を足すか」という考え方でまとめています。<br><br>
-      対象：仕事や学業をしながらトレーニングを続けている方。
-    </p>
-
-    <div class="hero-illust">
-      <svg role="img" aria-label="コンビニ袋、丼、ジョッキのイラスト" viewBox="0 0 640 230" xmlns="http://www.w3.org/2000/svg">
-
-<path d="M30 200 H610" stroke="#BFE3F2" stroke-width="2" opacity=".35" stroke-linecap="round"/>
-<circle cx="584" cy="44" r="16" fill="#BFE3F2"/><circle cx="592" cy="38" r="14" fill="#0C3F59"/>
-<circle cx="540" cy="30" r="2" fill="#BFE3F2"/><circle cx="612" cy="78" r="1.6" fill="#BFE3F2"/><circle cx="60" cy="40" r="1.8" fill="#BFE3F2" opacity=".7"/>
-
-<path d="M118 108 L140 70 L162 108 Z" fill="#fff"/><rect x="132" y="88" width="16" height="20" fill="#0C3F59"/>
-<rect x="166" y="66" width="20" height="44" rx="5" fill="#BFE3F2"/><rect x="170" y="58" width="12" height="9" rx="2" fill="#fff"/>
-<path d="M104 106 H204 L196 198 H112 Z" fill="#16A6D9"/>
-<path d="M130 106 C130 74 178 74 178 106" fill="none" stroke="#BFE3F2" stroke-width="6" stroke-linecap="round"/>
-<rect x="138" y="140" width="32" height="6" rx="3" fill="#fff" opacity=".55"/>
-
-<path d="M300 104 q-9 -12 0 -24 q9 -12 0 -24" fill="none" stroke="#BFE3F2" stroke-width="3" stroke-linecap="round" opacity=".6"/>
-<path d="M326 100 q-9 -12 0 -24 q9 -12 0 -24" fill="none" stroke="#BFE3F2" stroke-width="3" stroke-linecap="round" opacity=".6"/>
-<path d="M258 136 Q322 92 386 136 Z" fill="#BFE3F2"/>
-<ellipse cx="344" cy="120" rx="17" ry="10" fill="#fff"/><circle cx="344" cy="120" r="5.5" fill="#16A6D9"/>
-<line x1="388" y1="62" x2="332" y2="124" stroke="#16A6D9" stroke-width="5" stroke-linecap="round"/>
-<line x1="402" y1="72" x2="342" y2="128" stroke="#16A6D9" stroke-width="5" stroke-linecap="round"/>
-<path d="M250 136 H394 A72 58 0 0 1 250 136 Z" fill="#fff"/>
-<path d="M258 152 H386" stroke="#16A6D9" stroke-width="4" opacity=".35"/>
-<rect x="296" y="190" width="52" height="9" rx="3" fill="#fff"/>
-
-<path d="M540 118 h16 a14 14 0 0 1 14 14 v22 a14 14 0 0 1 -14 14 h-16" fill="none" stroke="#fff" stroke-width="8"/>
-<rect x="470" y="98" width="72" height="100" rx="9" fill="#16A6D9"/>
-<rect x="482" y="116" width="7" height="66" rx="3.5" fill="#fff" opacity=".35"/>
-<circle cx="515" cy="160" r="3" fill="#BFE3F2"/><circle cx="526" cy="138" r="2.4" fill="#BFE3F2"/><circle cx="508" cy="176" r="2" fill="#BFE3F2"/>
-<rect x="466" y="92" width="80" height="16" rx="8" fill="#fff"/>
-<circle cx="480" cy="92" r="13" fill="#fff"/><circle cx="500" cy="86" r="15" fill="#fff"/><circle cx="522" cy="89" r="14" fill="#fff"/><circle cx="538" cy="94" r="10" fill="#fff"/>
-</svg>
-    </div>
-  </div>
-</header>
-
-<section>
-  <div class="wrap">
-    <span class="kicker">PROFILE</span>
-    <h2>私について</h2>
-
-    <div class="profile">
-      <div class="pic">
-        <!-- 写真差し替え：GitHub上の元画像があれば src を images/xxx.jpg に置き換えてください -->
-        <img src="data:image/jpeg;base64,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" alt="一輪車に乗るカズ" width="132" height="132">
-      </div>
-      <div>
-        <p class="name">カズ</p>
-        <p class="bio">一輪車歴18年。世界大会でソロ・リレー優勝。競技を通してスポーツ栄養の大切さに気づき、「スポーツ栄養プランナー」を取得しました。</p>
-      </div>
-    </div>
-
-    <div class="callout">
-      <p class="ttl">なぜ、栄養のことを発信しているのか</p>
-      <p>「これだけ練習しているのに、思うように伸びない」――競技を続ける中で、僕は何度もこの壁にぶつかってきました。技術でも練習量でもなく、抜けていたのは“日々の食事と栄養”という土台でした。</p>
-      <p>そこに向き合うようになって、体づくりへの向き合い方そのものが変わりました。頑張っている人ほど、栄養で遠回りしてほしくない。だから僕は、“何を飲むか”ではなく“どう選ぶか”を伝えています。</p>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <span class="kicker">01</span>
-    <h2>整える日と、整えられない日を分ける</h2>
-
-    <div class="illust">
-      <svg role="img" aria-label="チェックのついた日と、コンビニ・外食・飲み会の日が混ざった一週間のカレンダー" viewBox="0 0 640 240" xmlns="http://www.w3.org/2000/svg">
-<rect width="640" height="240" rx="16" fill="#eef7fb"/>
-
-<path d="M76 190 l-10 16 M124 190 l10 16" stroke="#0C3F59" stroke-width="5" stroke-linecap="round"/>
-<circle cx="80" cy="120" r="14" fill="#16A6D9"/><circle cx="120" cy="120" r="14" fill="#16A6D9"/>
-<circle cx="100" cy="160" r="42" fill="#fff" stroke="#0C3F59" stroke-width="6"/>
-<path d="M100 160 V134 M100 160 L118 170" stroke="#0C3F59" stroke-width="5" stroke-linecap="round"/>
-<circle cx="100" cy="160" r="4" fill="#16A6D9"/>
-
-<rect x="156" y="44" width="330" height="166" rx="14" fill="#fff" stroke="#BFE3F2" stroke-width="2"/>
-<path d="M156 58 a14 14 0 0 1 14 -14 h302 a14 14 0 0 1 14 14 v24 h-330 Z" fill="#0C3F59"/>
-<rect x="206" y="32" width="10" height="26" rx="5" fill="#16A6D9"/><rect x="426" y="32" width="10" height="26" rx="5" fill="#16A6D9"/>
-<g>
-<rect x="170" y="98" width="38" height="96" rx="8" fill="#eef7fb"/>
-<rect x="214" y="98" width="38" height="96" rx="8" fill="#eef7fb"/>
-<rect x="258" y="98" width="38" height="96" rx="8" fill="#eef7fb"/>
-<rect x="302" y="98" width="38" height="96" rx="8" fill="#eef7fb"/>
-<rect x="346" y="98" width="38" height="96" rx="8" fill="#eef7fb"/>
-<rect x="390" y="98" width="38" height="96" rx="8" fill="#eef7fb"/>
-<rect x="434" y="98" width="38" height="96" rx="8" fill="#eef7fb"/>
-</g>
-
-<circle cx="189" cy="146" r="13" fill="#16A6D9"/><path d="M183 146 l4 5 l8 -10" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-<circle cx="277" cy="146" r="13" fill="#16A6D9"/><path d="M271 146 l4 5 l8 -10" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-<circle cx="409" cy="146" r="13" fill="#16A6D9"/><path d="M403 146 l4 5 l8 -10" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-
-<path d="M233 136 L243 154 L223 154 Z" fill="none" stroke="#0C3F59" stroke-width="2.5" stroke-linejoin="round"/><rect x="228" y="146" width="10" height="8" fill="#0C3F59"/>
-
-<path d="M309 144 h26 a13 12 0 0 1 -26 0 Z" fill="#0C3F59"/><line x1="326" y1="130" x2="316" y2="142" stroke="#0C3F59" stroke-width="2.5" stroke-linecap="round"/>
-
-<rect x="361" y="136" width="16" height="22" rx="3" fill="#0C3F59"/><path d="M377 141 h3 a4 4 0 0 1 0 10 h-3" fill="none" stroke="#0C3F59" stroke-width="2.5"/><rect x="359" y="132" width="20" height="6" rx="3" fill="#BFE3F2"/>
-
-<path d="M453 136 L463 154 L443 154 Z" fill="none" stroke="#0C3F59" stroke-width="2.5" stroke-linejoin="round"/><rect x="448" y="146" width="10" height="8" fill="#0C3F59"/>
-
-<g transform="rotate(-18 552 166)">
-<rect x="512" y="162" width="80" height="8" rx="4" fill="#0C3F59"/>
-<rect x="514" y="140" width="14" height="52" rx="5" fill="#16A6D9"/><rect x="576" y="140" width="14" height="52" rx="5" fill="#16A6D9"/>
-<rect x="502" y="148" width="12" height="36" rx="4" fill="#0C3F59"/><rect x="590" y="148" width="12" height="36" rx="4" fill="#0C3F59"/>
-</g>
-</svg>
-    </div>
-
-    <div class="block">
-      <p>食事管理は、知識の量よりも続け方で差がつきます。自炊できる日はしっかり整えて、できない日はなるべく偏らないようにする。この繰り返しです。</p>
-    </div>
-
-    <p class="pull">整えられない日の目標は「取り返す」ことではなく、「大きく外さない」ことです。</p>
-
-    <div class="block">
-      <p>そのために、拾う順番を決めておきます。</p>
-    </div>
-
-    <div class="fig">
-      <svg viewBox="0 0 360 226" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Sans JP',sans-serif" role="img" aria-label="整えられない日に拾う優先順位">
-        <text x="8" y="14" font-size="10.5" font-weight="700" fill="#8fa8b5" letter-spacing="1.5">PRIORITY</text>
-
-        <rect x="8" y="26" width="344" height="42" rx="9" fill="#0C3F59"/>
-        <text x="24" y="53" font-size="13" font-weight="700" fill="#16A6D9">1</text>
-        <text x="44" y="53" font-size="13.5" font-weight="700" fill="#ffffff">たんぱく質を、その一食で切らさない</text>
-
-        <rect x="8" y="74" width="344" height="42" rx="9" fill="#16A6D9"/>
-        <text x="24" y="101" font-size="13" font-weight="700" fill="#0C3F59">2</text>
-        <text x="44" y="101" font-size="13.5" font-weight="700" fill="#ffffff">主食を、極端に削らない</text>
-
-        <rect x="8" y="122" width="344" height="42" rx="9" fill="#BFE3F2"/>
-        <text x="24" y="149" font-size="13" font-weight="700" fill="#0C3F59">3</text>
-        <text x="44" y="149" font-size="13.5" fill="#0C3F59">野菜・果物・乳製品を、続けて切らさない</text>
-
-        <rect x="8.75" y="170.75" width="342.5" height="40.5" rx="9" fill="#eef7fb" stroke="#BFE3F2" stroke-width="1.5"/>
-        <text x="24" y="197" font-size="13" font-weight="700" fill="#16A6D9">4</text>
-        <text x="44" y="197" font-size="13.5" fill="#0C3F59">水分は、気づいたときに足す</text>
-      </svg>
-      <p class="cap">全部そろわない日でも、上から順に拾えば形になります。</p>
-    </div>
-
-    <div class="block">
-      <p>一食ごとに意識したいのは、たんぱく質です。体に貯めておきにくく、分けて摂るほうが使われやすいと考えられています。主食も削りすぎないこと。エネルギーが足りないと、体は筋肉も分解して使います。</p>
-    </div>
-
-    <h3>偏りを防ぐ手段として、サプリもあり</h3>
-
-    <div class="block">
-      <p>整えられない日が続くと、どうしても偏りが出ます。そこをサプリやプロテインで埋めるのは十分ありです。<span class="strongp">食事の代わりではなく、足りない部分の補助として使います。</span></p>
-    </div>
-
-    <ul class="ul">
-      <li>何を補いたいのかを先に決める</li>
-      <li>同じ成分が重なっていないかを見る</li>
-      <li>服薬中・通院中の方は医師や薬剤師に相談。大会に出る方はアンチ・ドーピング認証も確認</li>
-    </ul>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <span class="kicker">02</span>
-    <h2>コンビニは「組み合わせ」で考える</h2>
-
-    <div class="illust">
-      <svg role="img" aria-label="コンビニの店先と、おにぎり・スープ・卵の入ったかご" viewBox="0 0 640 240" xmlns="http://www.w3.org/2000/svg">
-<rect width="640" height="240" rx="16" fill="#eef7fb"/>
-<path d="M20 214 H620" stroke="#BFE3F2" stroke-width="3" stroke-linecap="round"/>
-<rect x="96" y="58" width="400" height="156" fill="#fff"/>
-<rect x="196" y="28" width="200" height="30" rx="7" fill="#0C3F59"/>
-<rect x="222" y="40" width="148" height="6" rx="3" fill="#BFE3F2"/>
-<path d="M96 58 h40 v30 a20 10 0 0 1 -40 0 Z" fill="#16A6D9"/>
-<path d="M136 58 h40 v30 a20 10 0 0 1 -40 0 Z" fill="#0C3F59"/>
-<path d="M176 58 h40 v30 a20 10 0 0 1 -40 0 Z" fill="#16A6D9"/>
-<path d="M216 58 h40 v30 a20 10 0 0 1 -40 0 Z" fill="#0C3F59"/>
-<path d="M256 58 h40 v30 a20 10 0 0 1 -40 0 Z" fill="#16A6D9"/>
-<path d="M296 58 h40 v30 a20 10 0 0 1 -40 0 Z" fill="#0C3F59"/>
-<path d="M336 58 h40 v30 a20 10 0 0 1 -40 0 Z" fill="#16A6D9"/>
-<path d="M376 58 h40 v30 a20 10 0 0 1 -40 0 Z" fill="#0C3F59"/>
-<path d="M416 58 h40 v30 a20 10 0 0 1 -40 0 Z" fill="#16A6D9"/>
-<path d="M456 58 h40 v30 a20 10 0 0 1 -40 0 Z" fill="#0C3F59"/>
-<rect x="114" y="112" width="150" height="90" rx="4" fill="#BFE3F2"/>
-<rect x="390" y="112" width="92" height="90" rx="4" fill="#BFE3F2"/>
-<line x1="114" y1="142" x2="264" y2="142" stroke="#fff" stroke-width="3"/><line x1="114" y1="172" x2="264" y2="172" stroke="#fff" stroke-width="3"/>
-<line x1="390" y1="142" x2="482" y2="142" stroke="#fff" stroke-width="3"/><line x1="390" y1="172" x2="482" y2="172" stroke="#fff" stroke-width="3"/>
-<rect x="122" y="124" width="12" height="18" rx="2" fill="#16A6D9"/>
-<rect x="140" y="124" width="12" height="18" rx="2" fill="#16A6D9"/>
-<rect x="158" y="124" width="12" height="18" rx="2" fill="#16A6D9"/>
-<rect x="188" y="124" width="12" height="18" rx="2" fill="#16A6D9"/>
-<rect x="206" y="124" width="12" height="18" rx="2" fill="#16A6D9"/>
-<rect x="236" y="124" width="12" height="18" rx="2" fill="#16A6D9"/>
-<path d="M126 172 l8 -14 l8 14 Z" fill="#fff"/>
-<path d="M152 172 l8 -14 l8 14 Z" fill="#fff"/>
-<path d="M178 172 l8 -14 l8 14 Z" fill="#fff"/>
-<path d="M204 172 l8 -14 l8 14 Z" fill="#fff"/>
-<path d="M230 172 l8 -14 l8 14 Z" fill="#fff"/>
-<rect x="398" y="128" width="14" height="14" rx="7" fill="#0C3F59"/><rect x="398" y="158" width="14" height="14" rx="3" fill="#16A6D9"/>
-<rect x="420" y="128" width="14" height="14" rx="7" fill="#0C3F59"/><rect x="420" y="158" width="14" height="14" rx="3" fill="#16A6D9"/>
-<rect x="442" y="128" width="14" height="14" rx="7" fill="#0C3F59"/><rect x="442" y="158" width="14" height="14" rx="3" fill="#16A6D9"/>
-<rect x="462" y="128" width="14" height="14" rx="7" fill="#0C3F59"/><rect x="462" y="158" width="14" height="14" rx="3" fill="#16A6D9"/>
-<rect x="286" y="104" width="86" height="110" rx="4" fill="#eef7fb" stroke="#BFE3F2" stroke-width="3"/>
-<line x1="329" y1="106" x2="329" y2="212" stroke="#BFE3F2" stroke-width="3"/>
-<rect x="318" y="150" width="4" height="22" rx="2" fill="#0C3F59"/><rect x="336" y="150" width="4" height="22" rx="2" fill="#0C3F59"/>
-
-<path d="M540 170 L556 132 L574 170 Z" fill="#fff" stroke="#BFE3F2" stroke-width="2" stroke-linejoin="round"/><rect x="549" y="154" width="14" height="16" fill="#0C3F59"/>
-<rect x="578" y="146" width="28" height="26" rx="4" fill="#16A6D9"/><rect x="574" y="140" width="36" height="8" rx="4" fill="#fff"/>
-<ellipse cx="616" cy="158" rx="8" ry="11" fill="#fff" stroke="#BFE3F2" stroke-width="2"/>
-<path d="M528 168 H632 L620 214 H540 Z" fill="#0C3F59"/>
-<path d="M548 180 H612 M552 196 H608" stroke="#BFE3F2" stroke-width="2.5" opacity=".6"/>
-<path d="M550 168 C552 130 606 130 610 168" fill="none" stroke="#0C3F59" stroke-width="5" stroke-linecap="round"/>
-</svg>
-    </div>
-
-    <div class="block">
-      <p>コンビニ食が崩れるのは、一品で完結させたときです。問題は中身よりも、<span class="strongp">「それしかない」という構成のほう</span>。主食・主菜・もう一品の三つの枠で選びます。</p>
-    </div>
-
-    <div class="fig">
-      <svg viewBox="0 0 360 202" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Sans JP',sans-serif" role="img" aria-label="コンビニで埋める三つの枠">
-        <rect x="8" y="6" width="344" height="52" rx="10" fill="#eef7fb" stroke="#BFE3F2"/>
-        <circle cx="36" cy="32" r="16" fill="#0C3F59"/>
-        <path d="M36 23 L44 39 L28 39 Z" fill="none" stroke="#ffffff" stroke-width="2" stroke-linejoin="round"/>
-        <rect x="31" y="33" width="10" height="6" fill="#ffffff"/>
-        <text x="64" y="29" font-size="13" font-weight="700" fill="#0C3F59">主食</text>
-        <text x="64" y="47" font-size="10.5" fill="#43606f">おにぎり・パン・パスタ・そば</text>
-
-        <text x="180" y="69" font-size="15" font-weight="700" fill="#16A6D9" text-anchor="middle">＋</text>
-
-        <rect x="8" y="72" width="344" height="52" rx="10" fill="#eef7fb" stroke="#BFE3F2"/>
-        <circle cx="36" cy="98" r="16" fill="#16A6D9"/>
-        <ellipse cx="36" cy="98" rx="7.5" ry="9.5" fill="none" stroke="#ffffff" stroke-width="2"/>
-        <circle cx="36" cy="99" r="3" fill="#ffffff"/>
-        <text x="64" y="95" font-size="13" font-weight="700" fill="#0C3F59">主菜</text>
-        <text x="64" y="113" font-size="10.5" fill="#43606f">サラダチキン・卵・納豆・魚の缶詰</text>
-
-        <text x="180" y="135" font-size="15" font-weight="700" fill="#16A6D9" text-anchor="middle">＋</text>
-
-        <rect x="8" y="138" width="344" height="52" rx="10" fill="#eef7fb" stroke="#BFE3F2"/>
-        <circle cx="36" cy="164" r="16" fill="#16A6D9"/>
-        <path d="M27 161 h18 a9 9 0 0 1 -18 0 Z" fill="#ffffff"/>
-        <path d="M25 161 h22" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
-        <path d="M33 155 v-4 M39 155 v-4" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round"/>
-        <text x="64" y="161" font-size="13" font-weight="700" fill="#0C3F59">もう一品</text>
-        <text x="64" y="179" font-size="10.5" fill="#43606f">味噌汁・サラダ・果物・ヨーグルト</text>
-      </svg>
-      <p class="cap">おにぎり一個に、ゆで卵と味噌汁を足すだけでも形になります。</p>
-    </div>
-
-    <h3>よくある場面別に</h3>
-
-    <div class="block">
-      <p><span class="strongp">昼休みが短いとき。</span><br>麺や丼の単品に、ゆで卵かサラダチキンとスープを足します。</p>
-      <p><span class="strongp">トレーニング前に軽く入れたいとき。</span><br>おにぎりやバナナなど、脂質の少ない糖質中心のものを軽めに。</p>
-      <p><span class="strongp">トレーニング後、帰宅まで時間があるとき。</span><br>おにぎりと牛乳やプロテインで、糖質とたんぱく質をつないでおきます。</p>
-    </div>
-
-    <div class="callout">
-      <p class="ttl">「高たんぱく」表示との付き合い方</p>
-      <p>便利ですが、脂質や糖質、甘味料が多い商品もあります。成分表示を一度見て、自分の定番を決めておくと迷いません。</p>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <span class="kicker">03</span>
-    <h2>外食は、頼み方でほぼ決まる</h2>
-
-    <div class="illust">
-      <svg role="img" aria-label="主食・主菜・副菜・汁物がそろった定食のお盆" viewBox="0 0 640 240" xmlns="http://www.w3.org/2000/svg">
-<rect width="640" height="240" rx="16" fill="#eef7fb"/>
-<rect x="138" y="22" width="364" height="200" rx="20" fill="#0C3F59"/>
-<rect x="150" y="34" width="340" height="176" rx="14" fill="none" stroke="#16A6D9" stroke-width="2" opacity=".5"/>
-
-<circle cx="214" cy="84" r="32" fill="#fff"/><circle cx="214" cy="84" r="22" fill="#BFE3F2"/>
-<circle cx="206" cy="80" r="6" fill="#16A6D9"/><circle cx="220" cy="90" r="5" fill="#16A6D9"/><circle cx="222" cy="76" r="4" fill="#fff"/>
-
-<ellipse cx="366" cy="84" rx="92" ry="44" fill="#fff"/>
-<path d="M312 84 C330 60 382 60 402 84 C382 108 330 108 312 84 Z" fill="#16A6D9"/>
-<path d="M402 84 L424 68 L424 100 Z" fill="#16A6D9"/>
-<circle cx="326" cy="80" r="3.5" fill="#0C3F59"/>
-<path d="M346 70 l-8 28 M364 68 l-8 32 M382 70 l-8 28" stroke="#0C3F59" stroke-width="3" stroke-linecap="round" opacity=".6"/>
-<path d="M430 104 a14 14 0 0 1 22 -6 Z" fill="#BFE3F2"/>
-
-<circle cx="230" cy="162" r="42" fill="#BFE3F2"/><circle cx="230" cy="162" r="34" fill="#fff"/>
-<ellipse cx="218" cy="150" rx="3.5" ry="2" fill="#BFE3F2"/>
-<ellipse cx="236" cy="146" rx="3.5" ry="2" fill="#BFE3F2"/>
-<ellipse cx="246" cy="160" rx="3.5" ry="2" fill="#BFE3F2"/>
-<ellipse cx="224" cy="170" rx="3.5" ry="2" fill="#BFE3F2"/>
-<ellipse cx="212" cy="162" rx="3.5" ry="2" fill="#BFE3F2"/>
-<ellipse cx="238" cy="176" rx="3.5" ry="2" fill="#BFE3F2"/>
-<ellipse cx="228" cy="158" rx="3.5" ry="2" fill="#BFE3F2"/>
-
-<circle cx="378" cy="164" r="40" fill="#16A6D9"/><circle cx="378" cy="164" r="31" fill="#BFE3F2"/>
-<rect x="364" y="152" width="10" height="10" rx="1.5" fill="#fff"/><rect x="384" y="166" width="10" height="10" rx="1.5" fill="#fff"/><rect x="368" y="172" width="8" height="8" rx="1.5" fill="#fff"/>
-<circle cx="390" cy="152" r="3.5" fill="none" stroke="#0C3F59" stroke-width="2"/><circle cx="360" cy="168" r="3" fill="none" stroke="#0C3F59" stroke-width="2"/>
-
-<rect x="448" y="140" width="22" height="8" rx="4" fill="#BFE3F2"/>
-<line x1="452" y1="56" x2="464" y2="206" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
-<line x1="464" y1="54" x2="474" y2="206" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
-</svg>
-    </div>
-
-    <div class="block">
-      <p>外食は、出てきたものを調整できません。だから注文の時点でほぼ決まります。いちばん簡単なのは、<span class="strongp">定食を選ぶこと</span>です。</p>
-    </div>
-
-    <div class="fig">
-      <svg viewBox="0 0 360 196" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Sans JP',sans-serif" role="img" aria-label="単品だけの形と、定食に近づけた形">
-        <rect x="8.75" y="6.75" width="342.5" height="68.5" rx="10" fill="#ffffff" stroke="#8fa8b5" stroke-width="1.5" stroke-dasharray="5 4"/>
-        <circle cx="38" cy="41" r="15" fill="none" stroke="#8fa8b5" stroke-width="1.5"/>
-        <path d="M29 37 h18 a9 9 0 0 1 -18 0 Z" fill="#8fa8b5"/>
-        <path d="M27 37 h22" stroke="#8fa8b5" stroke-width="2" stroke-linecap="round"/>
-        <text x="66" y="32" font-size="13" font-weight="700" fill="#43606f">単品だけで終わる形</text>
-        <text x="66" y="50" font-size="10.5" fill="#43606f">エネルギーは入るが、</text>
-        <text x="66" y="66" font-size="10.5" fill="#43606f">たんぱく質と野菜が抜けやすい。</text>
-
-        <path d="M150 84 V104" stroke="#16A6D9" stroke-width="2" stroke-linecap="round"/>
-        <path d="M145 99 l5 6 l5 -6" fill="none" stroke="#16A6D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        <text x="164" y="99" font-size="11.5" font-weight="700" fill="#16A6D9">ひと品、足す</text>
-
-        <rect x="8" y="114" width="344" height="74" rx="10" fill="#eef7fb" stroke="#BFE3F2"/>
-        <circle cx="38" cy="151" r="15" fill="#0C3F59"/>
-        <path d="M29 147 h18 a9 9 0 0 1 -18 0 Z" fill="#ffffff"/>
-        <path d="M27 147 h22" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
-        <path d="M34 141 v-4 M42 141 v-4" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round"/>
-        <text x="66" y="141" font-size="13" font-weight="700" fill="#0C3F59">「定食の形」に近づける</text>
-        <text x="66" y="159" font-size="10.5" fill="#43606f">味玉・トッピング・小鉢・味噌汁。</text>
-        <text x="66" y="175" font-size="10.5" fill="#43606f">注文の時点で、ほとんど決まります。</text>
-      </svg>
-      <p class="cap">出てきたものは調整できません。足すなら、注文の段階で足します。</p>
-    </div>
-
-    <h3>単品のときの足し方</h3>
-
-    <ul class="ul">
-      <li>ラーメン：味玉やチャーシューを足し、スープは残す</li>
-      <li>丼もの：小鉢や味噌汁がつくセットに</li>
-      <li>パスタ：肉・魚介・卵が入ったものを</li>
-      <li>カレー：サラダを一緒に</li>
-    </ul>
-
-    <div class="block">
-      <p>揚げ物や塩分は、一食で気にしすぎず、数日単位でならせば十分です。</p>
-    </div>
-
-    <div class="band">
-      <p class="ttl">外食が続く週の、最低ライン</p>
-      <ul class="ul">
-        <li>一日のどこかで、野菜と果物を入れる</li>
-        <li>どの食事にも、たんぱく質のおかずを一つ置く</li>
-        <li>丼・麺・パンの「単品だけ」を二食続けない</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <span class="kicker">04</span>
-    <h2>飲み会は、前・最中・翌日で考える</h2>
-
-    <div class="illust">
-      <svg role="img" aria-label="乾杯するジョッキの横に、水・冷奴・枝豆" viewBox="0 0 640 240" xmlns="http://www.w3.org/2000/svg">
-<rect width="640" height="240" rx="16" fill="#eef7fb"/>
-<path d="M0 196 H640 V224 a16 16 0 0 1 -16 16 H16 a16 16 0 0 1 -16 -16 Z" fill="#0C3F59"/>
-
-<ellipse cx="100" cy="192" rx="46" ry="10" fill="#fff" stroke="#BFE3F2" stroke-width="2"/>
-<rect x="76" y="152" width="48" height="38" rx="5" fill="#fff" stroke="#BFE3F2" stroke-width="2"/>
-<circle cx="100" cy="150" r="7" fill="#16A6D9"/><path d="M92 146 l6 -6 M104 144 l6 -5" stroke="#0C3F59" stroke-width="2.5" stroke-linecap="round"/>
-
-<path d="M160 104 H206 L200 196 H166 Z" fill="#fff" stroke="#BFE3F2" stroke-width="3"/>
-<path d="M164 130 H202 L199 192 H167 Z" fill="#BFE3F2"/>
-<rect x="172" y="140" width="5" height="40" rx="2.5" fill="#fff" opacity=".8"/>
-
-<g transform="rotate(-12 290 150)">
-<path d="M270 118 h-14 a12 12 0 0 0 -12 12 v18 a12 12 0 0 0 12 12 h14" fill="none" stroke="#16A6D9" stroke-width="7"/>
-<rect x="268" y="102" width="62" height="92" rx="8" fill="#16A6D9"/>
-<rect x="312" y="118" width="6" height="58" rx="3" fill="#fff" opacity=".35"/>
-<rect x="264" y="96" width="70" height="14" rx="7" fill="#fff"/><circle cx="278" cy="96" r="11" fill="#fff"/><circle cx="298" cy="91" r="13" fill="#fff"/><circle cx="318" cy="95" r="11" fill="#fff"/>
-</g>
-<g transform="rotate(12 390 150)">
-<path d="M410 118 h14 a12 12 0 0 1 12 12 v18 a12 12 0 0 1 -12 12 h-14" fill="none" stroke="#16A6D9" stroke-width="7"/>
-<rect x="350" y="102" width="62" height="92" rx="8" fill="#16A6D9"/>
-<rect x="362" y="118" width="6" height="58" rx="3" fill="#fff" opacity=".35"/>
-<rect x="346" y="96" width="70" height="14" rx="7" fill="#fff"/><circle cx="360" cy="95" r="11" fill="#fff"/><circle cx="380" cy="91" r="13" fill="#fff"/><circle cx="400" cy="96" r="11" fill="#fff"/>
-</g>
-<path d="M340 58 V40 M322 64 l-10 -12 M358 64 l10 -12" stroke="#16A6D9" stroke-width="4" stroke-linecap="round"/>
-
-<ellipse cx="530" cy="190" rx="74" ry="14" fill="#fff" stroke="#BFE3F2" stroke-width="2"/>
-<g transform="rotate(-20 492 172)"><rect x="472" y="165" width="40" height="14" rx="7" fill="#16A6D9"/><circle cx="482" cy="172" r="3" fill="#BFE3F2"/><circle cx="492" cy="172" r="3" fill="#BFE3F2"/><circle cx="502" cy="172" r="3" fill="#BFE3F2"/></g>
-<g transform="rotate(10 520 166)"><rect x="500" y="159" width="40" height="14" rx="7" fill="#16A6D9"/><circle cx="510" cy="166" r="3" fill="#BFE3F2"/><circle cx="520" cy="166" r="3" fill="#BFE3F2"/><circle cx="530" cy="166" r="3" fill="#BFE3F2"/></g>
-<g transform="rotate(-8 548 172)"><rect x="528" y="165" width="40" height="14" rx="7" fill="#16A6D9"/><circle cx="538" cy="172" r="3" fill="#BFE3F2"/><circle cx="548" cy="172" r="3" fill="#BFE3F2"/><circle cx="558" cy="172" r="3" fill="#BFE3F2"/></g>
-<g transform="rotate(22 566 164)"><rect x="546" y="157" width="40" height="14" rx="7" fill="#16A6D9"/><circle cx="556" cy="164" r="3" fill="#BFE3F2"/><circle cx="566" cy="164" r="3" fill="#BFE3F2"/><circle cx="576" cy="164" r="3" fill="#BFE3F2"/></g>
-<g transform="rotate(6 506 180)"><rect x="486" y="173" width="40" height="14" rx="7" fill="#16A6D9"/><circle cx="496" cy="180" r="3" fill="#BFE3F2"/><circle cx="506" cy="180" r="3" fill="#BFE3F2"/><circle cx="516" cy="180" r="3" fill="#BFE3F2"/></g>
-<g transform="rotate(-4 540 182)"><rect x="520" y="175" width="40" height="14" rx="7" fill="#16A6D9"/><circle cx="530" cy="182" r="3" fill="#BFE3F2"/><circle cx="540" cy="182" r="3" fill="#BFE3F2"/><circle cx="550" cy="182" r="3" fill="#BFE3F2"/></g>
-</svg>
-    </div>
-
-    <div class="block">
-      <p>飲み会は断らない前提で、前・席・翌日の三つで組み立てます。</p>
-    </div>
-
-    <div class="fig">
-      <svg viewBox="0 0 360 220" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Sans JP',sans-serif" role="img" aria-label="飲み会を前・最中・翌日で挟む">
-        <path d="M30 34 V190" stroke="#BFE3F2" stroke-width="2"/>
-
-        <circle cx="30" cy="34" r="13" fill="#0C3F59"/>
-        <text x="30" y="39" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">1</text>
-        <text x="56" y="31" font-size="13" font-weight="700" fill="#0C3F59">行く前</text>
-        <text x="56" y="49" font-size="10.5" fill="#43606f">空腹のまま行かない。夕方に軽く一口。</text>
-
-        <circle cx="30" cy="110" r="13" fill="#16A6D9"/>
-        <text x="30" y="115" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">2</text>
-        <text x="56" y="107" font-size="13" font-weight="700" fill="#0C3F59">席についてから</text>
-        <text x="56" y="125" font-size="10.5" fill="#43606f">最初の注文に枝豆・冷奴・刺身・焼き鳥。</text>
-        <text x="56" y="141" font-size="10.5" fill="#43606f">水やお茶を、お酒と並走させる。</text>
-
-        <circle cx="30" cy="190" r="13" fill="#BFE3F2"/>
-        <text x="30" y="195" font-size="12" font-weight="700" fill="#0C3F59" text-anchor="middle">3</text>
-        <text x="56" y="187" font-size="13" font-weight="700" fill="#0C3F59">翌日</text>
-        <text x="56" y="205" font-size="10.5" fill="#43606f">水分・朝食・たんぱく質を、早めに戻す。</text>
-      </svg>
-      <p class="cap">当日の席でできることは限られています。前と翌日で挟むほうが効きます。</p>
-    </div>
-
-    <div class="block">
-      <p>空腹のまま行くと、飲むペースも揚げ物に手が伸びるのも速くなります。<span class="strongp">ヨーグルトやおにぎり半分など、軽く入れておくだけで違います。</span></p>
-    </div>
-
-    <ul class="ul">
-      <li>揚げ物は「頼まない」ではなく「最初に頼まない」</li>
-      <li>締めの主食は、翌日が練習なら無駄になりません。食べるなら早めに、少なめに</li>
-    </ul>
-
-    <p class="pull">お酒そのものより、睡眠が削られることのほうが翌日に響きます。</p>
-
-    <div class="block">
-      <p>アルコールは睡眠の後半を浅くしやすく、就寝時刻も遅くなりがちです。ハードな練習や試合の直後は、量を控えめにしておくと安心です。</p>
-    </div>
-
-    <div class="callout">
-      <p class="ttl">前提として</p>
-      <p>飲酒は20歳から。体質的に飲めない方、運転する方、妊娠・授乳中の方、服薬中の方は飲まないことが前提です。</p>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <span class="kicker">05</span>
-    <h2>結局、何を持ち帰るか</h2>
-
-    <div class="illust">
-      <svg role="img" aria-label="朝の窓辺と、水・トースト・目玉焼き・牛乳の朝食" viewBox="0 0 640 240" xmlns="http://www.w3.org/2000/svg">
-<defs><clipPath id="win"><rect x="180" y="14" width="280" height="128" rx="10"/></clipPath></defs>
-<rect width="640" height="240" rx="16" fill="#eef7fb"/>
-<g clip-path="url(#win)">
-<rect x="180" y="14" width="280" height="128" fill="#BFE3F2"/>
-<circle cx="320" cy="118" r="76" fill="#fff" opacity=".35"/>
-<circle cx="320" cy="118" r="50" fill="#fff"/>
-<path d="M180 118 Q250 88 320 114 T460 106 V142 H180 Z" fill="#16A6D9"/>
-<path d="M180 130 Q270 112 360 130 T460 126 V142 H180 Z" fill="#0C3F59" opacity=".85"/>
-</g>
-<rect x="180" y="14" width="280" height="128" rx="10" fill="none" stroke="#0C3F59" stroke-width="8"/>
-<line x1="320" y1="14" x2="320" y2="142" stroke="#0C3F59" stroke-width="6"/>
-<rect x="164" y="140" width="312" height="10" rx="5" fill="#0C3F59"/>
-<path d="M0 206 H640" stroke="#BFE3F2" stroke-width="3"/>
-<path d="M196 162 H232 L228 206 H200 Z" fill="#fff" stroke="#16A6D9" stroke-width="3"/>
-<path d="M199 176 H229 L227 203 H201 Z" fill="#BFE3F2"/>
-<ellipse cx="320" cy="206" rx="62" ry="11" fill="#fff" stroke="#BFE3F2" stroke-width="2"/>
-<path d="M280 202 V178 a14 12 0 0 1 14 -14 h10 a14 12 0 0 1 14 14 V202 Z" fill="#BFE3F2"/>
-<path d="M285 202 V181 a10 9 0 0 1 10 -11 h8 a10 9 0 0 1 10 11 V202 Z" fill="#fff"/>
-<ellipse cx="352" cy="198" rx="22" ry="8" fill="#fff" stroke="#BFE3F2" stroke-width="2"/>
-<circle cx="354" cy="196" r="5.5" fill="#16A6D9"/>
-<rect x="410" y="164" width="32" height="42" rx="6" fill="#fff" stroke="#16A6D9" stroke-width="3"/>
-<path d="M442 174 h6 a8 8 0 0 1 0 20 h-6" fill="none" stroke="#16A6D9" stroke-width="3"/>
-<rect x="413" y="176" width="26" height="27" rx="3" fill="#eef7fb"/>
-</svg>
-    </div>
-
-    <p class="pull">整えられない日の目的は、挽回ではなく、翌日の自分に迷惑をかけないことです。</p>
-
-    <div class="block">
-      <p>コンビニはもう一品足す。外食は注文で形を作る。飲み会は前と翌日で挟む。</p>
-      <p>そして、うまくいかなかった日を反省しすぎないこと。<span class="strongp">続いている人は、崩れた翌日をふつうに戻しているだけです。</span></p>
-    </div>
-
-    <a class="button" href="https://kazu-226.github.io/eiyo_manabi_log/02.Intermediate.html">
-      <span class="lb">他の内容はこちら</span>
+<div class="wrap">
+  <a class="back" href="https://lin.ee/Ov0R2Dv">← LINEに戻る</a>
+
+  <header>
+    <div class="eyebrow">栄養コンテンツ｜基礎</div>
+    <h1>基礎・土台を固める</h1>
+    <div class="rule"></div>
+    <p>ルールを知ったら、次は基礎練習です。スポーツと同じように、知ったことを毎日の食事で続けて、自分のものにしていく段階です。</p>
+    <ol class="steps">
+      <li class="done">
+        <span class="when">済み</span>
+        <span class="name"><a href="https://kazu-226.github.io/eiyo_manabi_log/00.beginner.html">ルールを知る</a></span>
+        <span class="what">競技もルールを知らないと始まらないように、まずは栄養の基本を知る。</span>
+      </li>
+      <li class="now">
+        <span class="when">今回</span>
+        <span class="name">基礎・土台を固める</span>
+        <span class="what">基礎練習を積み重ねるように、知ったことを毎日の食事で続けて身につける。</span>
+      </li>
+      <li>
+        <span class="when">その先</span>
+        <span class="name">スキルをつける</span>
+        <span class="what">試合で技を使い分けるように、練習や試合に合わせて食事を使いこなす。</span>
+      </li>
+    </ol>
+  </header>
+
+  <div class="group">
+    <p class="guide">気になるテーマを押すと、それぞれの解説ページが開きます。</p>
+
+    <!-- 目立たせたいテーマ（1つだけ）。不要ならこの<a>ごと削除し、下の「sub」見出しも削除 -->
+    <a class="card featured" href="https://kazu-226.github.io/eiyo_manabi_log/02.basic.XXXX.html">
+      <span class="body">
+        <span class="badge">最初に、全員に読んでほしい内容</span>
+        <span class="t">いちばん読んでほしいテーマのタイトル</span>
+        <span class="d">このページで何がわかるかを1〜2文で。</span>
+        <span class="note">なぜ全員に読んでほしいのか、ひとこと。</span>
+        <span class="go">ページを読む</span>
+      </span>
+      <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg></span>
     </a>
-  </div>
-</section>
 
-<footer>
-  <div class="wrap">
-    <p><u>本資料は一般的な栄養情報の提供を目的としたものであり、個別の診断・治療・指導を行うものではありません。</u></p>
-    <p>記載している内容は、公表されている資料や研究にもとづく一般的な目安です。適切な量や方法は、個人の体質、健康状態、競技特性によって異なります。<u>疾患の治療中の方、通院中の方、食事制限の指示を受けている方は、必ず主治医または管理栄養士にご相談ください。</u></p>
-  </div>
-</footer>
+    <p class="sub">テーマ別</p>
 
+    <!-- テーマ1：href・タイトル・説明文を書き換える -->
+    <a class="card" href="https://kazu-226.github.io/eiyo_manabi_log/02.basic.XXXX.html">
+      <span class="body">
+        <span class="t">テーマ1のタイトル</span>
+        <span class="d">このページで何がわかるかを1〜2文で。</span>
+        <span class="go">ページを読む</span>
+      </span>
+      <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg></span>
+    </a>
+    <!-- テーマ2：href・タイトル・説明文を書き換える -->
+    <a class="card" href="https://kazu-226.github.io/eiyo_manabi_log/02.basic.XXXX.html">
+      <span class="body">
+        <span class="t">テーマ2のタイトル</span>
+        <span class="d">このページで何がわかるかを1〜2文で。</span>
+        <span class="go">ページを読む</span>
+      </span>
+      <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg></span>
+    </a>
+    <!-- テーマ3：href・タイトル・説明文を書き換える -->
+    <a class="card" href="https://kazu-226.github.io/eiyo_manabi_log/02.basic.XXXX.html">
+      <span class="body">
+        <span class="t">テーマ3のタイトル</span>
+        <span class="d">このページで何がわかるかを1〜2文で。</span>
+        <span class="go">ページを読む</span>
+      </span>
+      <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg></span>
+    </a>
+    <!-- テーマ4：href・タイトル・説明文を書き換える -->
+    <a class="card" href="https://kazu-226.github.io/eiyo_manabi_log/02.basic.XXXX.html">
+      <span class="body">
+        <span class="t">テーマ4のタイトル</span>
+        <span class="d">このページで何がわかるかを1〜2文で。</span>
+        <span class="go">ページを読む</span>
+      </span>
+      <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg></span>
+    </a>
+
+    <!-- 未公開のテーマはこの形（押せない点線ボックス）。公開したら上のcardの形に差し替える -->
+    <div class="soon">
+      <div class="t">準備中のテーマのタイトル</div>
+      <div class="d">公開予定の内容をひとこと。</div>
+    </div>
+  </div>
+
+  <footer>
+    <u>掲載内容は一般的な栄養や生活習慣に関する情報提供を目的としたものであり、特定の疾病の診断・治療・予防を目的としたものではありません。</u>
+    感じ方には個人差があります。体調に不安がある場合や、通院・服薬をされている場合は、医師や専門家にご相談ください。<br>
+    発行：カズ／スポーツ栄養プランナー
+  </footer>
+
+</div>
 </body>
 </html>
