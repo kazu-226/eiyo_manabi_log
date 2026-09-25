@@ -112,6 +112,9 @@ a{color:var(--aqua);}
 }
 .button .lb{display:block;font-weight:700;font-size:1rem;line-height:1.6;}
 .button .sb{display:block;margin-top:5px;font-size:.83rem;color:var(--lblue);line-height:1.7;}
+/* LINE導線のボタン */
+.button.line{background:#06C755;}
+.button.line .sb{color:#e4f9ec;}
 
 /* ===== 部品：figure ===== */
 /* 図解。本文の内容を目で追えるようにする */
@@ -152,7 +155,7 @@ footer p:last-child{margin:0;}
   <div class="wrap">
     <p class="hero-lead">NUTRITION BASICS</p>
     <h1>ビタミンは、<br>エネルギーを最大化する<br>最高のマネージャー。</h1>
-    <p>骨をつくる、エネルギーをつくる、体を整える。アスリートに特に必要なD・B群・Cを中心に説明します。</p>
+    <p>骨をつくる、エネルギーをつくる、体を整える。アスリートに特に必要なD・B群・Cを中心に、ほかのビタミンやミネラルとの関わりもあわせて説明します。</p>
     <p class="hero-meta">
       ビタミンは、燃料そのものではありません。糖質・脂質・たんぱく質という「選手」が力を出せるよう、裏で支える栄養素です。量は少なくても、チームには欠かせません。<br><br>
       ※数値や内容は社会人アスリートを対象としています。
@@ -176,7 +179,7 @@ footer p:last-child{margin:0;}
     <div class="callout">
       <p class="ttl">なぜ、栄養のことを発信しているのか</p>
       <p>「これだけ練習しているのに、思うように伸びない」——競技を続ける中で、僕は何度もこの壁にぶつかってきました。技術でも練習量でもなく、抜けていたのは「日々の食事と栄養」という土台でした。</p>
-      <p>そこに向き合うようになって、体づくりへの向き合い方そのものが変わりました。頑張っている人ほど、栄養で遠回りしてほしくない。だから僕は、「何を飲むか」ではなく「どう選ぶか」を伝えています。</p>
+      <p>そこに向き合うようになって、体づくりへの向き合い方そのものが変わりました。頑張っている人ほど、栄養で遠回りしてほしくない。だから僕は、「何を使うか」ではなく「どう選ぶか」を伝えています。</p>
     </div>
   </div>
 </section>
@@ -187,7 +190,7 @@ footer p:last-child{margin:0;}
     <h2>ビタミンは「脂に溶けるか、水に溶けるか」で性質が変わる</h2>
 
     <div class="block">
-      <p>ビタミンは、脂に溶ける「脂溶性」と、水に溶ける「水溶性」に分かれます。<span class="strongp">水溶性は体にためておけないので、毎日こまめにとるのが基本です。</span></p>
+      <p>ビタミンは全部で13種類。脂に溶ける「脂溶性」と、水に溶ける「水溶性」の2つに分かれます。<span class="strongp">どちらに入るかで、とり方も注意点も変わります。</span></p>
     </div>
 
     <div class="figure">
@@ -213,13 +216,12 @@ footer p:last-child{margin:0;}
         <text x="392" y="212" font-size="15" fill="#1b2a33">ゆで汁や煮汁に溶け出す</text>
         <text x="392" y="242" font-size="15" fill="#1b2a33">毎日こまめにとる</text>
       </svg>
-      <p class="figcap">溶け方が違えば、とり方も変わります。</p>
+      <p class="figcap">水溶性は体にためておけません。毎日こまめにとるのが基本です。</p>
     </div>
 
     <h3>なぜD・B群・Cなのか</h3>
     <div class="block">
-      <p>ビタミンは全部で13種類。そのなかでD・B群・Cを中心にするのは、意識しないと足りなくなりやすいからです。</p>
-      <p>Dはとれる食品が限られます。B群は動く人ほど多く必要です。Cは体づくりと鉄の吸収に関わります。<span class="strongp">アスリートが食事で意識したい3つです。</span></p>
+      <p>13種類のうち、このページがD・B群・Cを中心にするのは、意識しないと足りなくなりやすいからです。Dはとれる食品が限られます。B群は動く人ほど多く必要です。Cは体づくりと鉄の吸収に関わります。</p>
     </div>
 
     <div class="figure">
@@ -247,36 +249,33 @@ footer p:last-child{margin:0;}
         <text x="586" y="162" font-size="15" fill="#43606f" text-anchor="middle">体をつくり、整える</text>
         <text x="586" y="192" font-size="13" fill="#8fa8b5" text-anchor="middle">野菜・果物・いも</text>
       </svg>
-      <p class="figcap">この3つを中心に見ていきます。</p>
+      <p class="figcap">この3つを、02からくわしく見ていきます。</p>
     </div>
 
     <div class="band">
       <p class="ttl">栄養素は「生命の鎖」でつながっている</p>
       <p>健康を維持するためにビタミン・ミネラル・アミノ酸など、必要な栄養素は単独ではなく、互いに助け合いながら身体をつくり、動かしています。</p>
-      <div class="figure">
-        <svg viewBox="0 0 700 190" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Sans JP',sans-serif" role="img" aria-label="ビタミン・ミネラル・アミノ酸が鎖のようにつながっていることを示した図">
-          <rect x="40" y="36" width="150" height="76" rx="38" fill="none" stroke="#BFE3F2" stroke-width="7"/>
-          <rect x="160" y="36" width="150" height="76" rx="38" fill="none" stroke="#16A6D9" stroke-width="7"/>
-          <rect x="280" y="36" width="150" height="76" rx="38" fill="none" stroke="#BFE3F2" stroke-width="7"/>
-          <rect x="400" y="36" width="150" height="76" rx="38" fill="none" stroke="#16A6D9" stroke-width="7"/>
-          <path d="M520 36a38 38 0 0 1 38 38" fill="none" stroke="#16A6D9" stroke-width="7" stroke-linecap="round"/>
-          <path d="M600 44l12 12M612 44l-12 12" stroke="#8fa8b5" stroke-width="5" stroke-linecap="round"/>
-          <rect x="586" y="60" width="72" height="52" rx="26" fill="none" stroke="#8fa8b5" stroke-width="7" stroke-dasharray="10 9"/>
-          <text x="115" y="150" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle">ビタミン</text>
-          <text x="235" y="150" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle">ミネラル</text>
-          <text x="355" y="150" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle">アミノ酸</text>
-          <text x="475" y="150" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle">ビタミン</text>
-          <text x="622" y="150" font-size="15" fill="#BFE3F2" text-anchor="middle">足りない</text>
-          <text x="622" y="174" font-size="15" fill="#BFE3F2" text-anchor="middle">栄養素</text>
-        </svg>
-        <p class="figcap">一つ足りないと、そこで鎖は切れます。</p>
-      </div>
-
       <ul class="ul">
         <li>ビタミンD × カルシウム：Dがあると、カルシウムが骨づくりに活きる。</li>
         <li>ビタミンC × 鉄：Cが、野菜や豆の鉄の吸収を助ける。</li>
         <li>ビタミンB6 × アミノ酸：B6が、アミノ酸を体の材料にする働きを支える。</li>
       </ul>
+
+      <div class="figure">
+        <svg viewBox="0 0 700 180" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Sans JP',sans-serif" role="img" aria-label="栄養素が鎖のようにつながり、足りない栄養素があるとそこで切れることを示した図">
+          <rect x="30" y="30" width="150" height="76" rx="38" fill="none" stroke="#BFE3F2" stroke-width="7"/>
+          <rect x="150" y="30" width="150" height="76" rx="38" fill="none" stroke="#16A6D9" stroke-width="7"/>
+          <rect x="270" y="30" width="150" height="76" rx="38" fill="none" stroke="#BFE3F2" stroke-width="7"/>
+          <path d="M446 54l24 28M470 54l-24 28" stroke="#8fa8b5" stroke-width="6" stroke-linecap="round"/>
+          <rect x="496" y="30" width="150" height="76" rx="38" fill="none" stroke="#8fa8b5" stroke-width="7" stroke-dasharray="11 10"/>
+          <text x="105" y="146" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">ビタミン</text>
+          <text x="225" y="146" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">ミネラル</text>
+          <text x="345" y="146" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">アミノ酸</text>
+          <text x="571" y="146" font-size="16" fill="#8fa8b5" text-anchor="middle">足りない栄養素</text>
+        </svg>
+        <p class="figcap">一つ足りないと、鎖はそこで切れてしまいます。</p>
+      </div>
+
       <p><u>一つだけを多くとるより、過不足なくそろえることが、体の力を引き出す近道です。</u></p>
     </div>
   </div>
@@ -414,11 +413,6 @@ footer p:last-child{margin:0;}
       <p class="ttl">先に医療機関へ相談してほしいとき</p>
       <p>睡眠不足や練習のしすぎ、病気が原因のこともあります。症状が続く場合や強い場合は、まず医療機関へ。自己判断でサプリメントを増やすのはおすすめしません。</p>
     </div>
-
-    <a class="button" href="https://line.me/R/ti/p/%40167yqdei">
-      <span class="lb">LINEで食事について相談する</span>
-      <span class="sb">気になる変化と、ふだんの食事の内容をお送りください。</span>
-    </a>
   </div>
 </section>
 
@@ -443,9 +437,9 @@ footer p:last-child{margin:0;}
 
     <p>何が足りないかは、練習量や生活リズムで変わります。気になる方は、一緒に確認しましょう。</p>
 
-    <a class="button" href="https://line.me/R/oaMessage/%40167yqdei/?%E3%83%93%E3%82%BF%E3%83%9F%E3%83%B3">
-      <span class="lb">最後にプレゼントのお知らせ</span>
-      <span class="sb">LINEにて「ビタミン」と送るだけで、ビタミンについてまとめた資料をプレゼントします。</span>
+    <a class="button line" href="https://line.me/R/oaMessage/%40167yqdei/?%E3%83%93%E3%82%BF%E3%83%9F%E3%83%B3">
+      <span class="lb">プレゼントのお知らせ</span>
+      <span class="sb">LINEで「ビタミン」と送ると、ビタミンについてまとめた資料をプレゼントします。</span>
     </a>
   </div>
 </section>
