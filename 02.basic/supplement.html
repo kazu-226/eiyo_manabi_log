@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -135,6 +134,12 @@ a{color:var(--aqua);}
 .faq summary::after{content:"+";margin-left:auto;color:var(--aqua);font-size:1.35rem;line-height:1;flex:none;}
 .faq details[open] summary::after{content:"\2212";}
 .faq .fa{padding:0 18px 16px;font-size:.92rem;color:var(--mute);line-height:1.85;}
+
+/* ===== ghost button (secondary nav) ===== */
+.button.ghost{background:#fff;border:1.5px solid var(--aqua);}
+.button.ghost .lb{color:var(--navy);}
+.button.ghost .sb{color:var(--mute);}
+.more{padding:40px 0;text-align:center;}
 
 /* ===== footer ===== */
 footer{background:var(--navy);color:var(--lblue);padding:38px 0;font-size:.79rem;line-height:1.9;}
@@ -355,6 +360,15 @@ footer p:last-child{margin:0;}
     </a>
   </div>
 </section>
+
+<div class="more">
+  <div class="wrap">
+    <a class="button ghost" href="https://kazu-226.github.io/eiyo_manabi_log/02.basic/agenda.html">
+      <span class="lb">他のコンテンツを見る →</span>
+      <span class="sb">栄養の学びを、もっと深めたい方へ。</span>
+    </a>
+  </div>
+</div>
 
 <footer>
   <div class="wrap">
