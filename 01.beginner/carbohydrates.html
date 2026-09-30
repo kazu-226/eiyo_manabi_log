@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -183,11 +182,13 @@ a{color:var(--aqua);}
 /* ===== 部品：button ===== */
 /* 別ページへの遷移。1ページに1〜2か所まで */
 .button{
-  display:block;margin:26px 0;padding:18px 22px;background:var(--linegreen);color:#fff;
+  display:block;margin:26px 0;padding:18px 22px;background:var(--navy);color:#fff;
   border-radius:12px;text-decoration:none;text-align:center;
 }
 .button .lb{display:block;font-weight:700;font-size:1rem;line-height:1.6;}
-.button .sb{display:block;margin-top:5px;font-size:.83rem;color:rgba(255,255,255,.88);line-height:1.7;}
+.button .sb{display:block;margin-top:5px;font-size:.83rem;color:var(--lblue);line-height:1.7;}
+.button.lineg{background:var(--linegreen);}
+.button.lineg .sb{color:rgba(255,255,255,.88);}
 
 /* ===== footer ===== */
 footer{background:var(--navy);color:var(--lblue);padding:38px 0;font-size:.79rem;line-height:1.9;}
@@ -517,9 +518,14 @@ footer p:last-child{margin:0;}
       <p>一つ固定できると、調子の差が食事によるものか見えてきます。次はそこからで十分です。</p>
     </div>
 
-    <a class="button" href="https://line.me/R/oaMessage/%40167yqdei/?%E7%B3%96%E8%B3%AA">
+    <a class="button lineg" href="https://line.me/R/oaMessage/%40167yqdei/?%E7%B3%96%E8%B3%AA">
       <span class="lb">プレゼントのお知らせ</span>
       <span class="sb">LINEにて「糖質」と送るだけで、食後の眠気を抑えるための糖質の向き合い方について一目でわかる資料をプレゼントします。</span>
+    </a>
+
+    <a class="button" href="https://kazu-226.github.io/eiyo_manabi_log/01.beginner/agenda.html">
+      <span class="lb">他のコンテンツを見る</span>
+      <span class="sb">栄養の基本から順に読める資料をまとめています。</span>
     </a>
   </div>
 </section>
