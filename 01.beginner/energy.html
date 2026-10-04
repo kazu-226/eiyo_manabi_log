@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -142,6 +141,10 @@ input[type=number]:focus,.seg button:focus-visible,.acc-h:focus-visible{
   background:var(--wash);color:var(--navy);border:1px solid var(--lblue);border-left:4px solid var(--aqua);
 }
 .note:empty{display:none;}
+.always-note{
+  margin-top:14px;padding:13px 16px;border-radius:11px;font-size:.83rem;line-height:1.85;
+  background:var(--wash);color:var(--mute);border:1px solid var(--rule);
+}
 .note strong{font-weight:700;}
 
 .copy{
@@ -399,6 +402,7 @@ footer p:last-child{margin:0;}
       </div>
 
       <div class="per-meal" id="perMeal"></div>
+      <p class="always-note">ここで出る数字は、あくまで目安です。同じ体重でも、練習の強度や頻度、日中の活動量によって実際の必要量は変わります。選んだ種目や時期が実際の運動量と見合っているかを確かめたうえで、2週間ほど続けて体重の動きを見ながら、自分に合う量に寄せていってください。</p>
       <div class="note" id="note"></div>
       <button type="button" class="copy" id="copyBtn">この結果をコピーする</button>
       <p class="hint" style="text-align:center">体重はコピーされません。</p>
