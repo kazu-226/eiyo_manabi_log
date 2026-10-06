@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>社会人アスリートの栄養｜3ステップ全体の目次</title>
+<meta name="description" content="ルールを知る・基礎を固める・スキルを高める。社会人アスリートのための栄養資料13本を、3つのステップでまとめた全体の目次ページです。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FFFFFF; --surface:#FFFFFF; --ink:#16263A; --sub:#55657A; --line:#D5DDE2;
+  --s1:#14897A; --s2:#3446B8; --s3:#C98A0B;
+  --s1-soft:#E1F2EF; --s2-soft:#E6E9F8; --s3-soft:#FBF1DC;
+  --line-green:#06C755;
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",Meiryo,sans-serif;
+  font-size:16px;line-height:1.85;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid var(--s2);outline-offset:3px;border-radius:6px}
+.wrap{max-width:760px;margin:0 auto;padding:0 22px}
+
+/* hero */
+.hero{padding:72px 0 40px}
+.hero h1{font-weight:900;font-size:clamp(2rem,7vw,3.3rem);line-height:1.25;margin:0 0 20px;letter-spacing:.02em}
+.hero h1 span{display:block}
+.hero p{color:var(--sub);margin:0;max-width:34em}
+.bar{display:flex;height:10px;border-radius:5px;overflow:hidden;margin:36px 0 10px;background:var(--line)}
+.bar i{display:block;height:100%}
+.bar .b1{background:var(--s1);flex:6}.bar .b2{background:var(--s2);flex:5}.bar .b3{background:var(--s3);flex:2}
+.legend{display:flex;justify-content:space-between;font-size:.82rem;color:var(--sub);gap:8px}
+.legend b{color:var(--ink)}
+
+/* section heads */
+h2{font-size:1.45rem;font-weight:900;margin:0 0 14px;line-height:1.4}
+section{padding:44px 0;border-top:1px solid var(--line)}
+.lead{color:var(--sub);margin:0 0 26px}
+
+/* roadmap */
+.road{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.road li{display:grid;grid-template-columns:64px 1fr;gap:16px;align-items:start;background:var(--surface);
+  border:1px solid var(--line);border-radius:14px;padding:18px}
+.road .num{font-weight:900;font-size:2.4rem;line-height:1;color:var(--c)}
+.road h3{margin:0 0 2px;font-size:1.12rem}
+.road .like{font-size:.85rem;color:var(--c);font-weight:700;margin:0 0 6px}
+.road p{margin:0;font-size:.95rem;color:var(--sub)}
+.road a{display:inline-block;margin-top:8px;font-weight:700;font-size:.9rem;color:var(--c)}
+
+/* course */
+.step{margin-bottom:48px}
+.step:last-child{margin-bottom:0}
+.step-head{display:flex;align-items:baseline;gap:12px;margin-bottom:6px;flex-wrap:wrap}
+.step-head .tag{background:var(--c);color:#fff;font-weight:700;font-size:.8rem;padding:3px 10px;border-radius:999px}
+.step-head h3{margin:0;font-size:1.3rem;font-weight:900}
+.step > p{margin:0 0 18px;color:var(--sub);font-size:.95rem}
+.course{list-style:none;margin:0;padding:0 0 0 26px;position:relative}
+.course::before{content:"";position:absolute;left:8px;top:14px;bottom:14px;width:3px;background:var(--c);opacity:.35;border-radius:2px}
+.item{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:12px}
+.item::before{content:"";position:absolute;left:-25px;top:22px;width:15px;height:15px;border-radius:50%;
+  background:var(--paper);border:3px solid var(--c)}
+.item .t{display:block;font-weight:700;font-size:1.05rem;text-decoration:none;line-height:1.5}
+.item .t:hover{text-decoration:underline;text-decoration-color:var(--c);text-underline-offset:4px}
+.item .en{font-size:.75rem;color:var(--c);font-weight:700;letter-spacing:.06em}
+.item p{margin:6px 0 10px;font-size:.92rem;color:var(--sub);line-height:1.75}
+.item .row{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.item .open{font-size:.88rem;font-weight:700;color:var(--c)}
+.item.key{background:var(--soft);border-color:var(--c)}
+.key-note{display:inline-block;font-size:.78rem;font-weight:700;color:var(--c);margin-bottom:4px}
+.s1{--c:var(--s1);--soft:var(--s1-soft)}.s2{--c:var(--s2);--soft:var(--s2-soft)}.s3{--c:var(--s3);--soft:var(--s3-soft)}
+
+/* how-to */
+.how{display:grid;gap:12px;margin:0;padding:0;list-style:none}
+.how li{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--c);border-radius:10px;padding:14px 18px}
+.how b{display:block;margin-bottom:2px}
+.how span{color:var(--sub);font-size:.93rem}
+
+/* message */
+.message .open-line{font-weight:900;font-size:clamp(1.25rem,4.6vw,1.6rem);line-height:1.6;margin:0 0 22px;
+  padding-left:18px;border-left:5px solid var(--s1)}
+.message p{margin:0 0 18px}
+mark{background:linear-gradient(transparent 58%,#FFE46B 58%);color:inherit;font-weight:700;padding:0 2px}
+/* about */
+.about .me{display:flex;align-items:center;gap:22px;margin-bottom:24px}
+.about .me img{width:130px;height:130px;flex:none;object-fit:cover;border-radius:14px;box-shadow:0 4px 14px rgba(22,38,58,.12)}
+.about .name{font-weight:900;font-size:1.35rem;margin:0 0 6px}
+.about .bio{margin:0;color:var(--sub);font-size:.95rem}
+.about .why{background:#EAF6FB;border:1px solid #BFE3F2;border-left:5px solid #1CA7DD;border-radius:14px;padding:22px 24px}
+.about .why h3{margin:0 0 12px;font-size:1.02rem;font-weight:900}
+.about .why p{margin:0 0 12px;font-size:.95rem}
+.about .why p:last-child{margin-bottom:0}
+@media (max-width:480px){.about .me{flex-direction:column;align-items:flex-start}}
+/* profile */
+.profile{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px}
+.profile .name{font-weight:900;font-size:1.3rem;margin:0}
+.profile .meta{color:var(--sub);font-size:.92rem;margin:4px 0 16px}
+.profile h3{font-size:1rem;margin:0 0 6px}
+.profile p{margin:0 0 10px;font-size:.95rem}
+
+/* cta */
+.cta{display:block;text-decoration:none;background:var(--line-green);color:#fff;border-radius:14px;padding:22px 24px}
+.cta b{display:block;font-size:1.15rem;margin-bottom:4px}
+.cta span{font-size:.92rem;opacity:.95}
+
+footer{padding:36px 0 56px;font-size:.8rem;color:var(--sub);line-height:1.8}
+footer p{margin:0 0 8px}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <h1><span>ルールを知り、</span><span>基礎を固め、</span><span>スキルを高める。</span></h1>
+    <p>スポーツも栄養も、上達の順番は同じです。社会人アスリートのための栄養資料13本を、3つのステップにまとめました。上から順に読めば、自分の数字を出すところから、整えられない日の立て直し方まで、ひと通り身につきます。</p>
+    <div class="bar" aria-hidden="true"><i class="b1"></i><i class="b2"></i><i class="b3"></i></div>
+    <div class="legend"><span><b>STEP 01</b> 6本</span><span><b>STEP 02</b> 5本</span><span><b>STEP 03</b> 2本</span></div>
+  </div>
+</header>
+
+<section class="message">
+  <div class="wrap">
+    <h2>このサイトをつくった理由</h2>
+    <p class="open-line">「これだけ練習しているのに、<br>思うように伸びない」</p>
+    <p>一輪車を18年続けてきた中で、僕は何度もこの壁にぶつかってきました。技術でも練習量でもなく、<mark>抜けていたのは“日々の食事”という土台でした。</mark></p>
+    <p>栄養を学びはじめて感じたのは、情報はたくさんあるのに、どこから手をつければいいのかがわかりにくいということ。<mark>断片的な知識だけでは、毎日の食事はなかなか変わりません。</mark></p>
+    <p>競技なら、ルールを覚え、基本をくり返し、試合で使える技術を磨く。その順番があるから上達できます。だから栄養も同じ順番で学べるように、このサイトを3つのステップにまとめました。</p>
+    <p>仕事や学業と練習を両立しながら頑張っている人ほど、栄養で遠回りしてほしくない。“何を使うか”ではなく“どう選ぶか”。自分で選べる力を、ここから持ち帰ってもらえたら嬉しいです。</p>
+  </div>
+</section>
+
+<section class="about">
+  <div class="wrap">
+    <h2>私について</h2>
+    <div class="me">
+      <img src="data:image/jpeg;base64,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" alt="一輪車に乗るカズ" width="236" height="236">
+      <div>
+        <p class="name">カズ</p>
+        <p class="bio">一輪車歴18年。世界大会でソロ・リレー優勝。競技を通してスポーツ栄養の大切さに気づき、「スポーツ栄養プランナー」を取得しました。</p>
+      </div>
+    </div>
+    <div class="why">
+      <h3>なぜ、栄養のことを発信しているのか</h3>
+      <p>「これだけ練習しているのに、思うように伸びない」——競技を続ける中で、僕は何度もこの壁にぶつかってきました。技術でも練習量でもなく、抜けていたのは“日々の食事と栄養”という土台でした。</p>
+      <p>そこに向き合うようになって、体づくりへの向き合い方そのものが変わりました。頑張っている人ほど、栄養で遠回りしてほしくない。だから僕は、“何を使うか”ではなく“どう選ぶか”を伝えています。</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>3つのステップの全体像</h2>
+    <p class="lead">競技のルールを知らないままでは、何をすれば勝てるのかがわかりません。栄養も、まずはルールから。</p>
+    <ol class="road">
+      <li class="s1"><div class="num">01</div><div>
+        <h3>ルールを知る</h3>
+        <p class="like">スポーツでいえば：競技のルールを覚える</p>
+        <p>エネルギー量とPFCバランスで自分の数字を出し、たんぱく質・糖質・脂質・ビタミン・ミネラルの役割を知る段階。何をどれだけ食べればいいのか、判断の軸をつくります。</p>
+        <a href="https://kazu-226.github.io/eiyo_manabi_log/01.beginner/agenda.html">STEP 01の資料へ</a></div></li>
+      <li class="s2"><div class="num">02</div><div>
+        <h3>基礎を固める</h3>
+        <p class="like">スポーツでいえば：基本動作をくり返して体に染み込ませる</p>
+        <p>水分、食べるタイミング、腸内環境、サプリの選び方、体組成の管理。知ったルールを毎日の食事で当たり前にできるよう、忙しい日でも崩れない食事の型をつくります。</p>
+        <a href="https://kazu-226.github.io/eiyo_manabi_log/02.basic/agenda.html">STEP 02の資料へ</a></div></li>
+      <li class="s3"><div class="num">03</div><div>
+        <h3>スキルを高める</h3>
+        <p class="like">スポーツでいえば：試合で勝つための技術と戦術を磨く</p>
+        <p>コンビニ・外食・飲み会など整えられない日の食事と、睡眠を軸にしたリカバリー。理想どおりにいかない日でも大きく外さず、疲れを翌日に残さない力をつけます。</p>
+        <a href="https://kazu-226.github.io/eiyo_manabi_log/03.advance/agenda.html">STEP 03の資料へ</a></div></li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>全13本の資料</h2>
+
+    <div class="step s1" id="step01">
+      <div class="step-head"><span class="tag">STEP 01</span><h3>ルールを知る</h3></div>
+      <p>まずは自分の数字を出し、その中身を整えていきます。</p>
+      <ol class="course">
+        <li class="item key" data-id="01-energy"><span class="key-note">まずはここから｜基礎の基礎</span>
+          <span class="en">ENERGY &amp; PFC</span>
+          <a class="t" href="https://kazu-226.github.io/eiyo_manabi_log/01.beginner/energy.html">必要なエネルギー量とPFCバランス</a>
+          <p>除脂肪体重から必要量を計算し、グラムを実際の食事に落とし込みます。</p>
+          <div class="row"><a class="open" href="https://kazu-226.github.io/eiyo_manabi_log/01.beginner/energy.html">自分の数字を出してみる</a></div></li>
+        <li class="item" data-id="01-protein"><span class="en">PROTEIN</span>
+          <a class="t" href="https://kazu-226.github.io/eiyo_manabi_log/01.beginner/protein.html">プロテインは「基準」で選ぶ</a>
+          <p>そもそも必要かどうかから、選ぶときに見ている8つの基準まで。</p>
+          <div class="row"><a class="open" href="https://kazu-226.github.io/eiyo_manabi_log/01.beginner/protein.html">資料を読む</a></div></li>
+        <li class="item" data-id="01-carbohydrates"><span class="en">CARBOHYDRATES</span>
+          <a class="t" href="https://kazu-226.github.io/eiyo_manabi_log/01.beginner/carbohydrates.html">糖質は「量」より「タイミング」</a>
+          <p>トレーニング前・中・後で、いつ何を摂るか。吸収の速さによる使い分けと、相性のいい栄養素。</p>
+          <div class="row"><a class="open" href="https://kazu-226.github.io/eiyo_manabi_log/01.beginner/carbohydrates.html">資料を読む</a></div></li>
+        <li class="item" data-id="01-lipids"><span class="en">LIPIDS</span>
+          <a class="t" href="https://kazu-226.github.io/eiyo_manabi_log/01.beginner/lipids.html">脂質は、削るものではなく選ぶもの</a>
+          <p>真っ先に削られがちな脂質の役割、目安量、選び方、練習前後でのタイミングの変え方。</p>
+          <div class="row"><a class="open" href="https://kazu-226.github.io/eiyo_manabi_log/01.beginner/lipids.html">資料を読む</a></div></li>
+        <li class="item" data-id="01-vitamin"><span class="en">VITAMIN</span>
+          <a class="t" href="https://kazu-226.github.io/eiyo_manabi_log/01.beginner/vitamin.html">ビタミンは、エネルギーを最大化するマネージャー</a>
+          <p>とくに意識したいビタミンD・B群・Cの働きと、毎日の食事でまとめて整えるコツ。</p>
+          <div class="row"><a class="open" href="https://kazu-226.github.io/eiyo_manabi_log/01.beginner/vitamin.html">資料を読む</a></div></li>
+        <li class="item" data-id="01-mineral"><span class="en">MINERAL</span>
+          <a class="t" href="https://kazu-226.github.io/eiyo_manabi_log/01.beginner/mineral.html">ミネラルは、体を動かすスイッチ役</a>
+          <p>アスリートが不足しやすいミネラルの働き、多く含む食品、とり方。</p>
+          <div class="row"><a class="open" href="https://kazu-226.github.io/eiyo_manabi_log/01.beginner/mineral.html">資料を読む</a></div></li>
+      </ol>
+    </div>
+
+    <div class="step s2" id="step02">
+      <div class="step-head"><span class="tag">STEP 02</span><h3>基礎を固める</h3></div>
+      <p>迷ったら、今日の練習からすぐ変えられる「水分と電解質」から。</p>
+      <ol class="course">
+        <li class="item" data-id="02-hydration"><span class="en">HYDRATION</span>
+          <a class="t" href="https://kazu-226.github.io/eiyo_manabi_log/02.basic/hydration.html">水分と電解質｜水だけでは足りない理由</a>
+          <p>自分がどれくらい失っているかの確かめ方と、水でいいとき・足りないとき、練習前・中・後の飲み方。</p>
+          <div class="row"><a class="open" href="https://kazu-226.github.io/eiyo_manabi_log/02.basic/hydration.html">資料を読む</a></div></li>
+        <li class="item" data-id="02-timing"><span class="en">MEAL TIMING</span>
+          <a class="t" href="https://kazu-226.github.io/eiyo_manabi_log/02.basic/timing.html">食べるタイミングの基本</a>
+          <p>朝・トレーニング前・中・後・就寝前の5つに分けて、いつもの食事の置き場所を見直します。</p>
+          <div class="row"><a class="open" href="https://kazu-226.github.io/eiyo_manabi_log/02.basic/timing.html">資料を読む</a></div></li>
+        <li class="item" data-id="02-intestine"><span class="en">GUT HEALTH</span>
+          <a class="t" href="https://kazu-226.github.io/eiyo_manabi_log/02.basic/intestine.html">競技者のための腸活ガイド</a>
+          <p>減らす・増やす・育てるの3つと、セルフチェックで今の自分の位置を確かめます。</p>
+          <div class="row"><a class="open" href="https://kazu-226.github.io/eiyo_manabi_log/02.basic/intestine.html">資料を読む</a></div></li>
+        <li class="item" data-id="02-supplement"><span class="en">SUPPLEMENT</span>
+          <a class="t" href="https://kazu-226.github.io/eiyo_manabi_log/02.basic/supplement.html">サプリメントは「基準」で選ぶ</a>
+          <p>原材料、配合量、品質管理、安全性など、中身を見て選ぶための基準。</p>
+          <div class="row"><a class="open" href="https://kazu-226.github.io/eiyo_manabi_log/02.basic/supplement.html">資料を読む</a></div></li>
+        <li class="item" data-id="02-management"><span class="en">BODY COMPOSITION</span>
+          <a class="t" href="https://kazu-226.github.io/eiyo_manabi_log/02.basic/management.html">体重・体組成のコントロール</a>
+          <p>正しい測り方と、筋肉を残しながら減量・増量するための考え方。</p>
+          <div class="row"><a class="open" href="https://kazu-226.github.io/eiyo_manabi_log/02.basic/management.html">資料を読む</a></div></li>
+      </ol>
+    </div>
+
+    <div class="step s3" id="step03">
+      <div class="step-head"><span class="tag">STEP 03</span><h3>スキルを高める</h3></div>
+      <p>どちらも「理想どおりにいかない日」の話。気になるほうから読んでかまいません。</p>
+      <ol class="course">
+        <li class="item" data-id="03-real"><span class="en">REAL LIFE NUTRITION</span>
+          <a class="t" href="https://kazu-226.github.io/eiyo_manabi_log/03.advance/real.html">コンビニ・外食・飲み会の現実解</a>
+          <p>整えられない日の目標は「取り返す」ことではなく「大きく外さない」こと。選べるなかで何を足すかを場面ごとに。</p>
+          <div class="row"><a class="open" href="https://kazu-226.github.io/eiyo_manabi_log/03.advance/real.html">資料を読む</a></div></li>
+        <li class="item" data-id="03-recovery"><span class="en">RECOVERY</span>
+          <a class="t" href="https://kazu-226.github.io/eiyo_manabi_log/03.advance/recovery.html">リカバリーの基本。疲れは「流れ」で考える</a>
+          <p>食事と水分で体を流れる中身を変え、体の流れを整え、そして眠る。疲れを翌日に持ち越さないための考え方。</p>
+          <div class="row"><a class="open" href="https://kazu-226.github.io/eiyo_manabi_log/03.advance/recovery.html">資料を読む</a></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>おすすめの進め方</h2>
+    <p class="lead">完璧な日より、崩れた翌日を大事にする。全部を一度にやる必要はありません。</p>
+    <ul class="how">
+      <li class="s1"><b>まずは自分の数字を出す</b><span>「<a href="https://kazu-226.github.io/eiyo_manabi_log/01.beginner/energy.html">必要なエネルギー量とPFCバランス</a>」で自分の数字を出しましょう。その後、<a href="https://kazu-226.github.io/eiyo_manabi_log/01.beginner/agenda.html">STEP 01「ルールを知る」</a>もしくは気になる資料から読むのがおすすめです。</span></li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <a class="cta" href="https://line.me/R/oaMessage/%40167yqdei/?%E5%80%8B%E5%88%A5%E7%9B%B8%E8%AB%87">
+      <b>LINEで「個別相談」と送る</b>
+      <span>3つのステップを読んで、自分の場合はどうすればいいか迷ったら、個別相談も行っています。</span>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>本資料は一般的な栄養情報の提供を目的としたものであり、個別の診断・治療・指導を行うものではありません。</p>
+    <p>記載している数値・内容は、推定式や公表されている資料・研究にもとづく一般的な目安です。適切な量や方法は、個人の体質、健康状態、競技特性によって異なります。疾患の治療中の方、通院中の方、食事制限の指示を受けている方は、必ず主治医または管理栄養士にご相談ください。</p>
+    <p>LINEでの個別相談では、内容に応じて商品のご紹介を含む場合があります。</p>
+  </div>
+</footer>
+
+</body>
+</html>
