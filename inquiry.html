@@ -14,90 +14,90 @@
 <meta property="og:url" content="https://kazu-226.github.io/REPO_NAME/contact.html">
 <meta property="og:image" content="https://kazu-226.github.io/REPO_NAME/images/ogp.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --black:#0e0e0e; --ink:#1c1c1c; --white:#ffffff; --paper:#f7f5f0;
-    --gold:#c8a24a; --gold-dark:#a8842f; --gray:#6b6b6b; --line:#e4dfd3;
+    --black:#1f2937; --ink:#1f2937; --white:#ffffff; --paper:#f5f7fa;
+    --accent:#1f5fa8; --accent-dark:#174a85; --accent-soft:#eaf1fa; --gray:#5f6b7a; --line:#e2e7ee;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   body{font-family:"Noto Sans JP",sans-serif;color:var(--ink);background:var(--white);line-height:1.8;font-size:16px}
   a{color:inherit}
   .wrap{max-width:960px;margin:0 auto;padding:0 20px}
-  .eyebrow{font-size:12px;letter-spacing:.25em;color:var(--gold);font-weight:700;text-transform:uppercase}
-  h2{font-family:"Noto Serif JP",serif;font-size:clamp(22px,4vw,30px);margin:8px 0 28px;line-height:1.4}
+  .eyebrow{font-size:12px;letter-spacing:.25em;color:var(--accent);font-weight:700;text-transform:uppercase}
+  h2{font-family:"Noto Sans JP",sans-serif;font-size:clamp(22px,4vw,30px);margin:8px 0 28px;line-height:1.4}
   section{padding:80px 0}
 
   /* Header */
-  header{position:sticky;top:0;z-index:10;background:rgba(14,14,14,.92);backdrop-filter:blur(6px)}
+  header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.95);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
   header .wrap{display:flex;justify-content:space-between;align-items:center;height:60px}
-  .logo{color:var(--white);font-weight:700;letter-spacing:.12em;text-decoration:none}
-  .logo span{color:var(--gold)}
+  .logo{color:var(--ink);font-weight:700;letter-spacing:.12em;text-decoration:none}
+  .logo span{color:var(--accent)}
   .logo .logo-sub{margin-left:10px;font-size:12px;font-weight:500;letter-spacing:.08em}
-  .head-btn{background:var(--gold);color:var(--black);text-decoration:none;font-size:14px;font-weight:700;padding:8px 18px;border-radius:999px}
+  .head-btn{background:var(--accent);color:var(--white);text-decoration:none;font-size:14px;font-weight:700;padding:8px 18px;border-radius:999px}
 
   /* Hero */
-  .hero{background:var(--black);color:var(--white);padding:96px 0 88px;position:relative;overflow:hidden}
-  .hero::after{content:"";position:absolute;right:-120px;top:50%;transform:translateY(-50%);width:420px;height:420px;border:2px solid var(--gold);border-radius:50%;opacity:.35}
-  .hero h1{font-family:"Noto Serif JP",serif;font-size:clamp(28px,5.5vw,46px);line-height:1.35;margin:14px 0 20px;position:relative;z-index:1}
-  .hero h1 em{font-style:normal;color:var(--gold)}
-  .hero .hero-lead{font-family:"Noto Serif JP",serif;font-size:clamp(17px,2.6vw,21px);color:var(--white);margin-bottom:14px;padding-left:14px;border-left:3px solid var(--gold)}
-  .hero p{color:#cfcfcf;max-width:560px;position:relative;z-index:1}
+  .hero{background:linear-gradient(180deg,var(--accent-soft),var(--white));color:var(--ink);padding:96px 0 88px;position:relative;overflow:hidden}
+  .hero::after{content:"";position:absolute;right:-120px;top:50%;transform:translateY(-50%);width:420px;height:420px;border:2px solid var(--accent);border-radius:50%;opacity:.12}
+  .hero h1{font-family:"Noto Sans JP",sans-serif;font-size:clamp(28px,5.5vw,46px);line-height:1.35;margin:14px 0 20px;position:relative;z-index:1}
+  .hero h1 em{font-style:normal;color:var(--accent)}
+  .hero .hero-lead{font-family:"Noto Sans JP",sans-serif;font-size:clamp(17px,2.6vw,21px);color:var(--ink);margin-bottom:14px;padding-left:14px;border-left:3px solid var(--accent)}
+  .hero p{color:var(--gray);max-width:560px;position:relative;z-index:1}
   .badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px;position:relative;z-index:1}
-  .badge{border:1px solid var(--gold);color:var(--gold);font-size:13px;padding:6px 14px;border-radius:999px}
-  .cta{display:inline-block;margin-top:36px;background:var(--gold);color:var(--black);font-weight:700;text-decoration:none;padding:16px 36px;border-radius:999px;position:relative;z-index:1;transition:background .2s}
-  .cta:hover{background:var(--gold-dark)}
+  .badge{background:var(--white);border:1px solid var(--accent);color:var(--accent);font-weight:700;font-size:13px;padding:6px 14px;border-radius:999px}
+  .cta{display:inline-block;margin-top:36px;background:var(--accent);color:var(--white);font-weight:700;text-decoration:none;padding:16px 36px;border-radius:999px;position:relative;z-index:1;transition:background .2s}
+  .cta:hover{background:var(--accent-dark)}
 
   /* Services */
   .services{background:var(--paper)}
   .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px}
-  .card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:26px 22px;border-top:3px solid var(--gold)}
-  .card .num{font-family:"Noto Serif JP",serif;color:var(--gold);font-size:14px;font-weight:700}
+  .card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:26px 22px;border-top:3px solid var(--accent)}
+  .card .num{font-family:"Noto Sans JP",sans-serif;color:var(--accent);font-size:14px;font-weight:700}
   .card h3{font-size:18px;margin:6px 0 10px}
   .card p{font-size:14px;color:var(--gray)}
 
   .themes{list-style:none;margin-top:14px;padding-top:12px;border-top:1px dashed var(--line);display:grid;gap:6px}
   .themes li{font-size:13px;color:var(--ink);padding-left:14px;position:relative;line-height:1.6}
-  .themes li::before{content:"";position:absolute;left:0;top:.6em;width:6px;height:6px;border-radius:50%;background:var(--gold)}
+  .themes li::before{content:"";position:absolute;left:0;top:.6em;width:6px;height:6px;border-radius:50%;background:var(--accent)}
 
   /* Tie-up */
-  .tieup{margin-top:28px;background:var(--black);color:var(--white);border-radius:14px;padding:28px 24px}
-  .tieup h3{font-family:"Noto Serif JP",serif;font-size:20px;margin:6px 0 10px}
-  .tieup p{font-size:15px;color:#d6d6d6}
-  .tieup .tieup-note{margin-top:12px;font-size:13px;color:var(--gold);border-top:1px solid #333;padding-top:12px}
+  .tieup{margin-top:28px;background:var(--white);color:var(--ink);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:14px;padding:28px 24px}
+  .tieup h3{font-family:"Noto Sans JP",sans-serif;font-size:20px;margin:6px 0 10px}
+  .tieup p{font-size:15px;color:var(--gray)}
+  .tieup .tieup-note{margin-top:12px;font-size:13px;color:var(--accent);border-top:1px solid var(--line);padding-top:12px;color:#b4232a}
 
   /* Form instruction */
-  .form-guide{background:var(--white);border:1px solid var(--gold);border-radius:12px;padding:16px 20px;margin-bottom:20px;font-size:15px}
-  .form-guide b{color:var(--gold-dark)}
+  .form-guide{background:var(--white);border:1px solid var(--accent);border-radius:12px;padding:16px 20px;margin-bottom:20px;font-size:15px}
+  .form-guide b{color:var(--accent-dark)}
 
   /* Profile */
   .profile-box{display:grid;grid-template-columns:1fr 1.4fr;gap:40px;align-items:center}
-  .profile-name{font-family:"Noto Serif JP",serif;font-size:28px}
+  .profile-name{font-family:"Noto Sans JP",sans-serif;font-size:28px}
   .profile-fullname{font-size:13px;color:var(--gray);margin-top:2px}
   .profile-role{color:var(--gray);font-size:14px;margin-top:4px}
   .facts{list-style:none;border-top:1px solid var(--line)}
   .facts li{display:flex;gap:16px;padding:14px 0;border-bottom:1px solid var(--line);font-size:15px}
-  .facts li b{color:var(--gold-dark);min-width:72px;font-size:13px;padding-top:2px;flex-shrink:0}
+  .facts li b{color:var(--accent-dark);min-width:72px;font-size:13px;padding-top:2px;flex-shrink:0}
   .profile-box{align-items:start}
   .records{display:grid;gap:14px;margin-bottom:20px}
   .record{border:1px solid var(--line);border-radius:12px;padding:16px 18px;background:var(--white)}
   .record-head{display:flex;align-items:center;gap:12px;padding-bottom:10px;margin-bottom:10px;border-bottom:1px dashed var(--line)}
-  .year{font-family:"Noto Serif JP",serif;font-size:22px;font-weight:700;color:var(--gold-dark);line-height:1}
+  .year{font-family:"Noto Sans JP",sans-serif;font-size:22px;font-weight:700;color:var(--accent-dark);line-height:1}
   .meet{font-weight:700;font-size:16px;flex:1}
   .meet small{font-weight:400;color:var(--gray);font-size:13px;margin-left:6px}
   .tag{font-size:10px;font-weight:700;letter-spacing:.15em;padding:3px 8px;border-radius:4px}
-  .tag.world{background:var(--black);color:var(--gold)}
+  .tag.world{background:var(--accent);color:var(--white)}
   .tag.japan{border:1px solid var(--ink);color:var(--ink)}
   .record ul{list-style:none;display:grid;gap:8px}
   .record li{display:flex;align-items:center;gap:10px;font-size:15px}
   .record li small{color:var(--gray);font-size:12px}
   .medal{font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;min-width:58px;text-align:center;flex-shrink:0}
-  .medal.gold{background:var(--gold);color:var(--black)}
+  .medal.gold{background:#e8c25a;color:#3a2a00}
   .medal.silver{background:#e3e3e3;color:#444}
 
   .profile-photo{display:block;width:100%;max-width:280px;aspect-ratio:4/5;object-fit:cover;border-radius:14px;margin-bottom:20px}
   .activity{margin-top:20px;max-width:280px}
-  .activity-title{font-family:"Noto Serif JP",serif;font-size:18px;font-weight:700;color:var(--ink);padding-left:10px;border-left:3px solid var(--gold);line-height:1.4}
+  .activity-title{font-family:"Noto Sans JP",sans-serif;font-size:18px;font-weight:700;color:var(--ink);padding-left:10px;border-left:3px solid var(--accent);line-height:1.4}
   .records-title{margin-bottom:14px}
   .sub-head{margin-top:28px;margin-bottom:10px}
   .sub-text{font-size:15px;padding:12px 18px;background:var(--white);border:1px solid var(--line);border-radius:10px}
@@ -105,54 +105,79 @@
   .sub-list li{font-size:15px;padding:12px 18px;background:var(--white);border:1px solid var(--line);border-radius:10px}
   .sport-list li{display:flex;justify-content:space-between;align-items:center;color:var(--gray)}
   .sport-list li b{font-weight:500}
-  .sport-list .main-sport{border:1px solid var(--gold);border-left:4px solid var(--gold);color:var(--ink);font-weight:700;font-size:17px}
-  .sport-list .main-sport b{font-family:"Noto Serif JP",serif;font-weight:700;color:var(--gold-dark);font-size:18px}
+  .sport-list .main-sport{border:1px solid var(--accent);border-left:4px solid var(--accent);color:var(--ink);font-weight:700;font-size:17px}
+  .sport-list .main-sport b{font-family:"Noto Sans JP",sans-serif;font-weight:700;color:var(--accent-dark);font-size:18px}
   .activity-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:10px}
   .activity-grid img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:8px;display:block}
   .sns-box{margin-top:16px;display:flex;flex-direction:column;align-items:flex-start;gap:6px}
   .sns-title{font-size:12px;color:var(--gray);letter-spacing:.1em}
   .sns-box .sns-link{margin-top:0}
-  .sns-link{display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-size:14px;font-weight:700;color:var(--gold-dark);text-decoration:none;border-bottom:1px solid var(--gold)}
+  .sns-link{display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-size:14px;font-weight:700;color:var(--accent-dark);text-decoration:none;border-bottom:1px solid var(--accent)}
 
   /* Works */
   .works-list{list-style:none;display:grid;gap:10px}
   .works-list li{display:flex;gap:16px;padding:14px 18px;background:var(--white);border:1px solid var(--line);border-radius:10px;font-size:15px}
-  .works-list li b{color:var(--gold-dark);min-width:70px;font-size:13px;padding-top:2px}
+  .works-list li b{color:var(--accent-dark);min-width:70px;font-size:13px;padding-top:2px}
 
   /* Flow */
-  .flow{background:var(--black);color:var(--white)}
-  .flow h2{color:var(--white)}
+  .flow{background:var(--paper);color:var(--ink)}
+  .flow h2{color:var(--ink)}
   .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;counter-reset:step}
-  .step{border:1px solid #333;border-radius:14px;padding:22px}
-  .step::before{counter-increment:step;content:"STEP " counter(step);color:var(--gold);font-size:12px;font-weight:700;letter-spacing:.15em}
+  .step{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:22px}
+  .step::before{counter-increment:step;content:"STEP " counter(step);color:var(--accent);font-size:12px;font-weight:700;letter-spacing:.15em}
   .step h3{font-size:16px;margin:6px 0 6px}
-  .step p{font-size:13px;color:#bdbdbd}
+  .step p{font-size:13px;color:var(--gray)}
 
   /* Form */
-  .form-area{background:var(--paper)}
-  .form-frame{background:var(--white);border:1px solid var(--line);border-radius:16px;overflow:hidden}
-  .form-frame iframe{width:100%;height:1250px;border:0;display:block}
-  .form-placeholder{padding:56px 24px;text-align:center;color:var(--gray)}
-  .form-placeholder strong{display:block;color:var(--ink);font-size:18px;margin-bottom:8px}
+  .form-area{background:var(--white)}
+  .cform{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:36px 32px;display:grid;gap:24px}
+  .field{display:grid;gap:8px;border:0;min-width:0}
+  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .field label,.field legend{font-weight:700;font-size:15px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:0}
+  .field legend{margin-bottom:8px}
+  .field legend small{font-weight:400;font-size:12px;color:var(--gray)}
+  .req,.opt{font-size:11px;font-weight:700;padding:2px 8px;border-radius:4px;line-height:1.6}
+  .req{background:#d93a3a;color:var(--white)}
+  .opt{background:#ecebe7;color:var(--gray)}
+  .hint{font-size:13px;color:var(--gray);line-height:1.6}
+  .cform input[type=text],.cform input[type=email],.cform input[type=tel],.cform textarea{width:100%;font:inherit;font-size:16px;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:13px 14px;transition:border-color .15s,background .15s}
+  .cform textarea{resize:vertical;min-height:140px;line-height:1.7}
+  .cform input:focus,.cform textarea:focus{outline:none;border-color:var(--accent);background:var(--white);box-shadow:0 0 0 3px rgba(31,95,168,.15)}
+  .cform .invalid{border-color:#c0392b !important;background:#fdf3f2 !important}
+  .checks{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px}
+  .field .check{display:flex;flex-wrap:nowrap;align-items:center;gap:10px;font-weight:500;font-size:15px;line-height:1.5;background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:12px 14px;cursor:pointer;transition:border-color .15s,background .15s}
+  .field .check input{width:18px;height:18px;accent-color:var(--accent-dark);flex-shrink:0}
+  .field .check:has(input:checked){border-color:var(--accent);background:var(--accent-soft)}
+  #f-other{margin-top:10px}
+  .form-error{color:#c0392b;font-size:14px;font-weight:700}
+  .submit{justify-self:center;font:inherit;font-weight:700;font-size:16px;background:var(--accent);color:var(--white);border:0;border-radius:999px;padding:16px 56px;cursor:pointer;transition:background .2s}
+  .submit:hover{background:var(--accent-dark)}
+  .submit:disabled{opacity:.6;cursor:default}
+  .thanks{background:var(--white);border:1px solid var(--accent);border-radius:16px;padding:56px 24px;text-align:center}
+  .thanks-mark{width:56px;height:56px;margin:0 auto 16px;border-radius:50%;background:var(--accent);color:var(--white);font-size:28px;font-weight:700;display:flex;align-items:center;justify-content:center}
+  .thanks h3{font-family:"Noto Sans JP",sans-serif;font-size:20px;margin-bottom:8px}
+  .thanks p{color:var(--gray);font-size:15px}
   .form-mail{font-size:14px;margin-top:16px}
-  .form-mail a{color:var(--gold-dark);font-weight:700}
+  .form-mail a{color:var(--accent-dark);font-weight:700}
   .form-note{font-size:13px;color:var(--gray);margin-top:16px}
-  .form-note a{color:var(--gold-dark)}
+  .form-note a{color:var(--accent-dark)}
 
   /* FAQ */
   details{border-bottom:1px solid var(--line);padding:18px 0}
   summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:12px}
-  summary::after{content:"+";color:var(--gold);font-size:20px;line-height:1}
+  summary::after{content:"+";color:var(--accent);font-size:20px;line-height:1}
   details[open] summary::after{content:"−"}
   details p{margin-top:10px;color:var(--gray);font-size:15px}
 
-  footer{background:var(--black);color:#8a8a8a;text-align:center;padding:32px 0;font-size:13px}
-  footer span{color:var(--gold)}
+  footer{background:var(--paper);color:var(--gray);border-top:1px solid var(--line);text-align:center;padding:32px 0;font-size:13px}
+  footer span{color:var(--accent)}
 
   @media (max-width:720px){
     section{padding:60px 0}
     .profile-box{grid-template-columns:1fr;gap:20px}
-    .form-frame iframe{height:1450px}
+    .field-row{grid-template-columns:1fr}
+    .cform{padding:26px 18px}
+    .submit{width:100%;padding:16px}
     .hero::after{width:260px;height:260px;right:-140px}
     .logo .logo-sub{display:none}
   }
@@ -329,23 +354,52 @@
     <p class="eyebrow">Contact</p>
     <h2>お問い合わせフォーム</h2>
     <p class="form-guide"><b>ご依頼内容</b>をお送りください。日程・場所・ご予算などの詳細は、決まっている範囲で構いません。</p>
-    <div class="form-frame">
-      <!--
-        ▼ Googleフォームの埋め込みURLに差し替えてください
-        Googleフォーム →「送信」→ <> タブ → src="..." の中身をコピー
-        例：https://docs.google.com/forms/d/e/1FAIpQL.../viewform?embedded=true
-      -->
-      <iframe id="gform"
-        data-src="https://docs.google.com/forms/d/e/1FAIpQLSdOmrJeBSXgDIFDfLTesS_6gGaaSD0WrZDKTq5mlTH60BrwJw/viewform?embedded=true"
-        title="企業様お問い合わせフォーム" loading="lazy">読み込んでいます…</iframe>
-      <div class="form-placeholder" id="form-placeholder" hidden>
-        <strong>フォームを準備中です</strong>
-        Googleフォームの埋め込みURLを設定すると、ここにフォームが表示されます。
+    <form class="cform" id="cform" novalidate>
+      <div class="field">
+        <label for="f-company">会社名・団体名<span class="req">必須</span></label>
+        <input id="f-company" name="company" type="text" autocomplete="organization" required>
       </div>
+      <div class="field">
+        <label for="f-name">ご担当者名<span class="req">必須</span></label>
+        <input id="f-name" name="name" type="text" autocomplete="name" required>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="f-email">メールアドレス<span class="req">必須</span></label>
+          <input id="f-email" name="email" type="email" autocomplete="email" required>
+        </div>
+        <div class="field">
+          <label for="f-tel">電話番号<span class="opt">任意</span></label>
+          <input id="f-tel" name="tel" type="tel" autocomplete="tel">
+        </div>
+      </div>
+      <fieldset class="field">
+        <legend>ご依頼内容<span class="req">必須</span><small>複数選択できます</small></legend>
+        <div class="checks">
+          <label class="check"><input type="checkbox" name="request" value="講演・セミナー"><span>講演・セミナー</span></label>
+          <label class="check"><input type="checkbox" name="request" value="栄養コンテンツの監修・執筆"><span>栄養コンテンツの監修・執筆</span></label>
+          <label class="check"><input type="checkbox" name="request" value="一輪車パフォーマンス・イベント出演"><span>一輪車パフォーマンス・イベント出演</span></label>
+          <label class="check"><input type="checkbox" name="request" value="一輪車イベントへの協賛・出展"><span>一輪車イベントへの協賛・出展</span></label>
+          <label class="check"><input type="checkbox" name="request" value="__other_option__" id="f-other-chk"><span>その他</span></label>
+        </div>
+        <input id="f-other" name="other" type="text" placeholder="その他の内容をご記入ください" hidden>
+      </fieldset>
+      <div class="field">
+        <label for="f-detail">詳細・ご質問<span class="opt">任意</span></label>
+        <p class="hint">日程・場所・ご予算など、決まっている範囲でご記入ください（未定の場合は記入不要です）</p>
+        <textarea id="f-detail" name="detail" rows="6"></textarea>
+      </div>
+      <p class="form-error" id="form-error" role="alert" hidden></p>
+      <button class="submit" type="submit" id="f-submit">この内容で送信する</button>
+    </form>
+    <div class="thanks" id="thanks" hidden>
+      <p class="thanks-mark">✓</p>
+      <h3>お問い合わせありがとうございます</h3>
+      <p>内容を確認のうえ、ご連絡いたします。</p>
     </div>
     <!-- ▼ メールアドレスを記入し、hidden を削除すると表示されます -->
     <p class="form-mail" hidden>フォームをご利用いただけない場合は、メール（<a href="mailto:YOUR_MAIL">YOUR_MAIL</a>）でもお問い合わせいただけます。</p>
-    <p class="form-note">フォームが表示されない場合は <a id="form-link" href="#" target="_blank" rel="noopener">こちらから新しいタブで開いてください</a>。</p>
+    <p class="form-note">うまく送信できない場合は <a href="https://docs.google.com/forms/d/e/1FAIpQLSdOmrJeBSXgDIFDfLTesS_6gGaaSD0WrZDKTq5mlTH60BrwJw/viewform" target="_blank" rel="noopener">こちらのフォーム</a> からお送りください。</p>
   </div>
 </section>
 
@@ -362,7 +416,7 @@
 </section>
 
 <footer>
-  <div class="wrap">Instagram：<a href="https://www.instagram.com/unicycle_kazu/" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none">一輪車</a> ／ <a href="https://www.instagram.com/eiyou_manabi_log/" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none">栄養</a><br>© <span>KAZU</span> All rights reserved.</div>
+  <div class="wrap">Instagram：<a href="https://www.instagram.com/unicycle_kazu/" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none">一輪車</a> ／ <a href="https://www.instagram.com/eiyou_manabi_log/" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none">栄養</a><br>© <span>KAZU</span> All rights reserved.</div>
 </footer>
 
 <script>
@@ -370,18 +424,67 @@
     var a = document.getElementById('activity');
     if (a && !a.querySelector('img')) a.hidden = true;
   });
-  (function(){
-    var frame = document.getElementById('gform');
-    var url = frame.getAttribute('data-src');
-    var link = document.getElementById('form-link');
-    if (url.indexOf('YOUR_FORM_ID') === -1) {
-      frame.src = url;
-      link.href = url.replace('?embedded=true','');
-    } else {
-      frame.hidden = true;
-      document.getElementById('form-placeholder').hidden = false;
-      link.parentElement.hidden = true;
+  /* ▼ Googleフォームへの送信設定
+       entry の番号は「事前入力したURL」から取得したものです */
+  var GFORM = {
+    action: 'https://docs.google.com/forms/d/e/1FAIpQLSdOmrJeBSXgDIFDfLTesS_6gGaaSD0WrZDKTq5mlTH60BrwJw/formResponse',
+    entry: {
+      company: 'entry.COMPANY',
+      name:    'entry.NAME',
+      email:   'entry.EMAIL',
+      tel:     'entry.TEL',
+      request: 'entry.REQUEST',
+      detail:  'entry.DETAIL'
     }
+  };
+  (function(){
+    var form = document.getElementById('cform');
+    var otherChk = document.getElementById('f-other-chk');
+    var other = document.getElementById('f-other');
+    var err = document.getElementById('form-error');
+    var btn = document.getElementById('f-submit');
+    otherChk.addEventListener('change', function(){ other.hidden = !otherChk.checked; if (otherChk.checked) other.focus(); });
+
+    function fail(msg, el){
+      err.textContent = msg; err.hidden = false;
+      if (el) { el.classList.add('invalid'); el.focus(); }
+    }
+    form.addEventListener('input', function(e){ e.target.classList && e.target.classList.remove('invalid'); err.hidden = true; });
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      err.hidden = true;
+      var v = function(id){ return document.getElementById(id).value.trim(); };
+      if (!v('f-company')) return fail('会社名・団体名をご入力ください。', document.getElementById('f-company'));
+      if (!v('f-name'))    return fail('ご担当者名をご入力ください。', document.getElementById('f-name'));
+      var mail = document.getElementById('f-email');
+      if (!v('f-email') || !mail.checkValidity()) return fail('メールアドレスを正しい形式でご入力ください。', mail);
+      var checked = form.querySelectorAll('input[name="request"]:checked');
+      if (!checked.length) return fail('ご依頼内容を1つ以上お選びください。');
+      if (otherChk.checked && !v('f-other')) return fail('「その他」の内容をご記入ください。', other);
+
+      var E = GFORM.entry, body = new URLSearchParams();
+      if (/[A-Z]$/.test(E.company)) return fail('現在フォームの準備中です。お手数ですが、下の「こちらのフォーム」からお送りください。');
+      body.append(E.company, v('f-company'));
+      body.append(E.name, v('f-name'));
+      body.append(E.email, v('f-email'));
+      body.append(E.tel, v('f-tel'));
+      checked.forEach(function(c){ body.append(E.request, c.value); });
+      if (otherChk.checked) body.append(E.request + '.other_option_response', v('f-other'));
+      body.append(E.detail, v('f-detail'));
+
+      btn.disabled = true; btn.textContent = '送信中…';
+      fetch(GFORM.action, { method: 'POST', mode: 'no-cors', body: body })
+        .then(function(){
+          form.hidden = true;
+          document.getElementById('thanks').hidden = false;
+          document.getElementById('form').scrollIntoView({ behavior: 'smooth' });
+        })
+        .catch(function(){
+          btn.disabled = false; btn.textContent = 'この内容で送信する';
+          fail('送信できませんでした。通信環境をご確認のうえ、もう一度お試しください。');
+        });
+    });
   })();
 </script>
 </body>
