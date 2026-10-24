@@ -21,6 +21,7 @@
     --accent:#1f5fa8; --accent-dark:#174a85; --accent-soft:#eaf1fa; --gray:#5f6b7a; --line:#e2e7ee;
   }
   *{box-sizing:border-box;margin:0;padding:0}
+  [hidden]{display:none !important}
   body{font-family:"Noto Sans JP",sans-serif;color:var(--ink);background:var(--white);line-height:1.8;font-size:16px}
   a{color:inherit}
   .wrap{max-width:960px;margin:0 auto;padding:0 20px}
@@ -130,6 +131,8 @@
 
   /* Form */
   .form-area{background:var(--white)}
+  .gembed{border-top:4px solid var(--accent);border-radius:12px;overflow:hidden;background:#f0ebf8}
+  .gembed iframe{width:100%;height:1300px;border:0;display:block}
   .cform{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:36px 32px;display:grid;gap:24px}
   .field{display:grid;gap:8px;border:0;min-width:0}
   .field-row{display:grid;grid-template-columns:1fr 1fr;gap:24px}
@@ -176,6 +179,7 @@
     section{padding:60px 0}
     .profile-box{grid-template-columns:1fr;gap:20px}
     .field-row{grid-template-columns:1fr}
+    .gembed iframe{height:1450px}
     .cform{padding:26px 18px}
     .submit{width:100%;padding:16px}
     .hero::after{width:260px;height:260px;right:-140px}
@@ -354,6 +358,10 @@
     <p class="eyebrow">Contact</p>
     <h2>お問い合わせフォーム</h2>
     <p class="form-guide"><b>ご依頼内容</b>をお送りください。日程・場所・ご予算などの詳細は、決まっている範囲で構いません。</p>
+    <!-- 送信用の番号（entry）が未設定の間は、Googleフォームをなじませて埋め込み表示します -->
+    <div class="gembed" id="gembed" hidden>
+      <iframe id="gform" title="お仕事のご依頼フォーム" loading="lazy"></iframe>
+    </div>
     <form class="cform" id="cform" novalidate>
       <div class="field">
         <label for="f-company">会社名・団体名<span class="req">必須</span></label>
@@ -438,6 +446,12 @@
     }
   };
   (function(){
+    if (/[A-Z]$/.test(GFORM.entry.company)) {
+      document.getElementById('cform').hidden = true;
+      var wrap = document.getElementById('gembed'); wrap.hidden = false;
+      document.getElementById('gform').src = 'https://docs.google.com/forms/d/e/1FAIpQLSdOmrJeBSXgDIFDfLTesS_6gGaaSD0WrZDKTq5mlTH60BrwJw/viewform?embedded=true';
+      return;
+    }
     var form = document.getElementById('cform');
     var otherChk = document.getElementById('f-other-chk');
     var other = document.getElementById('f-other');
