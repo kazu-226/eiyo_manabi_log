@@ -388,7 +388,7 @@
           <label class="check"><input type="checkbox" name="request" value="栄養コンテンツの監修・執筆"><span>栄養コンテンツの監修・執筆</span></label>
           <label class="check"><input type="checkbox" name="request" value="一輪車パフォーマンス・イベント出演"><span>一輪車パフォーマンス・イベント出演</span></label>
           <label class="check"><input type="checkbox" name="request" value="一輪車イベントへの協賛・出展"><span>一輪車イベントへの協賛・出展</span></label>
-          <label class="check"><input type="checkbox" name="request" value="__other_option__" id="f-other-chk"><span>その他</span></label>
+          <label class="check"><input type="checkbox" name="request" value="その他" id="f-other-chk"><span>その他</span></label>
         </div>
         <input id="f-other" name="other" type="text" placeholder="その他の内容をご記入ください" hidden>
       </fieldset>
@@ -437,12 +437,12 @@
   var GFORM = {
     action: 'https://docs.google.com/forms/d/e/1FAIpQLSdOmrJeBSXgDIFDfLTesS_6gGaaSD0WrZDKTq5mlTH60BrwJw/formResponse',
     entry: {
-      company: 'entry.COMPANY',
-      name:    'entry.NAME',
-      email:   'entry.EMAIL',
-      tel:     'entry.TEL',
-      request: 'entry.REQUEST',
-      detail:  'entry.DETAIL'
+      company: 'entry.1602959223',
+      name:    'entry.1943103285',
+      email:   'entry.1866699983',
+      tel:     'entry.1099476878',
+      request: 'entry.230731430',
+      detail:  'entry.216208880'
     }
   };
   (function(){
@@ -484,8 +484,9 @@
       body.append(E.email, v('f-email'));
       body.append(E.tel, v('f-tel'));
       checked.forEach(function(c){ body.append(E.request, c.value); });
-      if (otherChk.checked) body.append(E.request + '.other_option_response', v('f-other'));
-      body.append(E.detail, v('f-detail'));
+      var detail = v('f-detail');
+      if (otherChk.checked) detail = '【その他のご依頼内容】' + v('f-other') + (detail ? '\n\n' + detail : '');
+      body.append(E.detail, detail);
 
       btn.disabled = true; btn.textContent = '送信中…';
       fetch(GFORM.action, { method: 'POST', mode: 'no-cors', body: body })
