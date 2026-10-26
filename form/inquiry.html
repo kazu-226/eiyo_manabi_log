@@ -149,7 +149,7 @@
   .cform .invalid{border-color:#c0392b !important;background:#fdf3f2 !important}
   .checks{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px}
   .field .check{display:flex;flex-wrap:nowrap;align-items:center;gap:10px;font-weight:500;font-size:15px;line-height:1.5;background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:12px 14px;cursor:pointer;transition:border-color .15s,background .15s}
-  .field .check input{width:18px;height:18px;accent-color:var(--accent-dark);flex-shrink:0}
+  .field .check input{width:18px;height:18px;margin:0;accent-color:var(--accent-dark);flex-shrink:0}
   .field .check:has(input:checked){border-color:var(--accent);background:var(--accent-soft)}
   #f-other{margin-top:10px}
   .form-error{color:#c0392b;font-size:14px;font-weight:700}
@@ -382,13 +382,13 @@
         </div>
       </div>
       <fieldset class="field">
-        <legend>ご依頼内容<span class="req">必須</span><small>複数選択できます</small></legend>
+        <legend>ご依頼内容<span class="req">必須</span><small>1つお選びください</small></legend>
         <div class="checks">
-          <label class="check"><input type="checkbox" name="request" value="講演・セミナー"><span>講演・セミナー</span></label>
-          <label class="check"><input type="checkbox" name="request" value="栄養コンテンツの監修・執筆"><span>栄養コンテンツの監修・執筆</span></label>
-          <label class="check"><input type="checkbox" name="request" value="一輪車パフォーマンス・イベント出演"><span>一輪車パフォーマンス・イベント出演</span></label>
-          <label class="check"><input type="checkbox" name="request" value="一輪車イベントへの協賛・出展"><span>一輪車イベントへの協賛・出展</span></label>
-          <label class="check"><input type="checkbox" name="request" value="その他" id="f-other-chk"><span>その他</span></label>
+          <label class="check"><input type="radio" name="request" value="講演・セミナー" data-send="講演・セミナー 栄養コンテンツの監修・執筆"><span>講演・セミナー</span></label>
+          <label class="check"><input type="radio" name="request" value="栄養コンテンツの監修・執筆" data-send="講演・セミナー 栄養コンテンツの監修・執筆"><span>栄養コンテンツの監修・執筆</span></label>
+          <label class="check"><input type="radio" name="request" value="一輪車パフォーマンス・イベント出演"><span>一輪車パフォーマンス・イベント出演</span></label>
+          <label class="check"><input type="radio" name="request" value="一輪車イベントへの協賛・出展"><span>一輪車イベントへの協賛・出展</span></label>
+          <label class="check"><input type="radio" name="request" value="その他" id="f-other-chk"><span>その他</span></label>
         </div>
         <input id="f-other" name="other" type="text" placeholder="その他の内容をご記入ください" hidden>
       </fieldset>
@@ -407,7 +407,7 @@
     </div>
     <!-- ▼ メールアドレスを記入し、hidden を削除すると表示されます -->
     <p class="form-mail" hidden>フォームをご利用いただけない場合は、メール（<a href="mailto:YOUR_MAIL">YOUR_MAIL</a>）でもお問い合わせいただけます。</p>
-    <p class="form-note">うまく送信できない場合は <a href="https://docs.google.com/forms/d/e/1FAIpQLSdOmrJeBSXgDIFDfLTesS_6gGaaSD0WrZDKTq5mlTH60BrwJw/viewform" target="_blank" rel="noopener">こちらのフォーム</a> からお送りください。</p>
+    <p class="form-note">うまく送信できない場合は <a href="https://docs.google.com/forms/d/e/1FAIpQLSclXm3IkT6oTpz10KbaSfEEntYdQW4-qvKayHGQ_a_f6I7-pQ/viewform" target="_blank" rel="noopener">こちらのフォーム</a> からお送りください。</p>
   </div>
 </section>
 
@@ -435,21 +435,21 @@
   /* ▼ Googleフォームへの送信設定
        entry の番号は「事前入力したURL」から取得したものです */
   var GFORM = {
-    action: 'https://docs.google.com/forms/d/e/1FAIpQLSdOmrJeBSXgDIFDfLTesS_6gGaaSD0WrZDKTq5mlTH60BrwJw/formResponse',
+    action: 'https://docs.google.com/forms/d/e/1FAIpQLSclXm3IkT6oTpz10KbaSfEEntYdQW4-qvKayHGQ_a_f6I7-pQ/formResponse',
     entry: {
-      company: 'entry.1602959223',
-      name:    'entry.1943103285',
-      email:   'entry.1866699983',
-      tel:     'entry.1099476878',
-      request: 'entry.230731430',
-      detail:  'entry.216208880'
+      company: 'entry.587907920',
+      name:    'entry.1481346975',
+      email:   'entry.1302465132',
+      tel:     'entry.1660333866',
+      request: 'entry.171073686',
+      detail:  'entry.1077399163'
     }
   };
   (function(){
     if (/[A-Z]$/.test(GFORM.entry.company)) {
       document.getElementById('cform').hidden = true;
       var wrap = document.getElementById('gembed'); wrap.hidden = false;
-      document.getElementById('gform').src = 'https://docs.google.com/forms/d/e/1FAIpQLSdOmrJeBSXgDIFDfLTesS_6gGaaSD0WrZDKTq5mlTH60BrwJw/viewform?embedded=true';
+      document.getElementById('gform').src = 'https://docs.google.com/forms/d/e/1FAIpQLSclXm3IkT6oTpz10KbaSfEEntYdQW4-qvKayHGQ_a_f6I7-pQ/viewform?embedded=true';
       return;
     }
     var form = document.getElementById('cform');
@@ -457,7 +457,7 @@
     var other = document.getElementById('f-other');
     var err = document.getElementById('form-error');
     var btn = document.getElementById('f-submit');
-    otherChk.addEventListener('change', function(){ other.hidden = !otherChk.checked; if (otherChk.checked) other.focus(); });
+    form.querySelectorAll('input[name="request"]').forEach(function(r){ r.addEventListener('change', function(){ other.hidden = !otherChk.checked; if (otherChk.checked) other.focus(); }); });
 
     function fail(msg, el){
       err.textContent = msg; err.hidden = false;
@@ -474,7 +474,7 @@
       var mail = document.getElementById('f-email');
       if (!v('f-email') || !mail.checkValidity()) return fail('メールアドレスを正しい形式でご入力ください。', mail);
       var checked = form.querySelectorAll('input[name="request"]:checked');
-      if (!checked.length) return fail('ご依頼内容を1つ以上お選びください。');
+      if (!checked.length) return fail('ご依頼内容をお選びください。');
       if (otherChk.checked && !v('f-other')) return fail('「その他」の内容をご記入ください。', other);
 
       var E = GFORM.entry, body = new URLSearchParams();
@@ -483,17 +483,17 @@
       body.append(E.name, v('f-name'));
       body.append(E.email, v('f-email'));
       body.append(E.tel, v('f-tel'));
-      checked.forEach(function(c){ body.append(E.request, c.value); });
+      var sel = checked[0];
+      body.append(E.request, sel.getAttribute('data-send') || sel.value);
       var detail = v('f-detail');
-      if (otherChk.checked) detail = '【その他のご依頼内容】' + v('f-other') + (detail ? '\n\n' + detail : '');
+      var label = otherChk.checked ? 'その他：' + v('f-other') : sel.value;
+      detail = '【ご依頼内容】' + label + (detail ? '\n\n' + detail : '');
       body.append(E.detail, detail);
 
       btn.disabled = true; btn.textContent = '送信中…';
       fetch(GFORM.action, { method: 'POST', mode: 'no-cors', body: body })
         .then(function(){
-          form.hidden = true;
-          document.getElementById('thanks').hidden = false;
-          document.getElementById('form').scrollIntoView({ behavior: 'smooth' });
+          location.href = 'thanks.html';
         })
         .catch(function(){
           btn.disabled = false; btn.textContent = 'この内容で送信する';
