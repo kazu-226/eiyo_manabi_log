@@ -152,6 +152,11 @@
   .field .check input{width:18px;height:18px;margin:0;accent-color:var(--accent-dark);flex-shrink:0}
   .field .check:has(input:checked){border-color:var(--accent);background:var(--accent-soft)}
   #f-other{margin-top:10px}
+  .agree{text-align:center;padding-top:8px;border-top:1px dashed var(--line)}
+  .agree-label{display:inline-flex;align-items:center;gap:10px;font-size:15px;font-weight:700;cursor:pointer;padding-top:16px}
+  .agree-label input{width:20px;height:20px;margin:0;accent-color:var(--accent);flex-shrink:0}
+  .agree-label a{color:var(--accent)}
+  .agree-label .req{margin-left:8px}
   .form-error{color:#c0392b;font-size:14px;font-weight:700}
   .submit{justify-self:center;font:inherit;font-weight:700;font-size:16px;background:var(--accent);color:var(--white);border:0;border-radius:999px;padding:16px 56px;cursor:pointer;transition:background .2s}
   .submit:hover{background:var(--accent-dark)}
@@ -397,6 +402,9 @@
         <p class="hint">日程・場所・ご予算など、決まっている範囲でご記入ください（未定の場合は記入不要です）</p>
         <textarea id="f-detail" name="detail" rows="6"></textarea>
       </div>
+      <div class="agree">
+        <label class="agree-label"><input type="checkbox" id="f-agree"><span><a href="privacy.html" target="_blank" rel="noopener">個人情報の取り扱い</a>に同意する<span class="req">必須</span></span></label>
+      </div>
       <p class="form-error" id="form-error" role="alert" hidden></p>
       <button class="submit" type="submit" id="f-submit">この内容で送信する</button>
     </form>
@@ -424,7 +432,7 @@
 </section>
 
 <footer>
-  <div class="wrap">Instagram：<a href="https://www.instagram.com/unicycle_kazu/" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none">一輪車</a> ／ <a href="https://www.instagram.com/eiyou_manabi_log/" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none">栄養</a><br>© <span>KAZU</span> All rights reserved.</div>
+  <div class="wrap">Instagram：<a href="https://www.instagram.com/unicycle_kazu/" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none">一輪車</a> ／ <a href="https://www.instagram.com/eiyou_manabi_log/" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none">栄養</a><br><a href="privacy.html" style="color:var(--gray)">個人情報の取り扱いについて</a><br>© <span>KAZU</span> All rights reserved.</div>
 </footer>
 
 <script>
@@ -476,6 +484,7 @@
       var checked = form.querySelectorAll('input[name="request"]:checked');
       if (!checked.length) return fail('ご依頼内容をお選びください。');
       if (otherChk.checked && !v('f-other')) return fail('「その他」の内容をご記入ください。', other);
+      if (!document.getElementById('f-agree').checked) return fail('「個人情報の取り扱い」をご確認のうえ、同意にチェックしてください。');
 
       var E = GFORM.entry, body = new URLSearchParams();
       if (/[A-Z]$/.test(E.company)) return fail('現在フォームの準備中です。お手数ですが、下の「こちらのフォーム」からお送りください。');
