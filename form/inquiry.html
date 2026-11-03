@@ -180,6 +180,42 @@
   footer{background:var(--paper);color:var(--gray);border-top:1px solid var(--line);text-align:center;padding:32px 0;font-size:13px}
   footer span{color:var(--accent)}
 
+
+  /* ===== パソコン表示の調整（スマホ表示は変更なし） ===== */
+  .hero-stats{display:none}
+  @media (min-width:961px){
+    .wrap{max-width:1100px;padding:0 40px}
+    .wrap.narrow{max-width:860px}
+    section{padding:72px 0}
+    h2{margin-bottom:32px}
+
+    .hero{padding:80px 0 72px}
+    .hero-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:56px;align-items:center}
+    .hero::after{right:-160px;width:520px;height:520px}
+    .hero-stats{display:grid;gap:14px;position:relative;z-index:1}
+    .stat{background:var(--white);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:14px;padding:18px 22px;box-shadow:0 8px 24px rgba(31,95,168,.06);display:grid;gap:2px}
+    .stat-label{font-size:12px;font-weight:700;color:var(--accent);letter-spacing:.06em}
+    .stat-num{font-size:18px;font-weight:700;color:var(--ink);line-height:1.4}
+    .stat-num b{font-size:30px;color:var(--accent);margin:0 4px;letter-spacing:.02em}
+    .stat-sub{font-size:12px;color:var(--gray)}
+
+    .grid{grid-template-columns:repeat(3,1fr);gap:22px}
+    .card{padding:30px 26px}
+
+    .profile-box{grid-template-columns:280px 1fr;gap:56px}
+    .profile-box > div:first-child{position:sticky;top:96px}
+    .records{grid-template-columns:1fr 1fr;gap:16px}
+    .profile-sub{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:8px}
+
+    .steps{grid-template-columns:repeat(4,1fr);gap:20px}
+    .cform{padding:44px 48px}
+    .faq details{padding:20px 4px}
+  }
+  @media (min-width:961px) and (max-width:1139px){
+    .hero-grid{grid-template-columns:1fr;gap:36px}
+    .hero-stats{grid-template-columns:repeat(3,1fr)}
+    .records{grid-template-columns:1fr}
+  }
   @media (max-width:720px){
     section{padding:60px 0}
     .profile-box{grid-template-columns:1fr;gap:20px}
@@ -194,6 +230,12 @@
 </head>
 <body>
 
+<script>
+  function hideImg(img){
+    var box = img.closest('.activity'); img.remove();
+    if (box && !box.querySelector('img')) box.hidden = true;
+  }
+</script>
 <header>
   <div class="wrap">
     <a class="logo" href="#">KAZU<span class="logo-sub">一輪車世界チャンピオン</span></a>
@@ -203,7 +245,8 @@
 
 <!-- Hero -->
 <section class="hero">
-  <div class="wrap">
+  <div class="wrap hero-grid">
+    <div class="hero-text">
     <p class="eyebrow">For Business</p>
     <h1>お仕事の<em>ご依頼</em>について</h1>
     <p class="hero-lead">世界一を獲った体づくりと食事を、現場の言葉でお伝えします。</p>
@@ -214,6 +257,12 @@
       <span class="badge">現役アスリート</span>
     </div>
     <a class="cta" href="#form">お問い合わせフォームへ</a>
+    </div>
+    <div class="hero-stats" aria-hidden="true">
+      <div class="stat"><span class="stat-label">世界大会</span><span class="stat-num">優勝<b>4</b>種目</span><span class="stat-sub">2024 フランス／2026 オーストリア</span></div>
+      <div class="stat"><span class="stat-label">全日本一輪車競技大会</span><span class="stat-num">マラソン<b>日本一</b></span><span class="stat-sub">2025年</span></div>
+      <div class="stat"><span class="stat-label">一輪車歴</span><span class="stat-num"><b>18</b>年目</span><span class="stat-sub">競泳12年・陸上競技6年</span></div>
+    </div>
   </div>
 </section>
 
@@ -269,9 +318,9 @@
       <div class="activity" id="activity">
         <h3 class="activity-title">活動の様子</h3>
         <div class="activity-grid">
-          <img src="images/activity1.jpg" alt="活動の様子1" loading="lazy" onerror="this.remove()">
-          <img src="images/activity2.jpg" alt="活動の様子2" loading="lazy" onerror="this.remove()">
-          <img src="images/activity3.jpg" alt="活動の様子3" loading="lazy" onerror="this.remove()">
+          <img src="images/activity1.jpg" alt="活動の様子1" loading="lazy" onerror="hideImg(this)">
+          <img src="images/activity2.jpg" alt="活動の様子2" loading="lazy" onerror="hideImg(this)">
+          <img src="images/activity3.jpg" alt="活動の様子3" loading="lazy" onerror="hideImg(this)">
         </div>
       </div>
       <div class="sns-box">
@@ -312,18 +361,24 @@
         </ul>
       </div>
     </div>
+    <div class="profile-sub">
+    <div>
     <h3 class="activity-title sub-head">スポーツ歴</h3>
     <ul class="sub-list sport-list">
       <li class="main-sport"><span>一輪車</span><b>18年目</b></li>
       <li><span>競泳</span><b>12年</b></li>
       <li><span>陸上競技</span><b>6年</b></li>
     </ul>
+    </div>
+    <div>
     <h3 class="activity-title sub-head">資格</h3>
     <ul class="sub-list">
       <li>スポーツ栄養プランナー</li>
       <li>イベント検定</li>
       <li>スポーツイベント検定</li>
     </ul>
+    </div>
+    </div>
     </div>
   </div>
 </section>
@@ -358,7 +413,7 @@
 
 <!-- Form -->
 <section class="form-area" id="form">
-  <div class="wrap">
+  <div class="wrap narrow">
     <p class="eyebrow">Contact</p>
     <h2>お問い合わせフォーム</h2>
     <p class="form-guide"><b>ご依頼内容</b>をお送りください。日程・場所・ご予算などの詳細は、決まっている範囲で構いません。</p>
@@ -419,8 +474,8 @@
 </section>
 
 <!-- FAQ -->
-<section>
-  <div class="wrap">
+<section class="faq">
+  <div class="wrap narrow">
     <p class="eyebrow">FAQ</p>
     <h2>よくあるご質問</h2>
     <details><summary>予算が決まっていなくても相談できますか？</summary><p>はい。ご予算が未定の場合も、ご連絡の際に伺いながら、規模に合わせて内容をご提案します。</p></details>
